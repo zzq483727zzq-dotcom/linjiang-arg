@@ -1,0 +1,17 @@
+# 依赖与构建产物
+node_modules/
+dist/
+build/
+
+# 环境变量与密钥（切勿提交）
+.env
+.env.*
+*.key
+auth.json
+
+# 头脑风暴可视化会话缓存
+.superpowers/
+
+# 系统文件
+.DS_Store
+Thumbs.db
