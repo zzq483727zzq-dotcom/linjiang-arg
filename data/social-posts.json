@@ -1,0 +1,9 @@
+{
+  "user": "林",
+  "posts": [
+    { "moment": "1d ago", "img": "moment-1.png", "text": "静园 App 第一次测评就说我需要「深度重塑」。希望没事 ☁️" },
+    { "moment": "3w ago", "img": "moment-2.png", "text": "新人,自我介绍一下。坐了一小时 cafe 才回家。" },
+    { "moment": "1mo ago", "img": "moment-3.png", "text": "[系统图]" },
+    { "moment": "now",   "img": "moment-4.png", "text": "[内容已锁定]" }
+  ]
+}

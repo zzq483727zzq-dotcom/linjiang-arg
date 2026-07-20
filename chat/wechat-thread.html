@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>聊天记录导出</title>
+<link rel="stylesheet" href="../assets/css/base.css" />
+<link rel="stylesheet" href="../assets/css/theme-wechat.css" />
+<link rel="stylesheet" href="../assets/css/corruption.css" />
+</head>
+<body>
+<header class="wechat-head"><span>‹</span> 聊天记录</header>
+<main class="wechat-wrap" id="chats"></main>
+<script type="module">
+import { bootPage } from '../assets/js/nav.js';
+import data from '../data/wechat-thread.json' with { type: 'json' };
+bootPage('wechat');
+document.getElementById('chats').innerHTML = data.chats.map(c => `
+  <section>
+    <h2 class="wechat-title">${c.title}</h2>
+    <div class="wechat-list">
+      ${c.messages.map(m => `
+        <div class="bubble ${m.from === 'me' || m.from === 'lin' ? 'mine' : 'theirs'}">
+          <div class="at">${m.at}</div>
+          <div class="text">${m.text}</div>
+        </div>
+      `).join('')}
+    </div>
+  </section>
+`).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "consent_form_excerpt": "[■■■■■■■■] 重生协议 — 有效期 [■■] 年",
+  "samples": [
+    { "id": "0471", "status": "complete", "mood": "anxious", "outcome": "reborn" },
+    { "id": "0472", "status": "complete", "mood": "grief",   "outcome": "reborn" },
+    { "id": "0473", "status": "complete", "mood": "rage",    "outcome": "[redacted]" },
+    { "id": "0474", "status": "in_progress", "mood": "numb",  "outcome": "—" },
+    { "id": "0475", "status": "[redacted]",  "mood": "[redacted]", "outcome": "[redacted]" }
+  ],
+  "rebirth_progress": "▓▓▓▓▓░░ 71%",
+  "nps": "98.4%"
+}

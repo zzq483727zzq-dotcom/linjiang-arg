@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>最后一篇 · 静的角落</title>
+<link rel="stylesheet" href="../assets/css/base.css" />
+<link rel="stylesheet" href="../assets/css/theme-blog.css" />
+<link rel="stylesheet" href="../assets/css/corruption.css" />
+</head>
+<body>
+<header class="blog-head small"><a href="index.html">← 静的角落</a></header>
+<main class="wrap" id="post"></main>
+<script type="module">
+import { bootPage } from '../assets/js/nav.js';
+import posts from '../data/blog-posts.json' with { type: 'json' };
+bootPage('blog');
+const id = location.pathname.match(/post-([\w-]+)\.html/)[1];
+const p = posts.posts.find(x => x.id === id);
+document.getElementById('post').innerHTML = `
+  <h1>${p.title}</h1>
+  <div class="meta">${p.date} · 心情 ${p.mood}</div>
+  ${p.body.map(line => `<p>${line}</p>`).join('')}
+`;
+<!-- ARG 彩蛋:这一篇的 HTML 注释里,藏了我们代号第三种写法 -->
+<!-- 「第三个没人敢单独写的字:GOOD」— 林,6/30 -->
+</script>
+</body>
+</html>

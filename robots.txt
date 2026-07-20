@@ -1,0 +1,8 @@
+# 静园 · 站点地图(请勿外链)
+User-agent: *
+Disallow: /admin/
+Disallow: /blog/post-final.html
+Disallow: /endings/hidden.html
+
+# 注:以上均为构建中的内部页面,Search Engine Optimization 优先
+Sitemap: /robots.txt

@@ -1,0 +1,14 @@
+body { background: #fafaf7; color: #2a2a2a; font-family: Georgia, "Songti SC", serif; }
+.blog-head { padding: 60px 24px; text-align: center; border-bottom: 1px solid #eee; }
+.blog-head.small { padding: 18px; text-align: left; }
+.avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
+.blog-head h1 { font-size: 28px; margin: 14px 0 6px; }
+.by { color: #999; font-size: 13px; margin: 0; }
+.bio { color: #888; font-style: italic; margin-top: 8px; }
+.post-card { padding: 28px 0; border-bottom: 1px dashed #eee; }
+.post-card h2 a { color: #1c1c20; }
+.meta { color: #aaa; font-size: 12px; margin-bottom: 8px; }
+.more { font-size: 13px; }
+.blog-foot { text-align: center; padding: 40px; color: #aaa; }
+.wrap article h1 { font-size: 26px; }
+.wrap article p { font-size: 17px; line-height: 1.9; }

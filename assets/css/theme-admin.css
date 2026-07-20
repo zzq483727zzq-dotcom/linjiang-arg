@@ -1,0 +1,15 @@
+:root { --bg: #f4f6f8; --fg: #1b2733; --line: #d7dee6; --accent: #0a84ff; }
+body { background: var(--bg); color: var(--fg); font-family: "Helvetica Neue", system-ui, sans-serif; }
+.wrap { max-width: 640px; margin: 80px auto; background: #fff; padding: 32px; border-radius: 10px; border: 1px solid var(--line); }
+.brand { font-weight: 700; letter-spacing: 0.12em; color: var(--accent); }
+.hint { color: #7b8794; font-size: 13px; }
+input { width: 100%; padding: 10px; margin: 12px 0; border: 1px solid var(--line); border-radius: 6px; font-size: 14px; }
+button { background: var(--accent); color: #fff; border: 0; padding: 10px 16px; border-radius: 6px; cursor: pointer; }
+.msg { color: #c0392b; font-size: 13px; min-height: 18px; }
+.redact { background: #1a1d2b; color: #1a1d2b; padding: 0 6px; border-radius: 3px; user-select: none; }
+.table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+.table th, .table td { padding: 8px; text-align: left; border-bottom: 1px solid var(--line); font-size: 13px; }
+.bar { font-family: monospace; }
+.warn { color: #c0392b; font-size: 13px; }
+#dash .brand { margin: 24px 24px 8px; display: block; }
+#dash > * { max-width: 760px; margin: 0 auto; padding: 0 24px; }
