@@ -1,0 +1,11 @@
+{
+  "name": "serene-arg",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test",
+    "serve": "node scripts/serve.mjs",
+    "image": "node scripts/gen-image.mjs"
+  }
+}

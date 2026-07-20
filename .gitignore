@@ -6,6 +6,7 @@ build/
 # 环境变量与密钥（切勿提交）
 .env
 .env.*
+!.env.example
 *.key
 auth.json
 
