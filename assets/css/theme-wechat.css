@@ -1,9 +1,83 @@
-body { background: #ededed; }
-.wechat-head { background: #ededed; padding: 12px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #ccc; position: sticky; top: 0; }
-.wechat-wrap { max-width: 540px; margin: 0 auto; padding: 16px; }
-.wechat-title { font-size: 14px; color: #555; margin: 28px 0 12px; text-align: center; }
-.wechat-list { display: flex; flex-direction: column; gap: 10px; }
-.bubble { max-width: 70%; padding: 10px 12px; border-radius: 6px; font-size: 14px; line-height: 1.6; }
-.bubble .at { display: block; font-size: 10px; color: #999; margin-bottom: 4px; }
-.bubble.mine { align-self: flex-end; background: #95ec69; }
-.bubble.theirs { align-self: flex-start; background: #fff; }
+body { background: #ededed; margin: 0; }
+.wechat-head {
+  background: #ededed; padding: 12px 16px; display: flex; align-items: center; gap: 8px;
+  border-bottom: 1px solid #d6d6d6; position: sticky; top: 0; z-index: 10;
+  font-size: 16px; color: #333;
+}
+.wechat-head .crumb { font-size: 12px; color: #888; margin-left: 8px; }
+
+.wechat-wrap { max-width: 600px; margin: 0 auto; padding: 16px; }
+
+/* 时间分割线 */
+.day-sep {
+  text-align: center; color: #aaa; font-size: 11px; margin: 24px 0 12px;
+}
+.day-sep span { background: rgba(0,0,0,0.12); padding: 2px 8px; border-radius: 3px; }
+
+/* 系统提示(撤回 / 拉黑 / 提示) */
+.sys-msg {
+  text-align: center; color: #888; font-size: 12px; margin: 8px 0;
+}
+.sys-msg span { background: rgba(0,0,0,0.12); padding: 3px 10px; border-radius: 3px; }
+
+/* 单条消息容器 */
+.msg {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin: 8px 0;
+}
+.msg.mine { flex-direction: row-reverse; }
+
+/* 头像 */
+.msg .avatar {
+  width: 38px; height: 38px; border-radius: 4px; flex-shrink: 0;
+  background: #95ec69; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 13px;
+  font-family: -apple-system, system-ui, sans-serif;
+}
+.msg.theirs .avatar { background: #5b7bb6; }
+.msg.system .avatar { background: #999; font-size: 11px; }
+
+/* 气泡(带真实微信的小尾巴) */
+.bubble {
+  max-width: 70%; padding: 9px 12px; font-size: 14px; line-height: 1.5;
+  border-radius: 4px; position: relative;
+  word-wrap: break-word; word-break: break-word;
+}
+.msg.theirs .bubble {
+  background: #fff; color: #1a1a1a;
+  border: 1px solid #ececec;
+}
+.msg.theirs .bubble::before {
+  content: ''; position: absolute; left: -5px; top: 12px;
+  width: 0; height: 0; border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent; border-right: 6px solid #fff;
+}
+.msg.mine .bubble {
+  background: #95ec69; color: #1a1a1a;
+}
+.msg.mine .bubble::before {
+  content: ''; position: absolute; right: -5px; top: 12px;
+  width: 0; height: 0; border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent; border-left: 6px solid #95ec69;
+}
+
+.msg .meta { font-size: 10px; color: #aaa; margin-top: 3px; }
+.msg.mine .meta { text-align: right; }
+
+/* 撤回消息样式 */
+.bubble.recalled { background: #f0f0f0; color: #888; font-size: 12px; }
+.bubble.recalled::before { display: none; }
+
+/* 引用块(聊天中引用对方) */
+.bubble .quote {
+  background: rgba(0,0,0,0.06); border-left: 2px solid rgba(0,0,0,0.15);
+  padding: 4px 8px; font-size: 12px; margin: 4px 0 6px;
+  border-radius: 0 3px 3px 0;
+}
+.msg.mine .bubble .quote { background: rgba(0,0,0,0.08); }
+
+/* 红包 / 转账占位 */
+.bubble.transfer {
+  background: #fa9d3b; color: #fff; padding: 10px 12px; min-width: 220px;
+}
+.bubble.transfer .label { font-size: 12px; opacity: 0.85; }
