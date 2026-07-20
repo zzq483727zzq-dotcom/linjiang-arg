@@ -31,7 +31,17 @@ const server = createServer(async (req, res) => {
       res.writeHead(403); return res.end('forbidden');
     }
     const s = await stat(filePath).catch(() => null);
-    if (!s || !s.isFile()) { res.writeHead(404); return res.end('not found'); }
+    if (!s || !s.isFile()) {
+      // 404 fallback: serve the custom 404.html if available
+      const fb = normalize(join(ROOT, '404.html'));
+      const fs2 = await stat(fb).catch(() => null);
+      if (fs2 && fs2.isFile()) {
+        const data = await readFile(fb);
+        res.writeHead(404, { 'content-type': 'text/html; charset=utf-8' });
+        return res.end(data);
+      }
+      res.writeHead(404); return res.end('not found');
+    }
     const data = await readFile(filePath);
     res.writeHead(200, { 'content-type': MIME[extname(filePath).toLowerCase()] || 'application/octet-stream' });
     res.end(data);
