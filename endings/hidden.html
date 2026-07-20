@@ -16,7 +16,7 @@
 <script type="module">
 import { getState, bumpCorruption } from '../assets/js/nav.js';
 const s = getState();
-if (s.corruption() < 3) {
+if (s.corruption() < 2) {
   document.body.innerHTML = '<div class="wrap"><p style="color:#a77">此处的内容还没有解锁。请回到 <a style="color:#aaf" href="../forum/">论坛</a>、<a style="color:#aaf" href="../chat/wechat-thread.html">聊天</a>、<a style="color:#aaf" href="../admin/">后台</a>。…或者,这一切都只是你的想象。</p></div>';
 } else {
   s.setEnding('hidden');

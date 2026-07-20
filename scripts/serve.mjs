@@ -21,11 +21,15 @@ const MIME = {
 const server = createServer(async (req, res) => {
   try {
     let urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
-    if (urlPath === '/') urlPath = '/index.html';
-    // Strip leading slashes
+    if (urlPath === '/' || urlPath.endsWith('/')) urlPath = urlPath + 'index.html';
     urlPath = urlPath.replace(/^[/\\]+/, '');
-    const filePath = normalize(join(ROOT, urlPath)).replace(/\\/g, '/');
-    if (!filePath.startsWith(ROOT)) { res.writeHead(403); return res.end('forbidden'); }
+    const filePath = normalize(join(ROOT, urlPath));
+    // 双重检查:Windows-native 与 forward-slash 形式都要试
+    const cwdBack = process.cwd().replace(/[/\\]+/g, '\\');
+    const cwdFwd = process.cwd().replace(/\\/g, '/');
+    if (!filePath.startsWith(cwdBack) && !filePath.startsWith(cwdFwd)) {
+      res.writeHead(403); return res.end('forbidden');
+    }
     const s = await stat(filePath).catch(() => null);
     if (!s || !s.isFile()) { res.writeHead(404); return res.end('not found'); }
     const data = await readFile(filePath);
