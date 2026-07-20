@@ -27,7 +27,13 @@ nav.global {
 }
 nav.global .spacer { flex: 1; }
 nav.global a { color: #5a6075; }
+nav.global .muted-link { color: #c9d0e0; font-size: 12px; text-decoration: none; opacity: 0.5; }
+nav.global .muted-link:hover { opacity: 1; color: #5a6075; }
 .footer { text-align: center; color: #9aa; padding: 40px; font-size: 12px; }
+.footer .muted-link { color: #ccc; text-decoration: none; opacity: 0.3; margin-left: 8px; }
+.footer .muted-link:hover { opacity: 0.9; color: #888; }
+#community .card { border-top: 3px solid #eee; }
+#community .card:hover { border-top-color: var(--soft); }
 
 .hero-img { width: 100%; max-width: 560px; border-radius: 18px; box-shadow: 0 12px 40px rgba(0,0,0,.08); margin-top: 24px; }
 

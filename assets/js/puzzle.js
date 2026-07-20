@@ -7,8 +7,8 @@ const ADMIN_ANSWER = 'GOOD';
 
 export const PUZZLES = {
   'admin-password': {
-    prompt: '你能从这些痕迹中推测出我们的内部代号吗？',
-    hint: '三个地方提到了它,只是用了不同的伪装。拼起来,心里说一遍。',
+    prompt: '代号',
+    hint: '客服怎么叫你,客服在内部日志里叫什么,论坛失联楼层的邮箱后缀反着写。',
     answer: ADMIN_ANSWER,
     check(input) {
       return String(input || '').trim().toUpperCase() === ADMIN_ANSWER;
