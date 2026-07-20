@@ -1,0 +1,16 @@
+{
+  "campaign": [
+    { "id": "serene-home",   "label": "静园官网",   "unlocks_on": "start" },
+    { "id": "blog",          "label": "林的博客",   "unlocks_on": "first_page" },
+    { "id": "forum",         "label": "劝退小组",   "unlocks_on": "blog_visited" },
+    { "id": "wechat",        "label": "聊天记录",   "unlocks_on": "forum_replied" },
+    { "id": "social",        "label": "朋友圈动态", "unlocks_on": "wechat_visited" },
+    { "id": "admin",         "label": "员工后台",   "unlocks_on": "admin_password_ok" },
+    { "id": "endings",       "label": "结局",       "unlocks_on": "admin_visited" }
+  ],
+  "corruption_thresholds": [
+    { "level": 1, "after": "blog_visited",       "label": "渗血" },
+    { "level": 2, "after": "admin_visited",      "label": "撕裂" },
+    { "level": 3, "after": "hidden_unlocked",   "label": "凝视" }
+  ]
+}
