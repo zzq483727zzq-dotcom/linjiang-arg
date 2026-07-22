@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>通讯录</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <link rel="stylesheet" href="/assets/css/theme-phone.css" />
+</head>
+<body data-site="phone">
+  <div class="phone-frame">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen wx-app">
+      <div class="phone-status">
+        <span>中国移动</span>
+        <span class="phone-status-time">22:17</span>
+        <span class="phone-status-icons" aria-hidden="true">
+          <i class="sig"></i><i class="wifi"></i><i class="bat"></i>
+        </span>
+      </div>
+
+      <div class="wx-top">
+        <a class="wx-back" href="/phone/" aria-label="返回桌面">‹</a>
+        <div class="wx-title">通讯录</div>
+        <div class="wx-right" aria-hidden="true">＋</div>
+      </div>
+
+      <div class="wx-body">
+        <div class="wx-section-label">最近联系</div>
+        <a class="wx-contact-row" href="/phone/chat-lin.html" style="text-decoration:none;color:inherit">
+          <div class="wx-avatar av-lin" aria-hidden="true">屿</div>
+          <span>林屿</span>
+        </a>
+        <a class="wx-contact-row" href="/phone/chat-chen.html" style="text-decoration:none;color:inherit">
+          <div class="wx-avatar av-chen" aria-hidden="true">默</div>
+          <span>陈默</span>
+        </a>
+        <div class="wx-empty">其余联系人暂未同步</div>
+      </div>
+
+      <nav class="wx-tabs" aria-label="微信导航">
+        <a class="wx-tab" href="/phone/wechat.html">
+          <span class="ico" aria-hidden="true">💬</span>
+          <span>微信</span>
+        </a>
+        <a class="wx-tab active" href="/phone/contacts.html">
+          <span class="ico" aria-hidden="true">👥</span>
+          <span>通讯录</span>
+        </a>
+        <a class="wx-tab" href="/phone/moments.html">
+          <span class="ico" aria-hidden="true">◉</span>
+          <span>发现</span>
+        </a>
+        <a class="wx-tab" href="/phone/me.html">
+          <span class="ico" aria-hidden="true">◎</span>
+          <span>我</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+  <script type="module">
+    import { boot } from '/assets/js/nav.js';
+    boot('contacts');
+  </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>我</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <link rel="stylesheet" href="/assets/css/theme-phone.css" />
+</head>
+<body data-site="phone">
+  <div class="phone-frame">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen wx-app">
+      <div class="phone-status">
+        <span>中国移动</span>
+        <span class="phone-status-time">22:17</span>
+        <span class="phone-status-icons" aria-hidden="true">
+          <i class="sig"></i><i class="wifi"></i><i class="bat"></i>
+        </span>
+      </div>
+
+      <div class="wx-top">
+        <a class="wx-back" href="/phone/" aria-label="返回桌面">‹</a>
+        <div class="wx-title">我</div>
+        <div class="wx-right"></div>
+      </div>
+
+      <div class="wx-body">
+        <div class="wx-me-header">
+          <div class="wx-avatar av-me" aria-hidden="true">我</div>
+          <div>
+            <div class="me-name" id="me-name">我</div>
+            <div class="me-id">微信号：lj_player</div>
+          </div>
+        </div>
+        <div class="wx-menu">
+          <a href="/phone/moments.html">
+            <span class="mi mi-moments" aria-hidden="true">圈</span>
+            <span>朋友圈</span>
+            <span class="arrow">›</span>
+          </a>
+        </div>
+        <div class="wx-empty">设置项暂不可用</div>
+      </div>
+
+      <nav class="wx-tabs" aria-label="微信导航">
+        <a class="wx-tab" href="/phone/wechat.html">
+          <span class="ico" aria-hidden="true">💬</span>
+          <span>微信</span>
+        </a>
+        <a class="wx-tab" href="/phone/contacts.html">
+          <span class="ico" aria-hidden="true">👥</span>
+          <span>通讯录</span>
+        </a>
+        <a class="wx-tab" href="/phone/moments.html">
+          <span class="ico" aria-hidden="true">◉</span>
+          <span>发现</span>
+        </a>
+        <a class="wx-tab active" href="/phone/me.html">
+          <span class="ico" aria-hidden="true">◎</span>
+          <span>我</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+  <script type="module">
+    import { boot, getState } from '/assets/js/nav.js';
+    boot('me');
+    const name = getState()?.all()?.playerName;
+    if (name) document.getElementById('me-name').textContent = name;
+  </script>
+</body>
+</html>

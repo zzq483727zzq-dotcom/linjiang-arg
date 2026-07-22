@@ -395,3 +395,673 @@ body[data-site="phone"] {
   .phone-screen { border-radius: 28px; min-height: 100dvh; }
   .phone-home { min-height: calc(100dvh - 40px); }
 }
+
+/* ============================================================
+   WeChat shell — light app inside phone-frame
+   ============================================================ */
+
+.phone-screen.wx-app {
+  background: #ededed;
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  min-height: 720px;
+}
+
+.phone-screen.wx-app .phone-status {
+  background: #ededed;
+  color: #111;
+  padding-top: 16px;
+  padding-bottom: 4px;
+}
+
+.phone-screen.wx-app .phone-status-icons {
+  color: #111;
+}
+
+/* top bar */
+.wx-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px 10px;
+  background: #ededed;
+  border-bottom: 1px solid #d9d9d9;
+  color: #111;
+  flex-shrink: 0;
+}
+
+.wx-top .wx-back,
+.wx-top a.wx-back {
+  color: #111;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  min-width: 2.2em;
+  padding: 2px 0;
+}
+
+.wx-top .wx-title {
+  flex: 1;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.wx-top .wx-right {
+  min-width: 2.2em;
+  text-align: right;
+  font-size: 20px;
+  color: #111;
+}
+
+/* main scroll body */
+.wx-body {
+  flex: 1;
+  overflow: auto;
+  background: #ededed;
+  min-height: 0;
+}
+
+.wx-body.is-chat {
+  background: #f5f5f5;
+}
+
+.wx-body.is-moments {
+  background: #f7f7f7;
+}
+
+/* bottom tab bar */
+.wx-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #f7f7f7;
+  border-top: 1px solid #d0d0d0;
+  padding: 6px 0 18px;
+  flex-shrink: 0;
+}
+
+.wx-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+  color: #191919;
+  font-size: 10px;
+  font-weight: 500;
+  -webkit-tap-highlight-color: transparent;
+  padding: 2px 0;
+}
+
+.wx-tab .ico {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+.wx-tab.active {
+  color: #07c160;
+}
+
+.wx-tab.active .ico { opacity: 1; }
+
+/* —— session list —— */
+.wx-search {
+  margin: 8px 10px 6px;
+  background: #fff;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #b0b0b0;
+  text-align: center;
+}
+
+.wx-list {
+  background: #fff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.wx-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wx-item:active { background: #ececec; }
+
+.wx-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: #5b7bb6;
+  overflow: hidden;
+  position: relative;
+}
+
+.wx-avatar.av-lin {
+  background: linear-gradient(145deg, #6b8ec9 0%, #3d5a8a 100%);
+}
+
+.wx-avatar.av-chen {
+  background: linear-gradient(145deg, #7a9e6b 0%, #4a6b3d 100%);
+}
+
+.wx-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wx-item-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.wx-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.wx-item-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #111;
+}
+
+.wx-item-time {
+  font-size: 11px;
+  color: #b0b0b0;
+  flex-shrink: 0;
+}
+
+.wx-item-preview {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wx-item-preview.unread {
+  color: #666;
+  font-weight: 500;
+}
+
+.wx-badge {
+  min-width: 16px;
+  height: 16px;
+  padding: 0 5px;
+  border-radius: 8px;
+  background: #fa5151;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-grid;
+  place-items: center;
+  line-height: 1;
+  margin-left: 6px;
+}
+
+.wx-item-meta {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* —— chat bubbles —— */
+.wx-chat {
+  padding: 12px 10px 16px;
+}
+
+.wx-day {
+  text-align: center;
+  margin: 16px 0 12px;
+}
+
+.wx-day span {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.08);
+  color: #888;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.wx-sys {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.wx-sys span {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.06);
+  color: #888;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 3px;
+  line-height: 1.4;
+  max-width: 90%;
+}
+
+.wx-msg {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.wx-msg.mine {
+  flex-direction: row-reverse;
+}
+
+.wx-msg .wx-avatar {
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.wx-msg .wx-avatar.av-me {
+  background: linear-gradient(145deg, #8ecf6a 0%, #5aaa3a 100%);
+}
+
+.wx-bubble {
+  max-width: 72%;
+  padding: 9px 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 4px;
+  position: relative;
+  word-wrap: break-word;
+  word-break: break-word;
+  color: #111;
+}
+
+.wx-msg.theirs .wx-bubble {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+}
+
+.wx-msg.theirs .wx-bubble::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 12px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid #fff;
+  filter: drop-shadow(-1px 0 0 #e8e8e8);
+}
+
+.wx-msg.mine .wx-bubble {
+  background: #95ec69;
+  border: none;
+}
+
+.wx-msg.mine .wx-bubble::before {
+  content: "";
+  position: absolute;
+  right: -5px;
+  top: 12px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #95ec69;
+}
+
+.wx-msg .wx-meta {
+  font-size: 10px;
+  color: #aaa;
+  margin-top: 3px;
+}
+
+.wx-msg.mine .wx-meta {
+  text-align: right;
+}
+
+/* composer / send nodes */
+.wx-composer {
+  background: #f7f7f7;
+  border-top: 1px solid #d0d0d0;
+  padding: 8px 10px 14px;
+  flex-shrink: 0;
+}
+
+.wx-send-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.wx-send-btn {
+  appearance: none;
+  border: 1px solid #cfcfcf;
+  background: #fff;
+  color: #191919;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 18px;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1.3;
+}
+
+.wx-send-btn:active {
+  background: #ebebeb;
+}
+
+.wx-send-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.wx-composer-hint {
+  text-align: center;
+  font-size: 11px;
+  color: #999;
+  margin-top: 6px;
+}
+
+.wx-composer.done {
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+}
+
+/* typing indicator */
+.wx-typing {
+  display: none;
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  margin: 6px 0 2px;
+}
+
+.wx-typing.show { display: block; }
+
+/* —— discover / thin pages —— */
+.wx-menu {
+  margin-top: 10px;
+  background: #fff;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.wx-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: #111;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 16px;
+}
+
+.wx-menu a:last-child { border-bottom: none; }
+.wx-menu a:active { background: #ececec; }
+
+.wx-menu .mi {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.wx-menu .mi-moments { background: #f3a73f; }
+.wx-menu .mi-scan { background: #10aeff; }
+.wx-menu .arrow {
+  margin-left: auto;
+  color: #c0c0c0;
+  font-size: 16px;
+}
+
+.wx-empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* —— moments —— */
+.wx-moments-cover {
+  position: relative;
+  height: 200px;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.15) 0%, transparent 40%, rgba(0,0,0,0.45) 100%),
+    linear-gradient(135deg, #4a5568 0%, #2d3748 50%, #1a202c 100%);
+  margin-bottom: 36px;
+}
+
+.wx-moments-user {
+  position: absolute;
+  right: 14px;
+  bottom: -22px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.wx-moments-user .name {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+}
+
+.wx-moments-user .wx-avatar {
+  width: 64px;
+  height: 64px;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.wx-feed {
+  padding: 8px 0 24px;
+  background: #fff;
+}
+
+.wx-post {
+  display: flex;
+  gap: 10px;
+  padding: 14px 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.wx-post .wx-avatar {
+  width: 42px;
+  height: 42px;
+  font-size: 14px;
+}
+
+.wx-post-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.wx-post-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #576b95;
+  margin-bottom: 4px;
+}
+
+.wx-post-text {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #111;
+  margin: 0 0 8px;
+  white-space: pre-wrap;
+}
+
+.wx-post-photo {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 1;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 6px;
+  background: #ddd;
+  position: relative;
+}
+
+.wx-post-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* CSS placeholder photos when png missing */
+.wx-post-photo.ph-before {
+  background:
+    radial-gradient(circle at 42% 38%, #c9a38a 0 8%, transparent 9%),
+    radial-gradient(circle at 58% 36%, #c9a38a 0 8%, transparent 9%),
+    radial-gradient(circle at 48% 58%, #b88972 0 18%, transparent 19%),
+    linear-gradient(180deg, #6b8cae 0 42%, #d4b59a 42% 70%, #8a9a7a 70%);
+}
+
+.wx-post-photo.ph-before::after {
+  content: "左眼下方小痣";
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.85);
+  background: rgba(0,0,0,0.35);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.wx-post-photo.ph-after {
+  background:
+    radial-gradient(circle at 42% 38%, #e0c4b0 0 8%, transparent 9%),
+    radial-gradient(circle at 58% 36%, #e0c4b0 0 8%, transparent 9%),
+    radial-gradient(circle at 50% 62%, #d4a890 0 14%, transparent 15%),
+    linear-gradient(180deg, #8eb8d4 0 45%, #e8d0bc 45% 72%, #c8d4b8 72%);
+  filter: saturate(1.15) brightness(1.05);
+}
+
+.wx-post-photo.ph-after::after {
+  content: "看起来精神多了";
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.9);
+  background: rgba(0,0,0,0.3);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.wx-post-photo.ph-daily {
+  background:
+    linear-gradient(160deg, #a8c0a0 0%, #7a9470 40%, #5a7050 100%);
+}
+
+.wx-post-photo.ph-camp {
+  background:
+    linear-gradient(160deg, #9bb5c8 0%, #6a8fa8 45%, #3d5a70 100%);
+}
+
+.wx-post-photo.ph-night {
+  background:
+    radial-gradient(ellipse at 70% 20%, #f0e6c8 0 4%, transparent 5%),
+    linear-gradient(180deg, #1a2030 0%, #2a3548 60%, #1a1820 100%);
+}
+
+.wx-post-time {
+  font-size: 12px;
+  color: #b0b0b0;
+  margin-top: 4px;
+}
+
+.wx-post-comments {
+  margin-top: 8px;
+  background: #f3f3f5;
+  border-radius: 3px;
+  padding: 6px 8px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #111;
+}
+
+.wx-post-comments .c-name {
+  color: #576b95;
+  font-weight: 500;
+}
+
+/* contacts / me thin */
+.wx-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 16px;
+}
+
+.wx-section-label {
+  padding: 8px 16px 4px;
+  font-size: 12px;
+  color: #888;
+  background: #ededed;
+}
+
+.wx-me-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 16px;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.wx-me-header .wx-avatar {
+  width: 60px;
+  height: 60px;
+  font-size: 20px;
+}
+
+.wx-me-header .me-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.wx-me-header .me-id {
+  font-size: 13px;
+  color: #888;
+  margin-top: 4px;
+}
