@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>联系预约 — 临江市幸福家园</title>
+  <link rel="stylesheet" href="/assets/css/theme-home.css" />
+</head>
+<body class="hm-body" data-site="home">
+  <div class="hm-topstrip">
+    <div class="hm-topstrip-inner">
+      <span>home-serene.example · Contact</span>
+      <span>服务时间 9:00–18:00</span>
+    </div>
+  </div>
+
+  <header class="hm-header">
+    <div class="hm-header-inner">
+      <div class="hm-logo" aria-hidden="true">家园</div>
+      <div class="hm-brand">
+        <h1>临江市幸福家园</h1>
+        <p class="sub">心理健康 · 睡眠支持 · 民生服务试点</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="hm-nav" aria-label="站点导航">
+    <div class="hm-nav-inner">
+      <a href="/home/">首页</a>
+      <a href="/home/about.html">关于我们</a>
+      <a href="/home/services.html">服务项目</a>
+      <a href="/home/stories.html">来访者反馈</a>
+      <a href="/home/assess.html">在线评估</a>
+      <a class="active" href="/home/contact.html">联系预约</a>
+    </div>
+  </nav>
+
+  <main class="hm-wrap">
+    <div class="hm-breadcrumb">
+      <a href="/home/">首页</a> › 联系预约
+    </div>
+
+    <h2 class="hm-section-title">联系方式</h2>
+    <div class="hm-grid">
+      <div class="hm-card">
+        <ul class="hm-info-list">
+          <li><span class="k">服务点</span><span class="v">临江高新区 · 幸福家园服务点</span></li>
+          <li><span class="k">服务时间</span><span class="v">工作日 9:00–18:00（预约优先）</span></li>
+          <li><span class="k">咨询电话</span><span class="v">000-0000-0000（演示号）</span></li>
+          <li><span class="k">邮箱</span><span class="v">advisor@home-serene.example</span></li>
+          <li><span class="k">交通</span><span class="v">公交 / 地铁高新区站步行约 10 分钟</span></li>
+        </ul>
+      </div>
+      <div class="hm-card">
+        <h3>预约前建议</h3>
+        <p>
+          若尚未完成评估，建议先做
+          <a href="/home/assess.html">免费在线评估</a>，
+          便于顾问了解你的大致方向。评估非强制，也可直接预约沟通。
+        </p>
+        <p style="margin-top:12px">
+          如处于紧急情绪危机或有自伤风险，请立即联系当地急救或专业精神科服务，
+          不要仅依赖本页预约通道。
+        </p>
+      </div>
+    </div>
+
+    <h2 class="hm-section-title">预约留言</h2>
+    <form class="hm-form" id="contact-form" action="#" method="post">
+      <label for="name">称呼</label>
+      <input id="name" name="name" type="text" maxlength="20" placeholder="怎么称呼你" autocomplete="name" />
+
+      <label for="phone">联系方式</label>
+      <input id="phone" name="phone" type="text" maxlength="40" placeholder="手机或邮箱" autocomplete="tel" />
+
+      <label for="topic">想了解的方向</label>
+      <select id="topic" name="topic">
+        <option value="sleep">睡眠支持</option>
+        <option value="mood">情绪与压力</option>
+        <option value="family">家庭沟通</option>
+        <option value="other">其他 / 不确定</option>
+      </select>
+
+      <label for="msg">简要说明（可选）</label>
+      <textarea id="msg" name="msg" maxlength="400" placeholder="最近的困扰、方便联系的时段等"></textarea>
+
+      <button class="hm-btn hm-btn-primary" type="submit">提交预约意向</button>
+      <p class="hm-form-note">本页为叙事演示，不会真正发送数据到服务器。提交后仅显示本地确认提示。</p>
+      <div class="hm-form-msg" id="form-msg" role="status">已收到你的预约意向。顾问将在演示流程中视为「已登记」——请继续探索其他线索。</div>
+    </form>
+  </main>
+
+  <footer class="hm-footer">
+    <div class="hm-footer-inner">
+      <div class="links">
+        <a href="/home/">首页</a>
+        <a href="/home/about.html">关于我们</a>
+        <a href="/home/services.html">服务项目</a>
+        <a href="/home/stories.html">来访者反馈</a>
+        <a href="/home/assess.html">在线评估</a>
+        <a href="/home/contact.html">联系预约</a>
+      </div>
+      <div class="partners">
+        指导单位：<a href="/city/">临江市卫生健康委 / 临江市人民政府</a><br />
+        技术合作：<a href="/hongke/">弘科生物科技有限公司</a>
+      </div>
+      <div>临江市幸福家园 · 高新区服务点</div>
+      <div class="icp">网站备案演示号 · 仅用于互动叙事 · home-serene.example</div>
+      <a class="staff-link" href="/staff/login.html">工作人员入口</a>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { boot } from '/assets/js/nav.js';
+    boot('home-contact');
+
+    const form = document.getElementById('contact-form');
+    const msg = document.getElementById('form-msg');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      msg.classList.add('show');
+      form.querySelector('button[type="submit"]').disabled = true;
+    });
+  </script>
+</body>
+</html>
