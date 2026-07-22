@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>电话</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <link rel="stylesheet" href="/assets/css/theme-phone.css" />
+</head>
+<body data-site="phone">
+  <div class="phone-frame">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen light-app">
+      <div class="phone-status">
+        <span>中国移动</span>
+        <span class="phone-status-time">22:17</span>
+        <span class="phone-status-icons" aria-hidden="true">
+          <i class="sig"></i><i class="wifi"></i><i class="bat"></i>
+        </span>
+      </div>
+
+      <div class="ph-top">
+        <a class="ph-back" href="/phone/" aria-label="返回桌面">‹ 桌面</a>
+        <div class="ph-title">最近通话</div>
+        <div class="ph-right" aria-hidden="true"></div>
+      </div>
+
+      <div class="ph-scroll">
+        <div class="tel-seg" role="tablist" aria-label="电话与短信">
+          <button type="button" class="active" data-panel="calls" role="tab" aria-selected="true">通话</button>
+          <button type="button" data-panel="sms" role="tab" aria-selected="false">短信</button>
+        </div>
+
+        <div class="tel-panel active" id="panel-calls" role="tabpanel">
+          <div class="tel-list">
+            <div class="tel-row">
+              <div class="tel-ico missed" aria-hidden="true">屿</div>
+              <div class="tel-main">
+                <div class="name missed">林屿</div>
+                <div class="detail">未接来电 · 手机</div>
+              </div>
+              <div class="tel-when">3月17日</div>
+            </div>
+            <div class="tel-row">
+              <div class="tel-ico missed" aria-hidden="true">屿</div>
+              <div class="tel-main">
+                <div class="name missed">林屿</div>
+                <div class="detail">未接来电 · 手机</div>
+              </div>
+              <div class="tel-when">3月16日</div>
+            </div>
+            <div class="tel-row">
+              <div class="tel-ico spam" aria-hidden="true">?</div>
+              <div class="tel-main">
+                <div class="name">未知号码</div>
+                <div class="detail">拒接 · 疑似推销</div>
+              </div>
+              <div class="tel-when">3月12日</div>
+            </div>
+          </div>
+          <p class="tel-empty">通话录音未开启 · 仅显示近期记录</p>
+        </div>
+
+        <div class="tel-panel" id="panel-sms" role="tabpanel">
+          <div class="tel-list">
+            <div class="tel-row">
+              <div class="tel-ico sms" aria-hidden="true">家</div>
+              <div class="tel-main">
+                <div class="name">幸福家园</div>
+                <div class="detail">【幸福家园】您有一条课程回访待确认。非本人请勿回复。退订回T</div>
+              </div>
+              <div class="tel-when">3月18日</div>
+            </div>
+            <div class="tel-row">
+              <div class="tel-ico sms" aria-hidden="true">家</div>
+              <div class="tel-main">
+                <div class="name">幸福家园</div>
+                <div class="detail">【幸福家园】紧急联系人信息已用于回访通知。如非登记人，请忽略。</div>
+              </div>
+              <div class="tel-when">3月18日</div>
+            </div>
+            <div class="tel-row">
+              <div class="tel-ico spam" aria-hidden="true">验</div>
+              <div class="tel-main">
+                <div class="name">106****8821</div>
+                <div class="detail">验证码 482916，5 分钟内有效。请勿泄露。</div>
+              </div>
+              <div class="tel-when">3月10日</div>
+            </div>
+            <div class="tel-row">
+              <div class="tel-ico spam" aria-hidden="true">营</div>
+              <div class="tel-main">
+                <div class="name">10086</div>
+                <div class="detail">【中国移动】您的本月流量已使用 68%，详情可查掌厅。</div>
+              </div>
+              <div class="tel-when">3月8日</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module">
+    import { boot } from '/assets/js/nav.js';
+    boot('phone-log');
+
+    const buttons = document.querySelectorAll('.tel-seg button');
+    const panels = {
+      calls: document.getElementById('panel-calls'),
+      sms: document.getElementById('panel-sms'),
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-panel');
+        buttons.forEach((b) => {
+          const on = b === btn;
+          b.classList.toggle('active', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        Object.entries(panels).forEach(([key, el]) => {
+          el.classList.toggle('active', key === id);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

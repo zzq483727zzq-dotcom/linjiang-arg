@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>浏览器</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <link rel="stylesheet" href="/assets/css/theme-phone.css" />
+</head>
+<body data-site="phone">
+  <div class="phone-frame">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen light-app">
+      <div class="phone-status">
+        <span>中国移动</span>
+        <span class="phone-status-time">22:17</span>
+        <span class="phone-status-icons" aria-hidden="true">
+          <i class="sig"></i><i class="wifi"></i><i class="bat"></i>
+        </span>
+      </div>
+
+      <div class="ph-top">
+        <a class="ph-back" href="/phone/" aria-label="返回桌面">‹ 桌面</a>
+        <div class="ph-title">浏览器</div>
+        <div class="ph-right" aria-hidden="true"></div>
+      </div>
+
+      <div class="browser-bar">
+        <form id="browser-form" action="#" method="get" autocomplete="off">
+          <input
+            id="browser-url"
+            type="text"
+            name="url"
+            inputmode="url"
+            spellcheck="false"
+            placeholder="搜索或输入网址"
+            aria-label="地址栏"
+          />
+          <button type="submit">前往</button>
+        </form>
+      </div>
+
+      <div class="browser-pane" id="browser-pane">
+        <p class="hero">开始浏览</p>
+        <p class="sub">
+          从邮件或历史记录打开站点。地址栏支持政府站、幸福家园、弘科生物与临江吧域名。
+          不会在打开本页时自动跳转。
+        </p>
+        <div class="err" id="browser-err" role="alert"></div>
+        <ul class="browser-history" aria-label="历史记录">
+          <li>
+            <a href="#" data-url="https://home-serene.example/">
+              幸福家园
+              <span>home-serene.example</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-url="https://www.linjiang.gov.example/">
+              临江市人民政府
+              <span>linjiang.gov.example</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-url="https://hongke-bio.example/">
+              弘科生物
+              <span>hongke-bio.example</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-url="https://lj-bar.example/">
+              临江吧
+              <span>lj-bar.example</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script type="module">
+    import { boot } from '/assets/js/nav.js';
+    boot('browser');
+
+    const ROUTES = [
+      { test: /linjiang\.gov/i, to: '/city/' },
+      { test: /home-serene|xinyuan|幸福家园/i, to: '/home/' },
+      { test: /hongke|弘科/i, to: '/hongke/' },
+      { test: /lj-bar|临江吧/i, to: '/bar/' },
+    ];
+
+    const input = document.getElementById('browser-url');
+    const form = document.getElementById('browser-form');
+    const err = document.getElementById('browser-err');
+
+    function showError(msg) {
+      err.textContent = msg;
+      err.classList.add('show');
+    }
+
+    function clearError() {
+      err.textContent = '';
+      err.classList.remove('show');
+    }
+
+    function resolve(raw) {
+      const q = String(raw || '').trim();
+      if (!q) return null;
+      for (const r of ROUTES) {
+        if (r.test.test(q)) return r.to;
+      }
+      return null;
+    }
+
+    function navigate(raw) {
+      clearError();
+      const to = resolve(raw);
+      if (!to) {
+        showError('无法打开此网页。请检查地址是否正确，或稍后再试。');
+        return;
+      }
+      window.location.href = to;
+    }
+
+    // Prefill from ?url= — do not auto-jump on load
+    const params = new URLSearchParams(window.location.search);
+    const pre = params.get('url');
+    if (pre) {
+      input.value = pre;
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      navigate(input.value);
+    });
+
+    document.querySelectorAll('.browser-history a[data-url]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const u = a.getAttribute('data-url') || '';
+        input.value = u;
+        navigate(u);
+      });
+    });
+  </script>
+</body>
+</html>
