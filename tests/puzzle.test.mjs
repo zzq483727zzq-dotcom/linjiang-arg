@@ -1,33 +1,37 @@
 import { test } from 'node:test';
-import { strict as assert } from 'node:assert';
+import assert from 'node:assert/strict';
 import { checkPuzzle, PUZZLES } from '../assets/js/puzzle.js';
 
-test('每个谜题都有 id、answer、hint、check', () => {
-  for (const id of Object.keys(PUZZLES)) {
-    const p = PUZZLES[id];
-    assert.ok(typeof p.answer === 'string' && p.answer.length > 0, `answer for ${id}`);
-    assert.ok(typeof p.hint === 'string', `hint for ${id}`);
-    assert.equal(typeof p.check, 'function', `check fn for ${id}`);
-  }
+test('exports oa-login staff-login hongke-board', () => {
+  assert.ok(PUZZLES['oa-login']);
+  assert.ok(PUZZLES['staff-login']);
+  assert.ok(PUZZLES['hongke-board']);
 });
 
-test('admin password 真值 "GOOD" 通过', () => {
-  // 真值 "GOOD",在博客/论坛/聊天中以三种伪装形式出现:凯撒+2=IQGG / 反转=DOOG / 直书=GOOD
-  const r = checkPuzzle('admin-password', 'GOOD');
-  assert.equal(r.ok, true);
+test('oa-login: zhouqm / 19680315', () => {
+  assert.equal(checkPuzzle('oa-login', { username: 'zhouqm', password: '19680315' }).ok, true);
+  assert.equal(checkPuzzle('oa-login', { username: 'ZHOUQM', password: '19680315' }).ok, true);
+  assert.equal(checkPuzzle('oa-login', { username: 'zhouqm', password: '1968-03-15' }).ok, false);
 });
 
-test('大小写不敏感 + trim', () => {
-  const r = checkPuzzle('admin-password', '  good ');
-  assert.equal(r.ok, true);
+test('staff-login: HY-0317 / 260317', () => {
+  assert.equal(checkPuzzle('staff-login', { username: 'HY-0317', password: '260317' }).ok, true);
+  assert.equal(checkPuzzle('staff-login', { username: 'hy-0317', password: '260317' }).ok, true);
+  assert.equal(checkPuzzle('staff-login', { username: 'HY-0317', password: '0317' }).ok, false);
 });
 
-test('错误答案 fail + 给出 hint', () => {
-  const r = checkPuzzle('admin-password', 'wrong');
-  assert.equal(r.ok, false);
-  assert.ok(typeof r.hint === 'string' && r.hint.length > 0);
+test('hongke-board: pilot / hk2026', () => {
+  assert.equal(checkPuzzle('hongke-board', { username: 'pilot', password: 'hk2026' }).ok, true);
+  assert.equal(checkPuzzle('hongke-board', { username: 'pilot', password: 'wrong' }).ok, false);
 });
 
-test('未知 id 抛错', () => {
-  assert.throws(() => checkPuzzle('nope', 'x'));
+test('failHint escalates', () => {
+  const h1 = checkPuzzle('oa-login', { username: 'x', password: 'y' }, 1).hint;
+  const h6 = checkPuzzle('oa-login', { username: 'x', password: 'y' }, 6).hint;
+  assert.ok(h1.length > 0);
+  assert.ok(h6.includes('19680315') || h6.includes('zhouqm'));
+});
+
+test('unknown id throws', () => {
+  assert.throws(() => checkPuzzle('nope', {}), /unknown/);
 });

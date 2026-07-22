@@ -1,23 +1,57 @@
-// puzzle.js - 谜题答案校验器
-
-// 仅后台密码一项(其他谜题的"答案"都是解开新站点,见 nav.js)
-// 真值 "GOOD",在博客最后一篇、论坛某楼、聊天客服名"小 GOOD" 三处被分别用
-//   凯撒+2 (IQGG) / 反转 (DOOG) / 直书 (GOOD) 的方式遮蔽,玩家集合三处即可解出
-const ADMIN_ANSWER = 'GOOD';
+const normalizeUser = (s) => String(s || '').replace(/\s+/g, '').toLowerCase();
+const normalizeCode = (s) => String(s || '').replace(/\s+/g, '').toUpperCase();
 
 export const PUZZLES = {
-  'admin-password': {
-    prompt: '代号',
-    hint: '客服怎么叫你,客服在内部日志里叫什么,论坛失联楼层的邮箱后缀反着写。',
-    answer: ADMIN_ANSWER,
+  'oa-login': {
+    fields: ['username', 'password'],
+    answer: { username: 'zhouqm', password: '19680315' },
+    hint: '用户名为周启明姓名拼音；口令为讣告出生日期 YYYYMMDD。',
     check(input) {
-      return String(input || '').trim().toUpperCase() === ADMIN_ANSWER;
-    }
-  }
+      return normalizeUser(input?.username) === 'zhouqm' &&
+        String(input?.password ?? '') === '19680315';
+    },
+    failHint(n) {
+      if (n < 3) return '用户名是拼音小写；口令是 8 位数字日期。';
+      if (n < 6) return '方向：追记里的登录名 + 讣告上的出生年月日。';
+      return '直接填：zhouqm / 19680315';
+    },
+  },
+  'staff-login': {
+    fields: ['username', 'password'],
+    answer: { username: 'HY-0317', password: '260317' },
+    hint: '工号与临时授权见市政府 OA 对接单。',
+    check(input) {
+      return normalizeCode(input?.username) === 'HY-0317' &&
+        String(input?.password ?? '') === '260317';
+    },
+    failHint(n) {
+      if (n < 3) return '工号形如 HY-####；口令 6 位数字。';
+      if (n < 6) return '方向：OA 对接单上的家园侧工号与文号六位。';
+      return '直接填：HY-0317 / 260317';
+    },
+  },
+  'hongke-board': {
+    fields: ['username', 'password'],
+    answer: { username: 'pilot', password: 'hk2026' },
+    hint: '试点测试账号写在临江吧爆料帖里。',
+    check(input) {
+      return normalizeUser(input?.username) === 'pilot' &&
+        String(input?.password ?? '') === 'hk2026';
+    },
+    failHint(n) {
+      if (n < 3) return '用户名是英文；口令小写字母+数字。';
+      if (n < 6) return '方向：临江吧主帖里的测试账号。';
+      return '直接填：pilot / hk2026';
+    },
+  },
 };
 
-export function checkPuzzle(id, input) {
+export function checkPuzzle(id, input, attemptCount = 1) {
   const p = PUZZLES[id];
-  if (!p) throw new Error(`unknown puzzle: ${id}`);
-  return { ok: p.check(input), hint: p.hint };
+  if (!p) throw new Error('unknown puzzle: ' + id);
+  const ok = p.check(input);
+  return {
+    ok,
+    hint: ok ? '' : p.failHint(attemptCount),
+  };
 }
