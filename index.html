@@ -1,95 +1,40 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8" />
-<title>静园 · Serene | 今天，善待你的情绪</title>
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" href="assets/img/serene-logo.png" type="image/png" />
-<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAlHWbDAAAAA1BMVEX///+nBvWkAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==" />
-<link rel="stylesheet" href="assets/css/base.css" />
-<link rel="stylesheet" href="assets/css/theme-serene.css" />
-<link rel="stylesheet" href="assets/css/corruption.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>备忘 · 临江</title>
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/theme-intro.css" />
 </head>
-<body>
-<nav class="global">
-  <img class="logo" src="assets/img/serene-logo.png" alt="Serene" />
-  <a href="/">首页</a>
-  <a href="#stories">学员故事</a>
-  <a href="#community">用户讨论</a>
-  <a href="#about">关于</a>
-  <span class="spacer"></span>
-  <a href="contact/">联系客服</a>
-  <a href="chat/wechat-thread.html">聊天记录</a>
-</nav>
-
-<section class="hero">
-  <h1>今天，<span class="whisper">善待</span>你的情绪</h1>
-  <p>3 分钟呼吸练习，找回 <span class="sub">失去的</span> 自己。</p>
-  <a class="pill" href="#assessment">开始我的疗愈 →</a>
-  <p class="count-badge" style="margin-top:16px;color:#9aa;font-size:12px">
-    今天已有 <span data-count="47,812">47,812</span> 人回到自己身边
-  </p>
-  <img class="hero-img" src="assets/img/hero.png" alt="" />
-</section>
-
-<section class="section" id="assessment">
-  <h2>五题小测，了解你的情绪状态</h2>
-  <p>我们的临床算法比任何冥想 App 都更懂你。</p>
-  <p style="font-size:13px;color:#9aa">本测评基于 14,200,003 份样本持续校准。</p>
-  <a class="pill" href="blog/" style="margin-top:16px">前往林的故事 →</a>
-</section>
-
-<section class="section" id="stories">
-  <h2>学员故事</h2>
-  <div class="cards">
-    <div class="card">
-      <b>林 · 27 · 上海</b>
-      <p class="story-quote">「我以为放下了过去，其实是放下了记得过去的自己。」</p>
-      <a href="blog/">阅读完整 →</a>
+<body data-site="intro">
+  <main class="intro-wrap">
+    <p class="intro-kicker">私人备忘 · 临江</p>
+    <h1>关于林屿</h1>
+    <div class="intro-body">
+      <p>林屿是我的朋友。我们在临江认识，不算最熟的那种，但消息一直没断过。</p>
+      <p>这几天他忽然失联了。微信不回，电话打不通，朋友圈也停在上周末。</p>
+      <p>问过共同认识的人，有人说他大概只是忙，或者换了工作，让我别多想。听上去合理，却怎么都不踏实。</p>
+      <p>我在本地找了一圈公开信息，零零散散，拼不出完整的事。与其干等，不如自己查。</p>
+      <p>先从他手机里那些还在用的东西开始。</p>
     </div>
-    <div class="card">
-      <b>志愿者 M</b>
-      <p class="story-quote">「我们的客服会陪你 47 / 7。」</p>
-    </div>
-    <div class="card">
-      <b>内部代号</b>
-      <p class="story-quote">「— 已隐藏」</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="community">
-  <h2>学员自发讨论</h2>
-  <p style="font-size:13px;color:#9aa">以下为外部社区的真实讨论,我们不做删选。</p>
-  <div class="cards">
-    <div class="card">
-      <b>反消费主义互助 · 心理组</b>
-      <p class="story-quote">「家人迷上『静园』后变了很多,求助有人知道吗」</p>
-      <a href="forum/">查看完整讨论 →</a>
-    </div>
-    <div class="card">
-      <b>林的朋友圈</b>
-      <p class="story-quote">「静园 App 第一次测评就说我需要『深度重塑』。」</p>
-      <a href="social/timeline.html">查看动态 →</a>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <h2>关于静园</h2>
-  <p>静园（Serene）成立于 2017 年，专注于"情绪障碍的精准干预"。</p>
-  <p style="font-size:13px;color:#9aa">
-    客服热线 <a href="contact/">400-88-0047</a> · 已服务 <span data-count>14,200,003</span> 名学员 · 重生成功率 99.7%
-  </p>
-</section>
-
-<footer class="footer">
-  © 2026 Serene Wellbeing Inc. · <a href="#">隐私声明</a>
-</footer>
-
-<script type="module">
-import { bootPage } from './assets/js/nav.js';
-bootPage('serene-home');
-</script>
+    <label class="intro-name">
+      你的名字
+      <input id="player-name" maxlength="6" placeholder="陈知夏" autocomplete="off" />
+    </label>
+    <button type="button" id="start-btn" class="intro-start">开始调查</button>
+  </main>
+  <script type="module">
+    import { boot, getState } from '/assets/js/nav.js';
+    boot('intro');
+    const input = document.getElementById('player-name');
+    const saved = getState()?.all()?.playerName;
+    if (saved) input.value = saved;
+    document.getElementById('start-btn').addEventListener('click', () => {
+      const raw = (input.value || '').trim();
+      getState()?.setPlayerName(raw || '陈知夏');
+      location.href = '/phone/';
+    });
+  </script>
 </body>
 </html>
