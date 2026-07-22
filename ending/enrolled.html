@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>结局 · 被写下</title>
+  <link rel="stylesheet" href="/assets/css/theme-ending.css" />
+</head>
+<body class="end-body end-result end-enrolled" data-site="ending" data-page="enrolled">
+  <main class="result-shell">
+    <p class="result-kicker">ENDING · ENROLLED</p>
+    <h1 class="result-title">被写下</h1>
+    <div class="result-body">
+      <p>你点开了优先评估的邀请链接。问卷很短，语气很温柔，填完还有睡眠建议。</p>
+      <p>几天后，短信说名额已确认。朋友说你最近看起来轻松多了。林屿的微信回你：「欢迎。」</p>
+      <p>名册上，你的名字从「建议纳入」变成了「已建档」。来源栏仍写着：检索对象好友。</p>
+      <p>你告诉自己这是为了睡个好觉。窗外的路灯很稳，像什么都没有发生过。</p>
+    </div>
+    <div class="result-actions">
+      <button type="button" class="end-btn end-btn-dark" id="btn-reset">重新开始</button>
+      <p class="result-note">ending · enrolled</p>
+    </div>
+  </main>
+  <script type="module">
+    import { boot, getState, resetProgress } from '/assets/js/nav.js';
+    boot('ending-enrolled');
+    try {
+      const s = getState()?.all() || {};
+      if (s.ending !== 'enrolled') getState()?.setEnding('enrolled');
+    } catch { /* ignore */ }
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      resetProgress();
+      location.href = '/';
+    });
+  </script>
+</body>
+</html>

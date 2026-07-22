@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>我们会找到你的！</title>
+  <link rel="stylesheet" href="/assets/css/theme-ending.css" />
+</head>
+<body class="end-body end-redwall" data-site="ending" data-page="redwall">
+  <div class="redwall" id="redwall" aria-label="系统终局通知">
+    <div class="redwall-layer" id="wall-layer" aria-hidden="true"></div>
+    <div class="redwall-center">
+      <p class="redwall-main">我们会找到你的！</p>
+      <p class="redwall-name" id="player-name">陈知夏</p>
+      <p class="redwall-meta" id="sess-meta">SESSION · HY-WALL</p>
+    </div>
+    <div class="redwall-cta" id="cta-wrap">
+      <button type="button" class="end-btn" id="cta-dots" aria-label="继续">……</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { boot, getState } from '/assets/js/nav.js';
+    boot('ending-redwall');
+
+    const api = getState();
+    const s = api?.all() || {};
+    const params = new URLSearchParams(location.search);
+    const dev = params.get('dev') === '1';
+    const allowed = !!(s.staffAccess || s.flagged || s.truthSeen || dev);
+
+    if (!allowed) {
+      location.replace('/');
+    } else {
+      const playerName = (s.playerName && String(s.playerName).trim()) || '陈知夏';
+      const nameEl = document.getElementById('player-name');
+      if (nameEl) nameEl.textContent = playerName;
+
+      const stamp = String(Date.now()).slice(-5);
+      const meta = document.getElementById('sess-meta');
+      if (meta) meta.textContent = `SESSION · HY-WALL-${stamp}`;
+
+      const PHRASE = '我们会找到你的！';
+      const layer = document.getElementById('wall-layer');
+      const sizes = [11, 13, 14, 16, 18, 20, 22, 26, 30, 36, 42, 48];
+      const count = 96;
+      // 在随机碎片中嵌入一次更大的玩家名
+      const nameIndex = Math.floor(count * 0.42);
+
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement('span');
+        if (i === nameIndex) {
+          el.textContent = playerName;
+          el.className = 'name-hit';
+          el.style.fontSize = '34px';
+          el.style.opacity = '0.95';
+        } else {
+          el.textContent = PHRASE;
+          const sz = sizes[i % sizes.length] + ((i * 7) % 9);
+          el.style.fontSize = `${sz}px`;
+          el.style.opacity = String(0.12 + ((i * 17) % 70) / 100);
+          el.style.animationDelay = `${(i % 12) * 0.18}s`;
+        }
+        layer.appendChild(el);
+      }
+
+      let ready = false;
+      const cta = document.getElementById('cta-wrap');
+      const go = () => {
+        if (!ready) return;
+        location.href = '/ending/choice.html';
+      };
+
+      window.setTimeout(() => {
+        ready = true;
+        cta.classList.add('is-ready');
+      }, 2000);
+
+      document.getElementById('cta-dots').addEventListener('click', (e) => {
+        e.stopPropagation();
+        go();
+      });
+      document.body.addEventListener('click', go);
+      document.body.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          go();
+        }
+      });
+    }
+  </script>
+</body>
+</html>

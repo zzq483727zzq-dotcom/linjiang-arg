@@ -144,6 +144,8 @@
           </div>
 
           <div id="live-replies"></div>
+          <!-- X 线：truthSeen|flagged 时由脚本注入系统推送气泡 -->
+          <div id="x-line-slot"></div>
           <div class="wx-typing" id="typing">对方正在输入…</div>
         </div>
       </div>
@@ -169,12 +171,14 @@
     };
 
     const state = getState();
-    const used = (state.all().chatNodeUsed || 0);
+    const snap = state.all();
+    const used = (snap.chatNodeUsed || 0);
     const composer = document.getElementById('composer');
     const nodes = document.getElementById('send-nodes');
     const live = document.getElementById('live-replies');
     const typing = document.getElementById('typing');
     const scrollEl = document.getElementById('chat-scroll');
+    const xSlot = document.getElementById('x-line-slot');
 
     function scrollBottom() {
       scrollEl.scrollTop = scrollEl.scrollHeight;
@@ -202,10 +206,37 @@
       scrollBottom();
     }
 
+    /** X 线：系统推送的林屿气泡（非玩家发送） */
+    function injectXLine() {
+      if (!xSlot || xSlot.dataset.injected === '1') return;
+      if (!(snap.truthSeen || snap.flagged)) return;
+
+      const day = document.createElement('div');
+      day.className = 'wx-day';
+      day.innerHTML = '<span>刚才</span>';
+
+      const row = document.createElement('div');
+      row.className = 'wx-msg theirs';
+      row.setAttribute('data-x-line', '1');
+      row.innerHTML = `
+        <div class="wx-avatar av-lin" aria-hidden="true">屿</div>
+        <div>
+          <div class="wx-bubble"></div>
+          <div class="wx-meta">对方主动推送</div>
+        </div>`;
+      row.querySelector('.wx-bubble').textContent = '别查了，对你不好。';
+
+      xSlot.appendChild(day);
+      xSlot.appendChild(row);
+      xSlot.dataset.injected = '1';
+    }
+
     function markDone() {
       composer.className = 'wx-composer done';
       composer.textContent = '对方似乎不愿多说';
     }
+
+    injectXLine();
 
     if (used >= 2) {
       markDone();

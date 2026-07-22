@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>系统警告 · 访问审计</title>
+  <link rel="stylesheet" href="/assets/css/theme-ending.css" />
+</head>
+<body class="end-body end-warn" data-site="ending" data-page="warn">
+  <main class="warn-shell" id="warn-root" hidden>
+    <p class="warn-kicker">SECURITY · AUDIT NOTICE</p>
+    <h1 class="warn-title">访问已记录</h1>
+    <p class="warn-sub">本终端触发高敏路径审计。以下信息为系统自动生成，勿向当事人复述。</p>
+
+    <section class="warn-panel" aria-label="审计摘要">
+      <div class="row">
+        <div class="k">状态</div>
+        <div class="v danger">已标记 · FLAGGED</div>
+      </div>
+      <div class="row">
+        <div class="k">终端 IP</div>
+        <div class="v mono" id="fake-ip">10.47.0.██</div>
+      </div>
+      <div class="row">
+        <div class="k">会话号</div>
+        <div class="v mono" id="fake-sess">HY-AUDIT-0000</div>
+      </div>
+      <div class="row">
+        <div class="k">关联对象</div>
+        <div class="v">林屿 · LY-2026-0317</div>
+      </div>
+      <div class="row">
+        <div class="k">关联姓名</div>
+        <div class="v" id="player-name">陈知夏</div>
+      </div>
+      <div class="row">
+        <div class="k">路径</div>
+        <div class="v mono">staff/you → ending/warn</div>
+      </div>
+      <div class="row">
+        <div class="k">时间</div>
+        <div class="v mono" id="fake-time">—</div>
+      </div>
+      <p class="warn-msg">
+        你的访问、检索与名册命中已被写入审计。
+        后续流程可能要求<strong>环境核验</strong>。继续操作将进入下一阶段通知。
+      </p>
+    </section>
+
+    <div class="warn-actions">
+      <a class="end-btn end-btn-danger" id="cta-next" href="/ending/redwall.html">继续</a>
+      <a class="end-btn end-btn-ghost" href="/staff/you.html">返回名册</a>
+    </div>
+    <p class="warn-foot">演示环境 · 无真实 IP 采集 · 纯前端演出</p>
+  </main>
+
+  <script type="module">
+    import { boot, getState } from '/assets/js/nav.js';
+    boot('ending-warn');
+
+    const api = getState();
+    const s = api?.all() || {};
+    const params = new URLSearchParams(location.search);
+    const dev = params.get('dev') === '1';
+    const allowed = !!(s.staffAccess || s.flagged || s.truthSeen || dev);
+
+    if (!allowed) {
+      location.replace('/');
+    } else {
+      document.getElementById('warn-root').hidden = false;
+
+      const playerName = (s.playerName && String(s.playerName).trim()) || '陈知夏';
+      const nameEl = document.getElementById('player-name');
+      if (nameEl) nameEl.textContent = playerName;
+
+      // 假 IP / 会话（演出用，非真实采集）
+      const n = (playerName.charCodeAt(0) || 67) % 90;
+      const ipEl = document.getElementById('fake-ip');
+      if (ipEl) ipEl.textContent = `10.47.${(n % 40) + 12}.${(n * 3) % 200 + 20}`;
+
+      const sessEl = document.getElementById('fake-sess');
+      if (sessEl) {
+        const stamp = String(Date.now()).slice(-6);
+        sessEl.textContent = `HY-AUDIT-${stamp}`;
+      }
+
+      const tEl = document.getElementById('fake-time');
+      if (tEl) {
+        const d = new Date();
+        const pad = (x) => String(x).padStart(2, '0');
+        tEl.textContent =
+          `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ` +
+          `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+      }
+
+      // 确保进入终局段时至少有 flagged 标记（playtest 软开也记一下）
+      try {
+        if (!s.flagged) api.grant('flagged');
+      } catch {
+        /* ignore */
+      }
+    }
+  </script>
+</body>
+</html>
