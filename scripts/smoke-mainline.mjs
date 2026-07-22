@@ -11,7 +11,7 @@ const PATHS = [
   '/phone/',
   '/phone/wechat.html',
   '/phone/chat-lin.html',
-  '/phone/chat-chen.html',
+  '/phone/chat-gu.html',
   '/phone/moments.html',
   '/phone/mail.html',
   '/phone/xhs.html',
