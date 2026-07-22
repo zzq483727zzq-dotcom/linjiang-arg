@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>统一身份认证 — 临江市电子政务内网</title>
+  <link rel="stylesheet" href="/assets/css/theme-oa.css" />
+</head>
+<body class="oa-body oa-login-page" data-site="oa">
+  <div class="oa-topstrip">
+    <div class="oa-topstrip-inner">
+      <span>LINJIANG E-GOV INTRANET · OA</span>
+      <span class="warn">内部系统 · 严禁外传 · 演示环境</span>
+    </div>
+  </div>
+
+  <header class="oa-header">
+    <div class="oa-header-inner">
+      <div class="oa-badge" aria-hidden="true">OA</div>
+      <div>
+        <h1>临江市电子政务内网</h1>
+        <p class="sub">统一身份认证 · 办公协同平台</p>
+      </div>
+      <div class="meta">
+        <div>节点：市政府办</div>
+        <div>环境：intranet-pilot</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="oa-login-main">
+    <div class="oa-login-shell">
+      <h2>统一身份认证</h2>
+      <p class="login-sub">
+        请使用机关人员账号登录。未授权访问将被记录。
+        若您从互联网公开站误入，请关闭本页。
+      </p>
+      <form id="oa-login-form" autocomplete="off">
+        <div class="oa-field">
+          <label for="username">用户名</label>
+          <input id="username" name="username" type="text" required spellcheck="false" autocapitalize="off" />
+        </div>
+        <div class="oa-field">
+          <label for="password">口令</label>
+          <input id="password" name="password" type="password" required />
+        </div>
+        <button class="oa-btn" type="submit" id="oa-submit">登录</button>
+        <div class="oa-hint" id="oa-hint" role="alert" aria-live="polite"></div>
+      </form>
+      <p class="oa-login-foot">
+        账号由机关技术科按惯例分配；口令请勿在公共设备勾选保存。<br />
+        遇到锁定请联系机要/技术科重置 · 本页为演示用静态环境
+      </p>
+      <p class="oa-login-foot" style="margin-top:8px">
+        <a href="/city/">← 返回市政府互联网站</a>
+      </p>
+    </div>
+  </main>
+
+  <script type="module">
+    import { boot, getState, tryPuzzle } from '/assets/js/nav.js';
+    boot('oa-login');
+
+    const state = getState();
+    if (state?.all()?.oaAccess) {
+      location.replace('/city/intranet/index.html');
+    }
+
+    let attempts = 0;
+    const form = document.getElementById('oa-login-form');
+    const hint = document.getElementById('oa-hint');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      attempts += 1;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const result = tryPuzzle('oa-login', { username, password }, attempts);
+      if (result.ok) {
+        hint.style.color = 'var(--oa-ok)';
+        hint.textContent = '认证通过，正在进入办公协同…';
+        location.href = '/city/intranet/index.html';
+        return;
+      }
+      hint.style.color = 'var(--oa-danger)';
+      hint.textContent = result.hint || '用户名或口令不正确。';
+    });
+  </script>
+</body>
+</html>
