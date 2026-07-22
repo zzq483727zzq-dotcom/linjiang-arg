@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>弘科生物 — 神经与睡眠转化医学</title>
+  <link rel="stylesheet" href="/assets/css/theme-hongke.css" />
+</head>
+<body class="hk-body" data-site="hongke">
+  <div class="hk-topstrip">
+    <div class="hk-topstrip-inner">
+      <span>hongke-bio.example · 临江高新区</span>
+      <span>
+        <a href="/hongke/login.html">试点看板</a> ·
+        <a href="/hongke/jobs.html">加入我们</a>
+      </span>
+    </div>
+  </div>
+
+  <header class="hk-header">
+    <div class="hk-header-inner">
+      <div class="hk-logo" aria-hidden="true">弘科</div>
+      <div class="hk-brand">
+        <h1>弘科生物</h1>
+        <p class="sub">Hongke Biotech · 神经调控与睡眠健康转化</p>
+      </div>
+      <div class="hk-header-right">
+        技术服务民生试点<br />
+        过程可追溯 · 结果可评估
+      </div>
+    </div>
+  </header>
+
+  <nav class="hk-nav" aria-label="站点导航">
+    <div class="hk-nav-inner">
+      <a class="active" href="/hongke/">首页</a>
+      <a href="/hongke/pipeline.html">研发管线</a>
+      <a href="/hongke/about.html">关于我们</a>
+      <a href="/hongke/news.html">新闻动态</a>
+      <a href="/hongke/jobs.html">招聘</a>
+      <a href="/hongke/login.html">试点看板</a>
+    </div>
+  </nav>
+
+  <main class="hk-wrap">
+    <section class="hk-hero">
+      <h2>把实验室能力接到真实场景</h2>
+      <p>
+        弘科生物聚焦神经调控、睡眠与精神健康相关技术的工程化与临床前转化，
+        为地方政府民生试点提供评估工具、数据分析与质量体系支持。
+      </p>
+      <p class="hero-meta">临江高新区 · 幸福家园睡眠健康服务试点技术支持单位</p>
+    </section>
+
+    <div class="hk-grid">
+      <article class="hk-card">
+        <h3>转化医学</h3>
+        <p>从模型验证到可检验流程：样本流转、节点留痕、批次复盘，服务真实世界研究节奏。</p>
+        <span class="tag">工程化</span>
+      </article>
+      <article class="hk-card">
+        <h3>睡眠与精神健康</h3>
+        <p>围绕评估量表、客观指标与随访数据链路，协助试点机构建立可复用的质量框架。</p>
+        <span class="tag">民生场景</span>
+      </article>
+      <article class="hk-card">
+        <h3>政企协同</h3>
+        <p>参与市科技局、高新区相关协作；与「幸福家园」等试点保持业务对接。</p>
+        <span class="tag">合规披露</span>
+      </article>
+    </div>
+
+    <h2 class="hk-section-title">重点管线一览</h2>
+    <div class="hk-table-wrap">
+      <table class="hk-table">
+        <thead>
+          <tr>
+            <th>编号</th>
+            <th>方向</th>
+            <th>阶段</th>
+            <th>备注</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="pid">HK-NS-01</td>
+            <td>神经调控硬件接口</td>
+            <td><span class="badge badge-phase">验证中</span></td>
+            <td>平台能力</td>
+          </tr>
+          <tr class="hl">
+            <td class="pid">HK-SF-03</td>
+            <td>睡眠 / 精神健康场景转化</td>
+            <td><span class="badge badge-run">推进中</span></td>
+            <td>与民生试点协同</td>
+          </tr>
+          <tr>
+            <td class="pid">HK-DM-02</td>
+            <td>多模态数据质控</td>
+            <td><span class="badge badge-prep">筹备</span></td>
+            <td>内部工具链</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--hk-muted);margin-top:10px">
+      完整列表与阶段说明见 <a href="/hongke/pipeline.html">研发管线</a>。依法披露范围内信息，进度以官方公告为准。
+    </p>
+  </main>
+
+  <footer class="hk-footer">
+    <div class="hk-footer-inner">
+      <div class="links">
+        <a href="/hongke/">首页</a>
+        <a href="/hongke/pipeline.html">研发管线</a>
+        <a href="/hongke/about.html">关于我们</a>
+        <a href="/hongke/news.html">新闻</a>
+        <a href="/hongke/jobs.html">招聘</a>
+        <a href="/hongke/login.html">试点看板登录</a>
+      </div>
+      <div>弘科生物科技有限公司 · 临江高新区生物医药产业园</div>
+      <div class="icp">网站备案演示号 · 仅用于互动叙事 · hongke-bio.example</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { boot, getState } from '/assets/js/nav.js';
+    boot('hongke-home');
+    try { getState()?.grant('hongke'); } catch (_) {}
+  </script>
+</body>
+</html>
