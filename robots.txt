@@ -1,8 +1,15 @@
-# 静园 · 站点地图(请勿外链)
+# 临江 · 幸福家园 ARG
 User-agent: *
+Disallow: /staff/
+Disallow: /ending/
+Disallow: /city/intranet/
 Disallow: /admin/
-Disallow: /blog/post-final.html
-Disallow: /endings/hidden.html
+Disallow: /blog/
+Disallow: /forum/
+Disallow: /chat/
+Disallow: /social/
+Disallow: /endings/
+Disallow: /contact/
+Disallow: /data/
 
-# 注:以上均为构建中的内部页面,Search Engine Optimization 优先
-Sitemap: /robots.txt
+# 官方入口: /

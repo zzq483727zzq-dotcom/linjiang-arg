@@ -2,30 +2,20 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8" />
-<title>林的朋友圈</title>
-<link rel="stylesheet" href="../assets/css/base.css" />
-<link rel="stylesheet" href="../assets/css/theme-social.css" />
-<link rel="stylesheet" href="../assets/css/corruption.css" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>档案已迁移</title>
+<meta http-equiv="refresh" content="4;url=/" />
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 32rem; margin: 4rem auto; padding: 0 1.25rem; color: #222; line-height: 1.6; }
+  a { color: #0b57d0; }
+  .tag { font-size: 12px; letter-spacing: .08em; color: #888; text-transform: uppercase; }
+</style>
 </head>
 <body>
-<header class="social-head">
-  <a href="../" style="color:#888;font-size:13px">‹ 返回静园</a>
-  <span style="flex:1"></span>
-  <img src="../assets/img/lin-avatar.png" class="avatar" />
-  <div><b>林</b><br/><span>在静园中</span></div>
-</header>
-<main class="wrap" id="posts"></main>
-<script type="module">
-import data from '../data/social-posts.json' with { type: 'json' };
-import { bootPage } from '../assets/js/nav.js';
-bootPage('wechat');
-document.getElementById('posts').innerHTML = data.posts.map(p => `
-  <article class="card">
-    <div class="meta">${p.moment}</div>
-    ${p.img ? `<img src="../assets/img/${p.img}" alt="">` : ''}
-    <p>${p.text}</p>
-  </article>
-`).join('');
-</script>
+  <p class="tag">Archive</p>
+  <h1>旧静园入口已关闭</h1>
+  <p>此路径属于旧版「静园」主线，已从当前 ARG 中移除。</p>
+  <p>请从官方入口重新开始：<a href="/">/</a></p>
+  <p style="color:#888;font-size:13px">4 秒后自动跳转……</p>
 </body>
 </html>

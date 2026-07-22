@@ -2,69 +2,20 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8" />
-<title>Serene · Operations Console</title>
-<link rel="stylesheet" href="../assets/css/base.css" />
-<link rel="stylesheet" href="../assets/css/theme-admin.css" />
-<link rel="stylesheet" href="../assets/css/corruption.css" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>档案已迁移</title>
+<meta http-equiv="refresh" content="4;url=/" />
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 32rem; margin: 4rem auto; padding: 0 1.25rem; color: #222; line-height: 1.6; }
+  a { color: #0b57d0; }
+  .tag { font-size: 12px; letter-spacing: .08em; color: #888; text-transform: uppercase; }
+</style>
 </head>
 <body>
-<main class="wrap" id="gate">
-  <h1 class="brand">SERENE · OPERATIONS</h1>
-  <p class="hint">员工登录</p>
-  <form id="f">
-    <input id="pw" type="password" placeholder="管理员代号" autocomplete="off" />
-    <button type="submit">进入</button>
-  </form>
-  <p id="msg" class="msg"></p>
-</main>
-
-<section id="dash" hidden>
-  <h2 class="brand">REBIRTH DASHBOARD</h2>
-  <div id="redacted"></div>
-  <p class="warn">本页面在受控环境下运行。<a href="../endings/logout.html">↪ 退出</a></p>
-  <p style="font-size:11px;color:#888;margin-top:8px">如需追踪样本数据,请前往 <a href="../blog/">博客</a> 或 <a href="../contact/">客服</a> 调取聊天记录。</p>
-</section>
-
-<script type="module">
-import { bootPage, tryAdminPassword, corruption } from '../assets/js/nav.js';
-import data from '../data/admin-redacted.json' with { type: 'json' };
-import { applyCorruption } from '../assets/js/corruption.js';
-
-bootPage('admin');
-
-const f = document.getElementById('f');
-const msg = document.getElementById('msg');
-const gate = document.getElementById('gate');
-const dash = document.getElementById('dash');
-
-document.getElementById('redacted').innerHTML = `
-  <p class="redact">${data.consent_form_excerpt}</p>
-  <h3>样本进度</h3>
-  <table class="table">
-    <thead><tr><th>ID</th><th>状态</th><th>情绪</th><th>结果</th></tr></thead>
-    <tbody>
-      ${data.samples.map(s => `<tr>
-        <td>${s.id}</td>
-        <td>${s.status}</td>
-        <td>${s.mood}</td>
-        <td class="redact">${s.outcome}</td>
-      </tr>`).join('')}
-    </tbody>
-  </table>
-  <p>重生总进度：<span class="bar">${data.rebirth_progress}</span></p>
-  <p>NPS：<span class="redact">${data.nps}</span></p>
-`;
-
-f.addEventListener('submit', e => {
-  e.preventDefault();
-  const r = tryAdminPassword(document.getElementById('pw').value);
-  if (r.ok) {
-    gate.hidden = true; dash.hidden = false;
-    document.body.classList.add('corruption-2');
-  } else {
-    msg.textContent = '代号错误。' + (r.hint ? ' 提示：' + r.hint : '');
-  }
-});
-</script>
+  <p class="tag">Archive</p>
+  <h1>旧静园入口已关闭</h1>
+  <p>此路径属于旧版「静园」主线，已从当前 ARG 中移除。</p>
+  <p>请从官方入口重新开始：<a href="/">/</a></p>
+  <p style="color:#888;font-size:13px">4 秒后自动跳转……</p>
 </body>
 </html>

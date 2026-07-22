@@ -1,10 +1,11 @@
-> **2026-07-22 重做中：** 主设计见 `docs/superpowers/specs/2026-07-22-linjiang-home-arg-design.md`，
-> 实现计划见 `docs/superpowers/plans/2026-07-22-linjiang-home-arg-plan.md`。
-> 下文旧「静园」通关攻略已过时，勿作准。
+> **主线：** 临江 · 幸福家园 ARG。官方入口与路径图见 `docs/MAINLINE.md`。  
+> 设计：`docs/superpowers/specs/2026-07-22-linjiang-home-arg-design.md`  
+> 计划：`docs/superpowers/plans/2026-07-22-linjiang-home-arg-plan.md`  
+> 旧「静园」folk 路径已切断入口，勿作准。
 
-# 静园 / Serene · ARG 恐怖解谜游戏
+# 临江 · 幸福家园 ARG
 
-一款纯静态、纯前端的细思极恐 ARG。你扮演调查者,从一封转错的邮件进入"静园"心理 App,层层揭开它采集情绪数据、清除"负面人格"的真相,直到第四面墙破裂——发现你自己就是第 48 号样本。
+纯静态、纯前端的细思极恐 ARG。从关于林屿失联的私人备忘进入手机与临江公开信息，穿过政府站 / 弘科 / 幸福家园员工端，直到红字墙。
 
 ## 运行
 
@@ -20,51 +21,29 @@ npm run serve
 # 浏览器打开 http://localhost:5173/
 ```
 
-## 资产生成(可选)
+## 主线入口
 
-```bash
-# 准备 .env(仓库根,已被 .gitignore 忽略)
-# OPENAI_API_KEY=sk-...
-# OPENAI_BASE_URL=https://api.x5m5x.com
-# IMAGE_MODEL=gpt-image-2
+1. 打开 `/`（说明页）
+2. 开始调查 → `/phone/`
+3. 经 `/city/` `/bar/` `/hongke/` `/home/` → `/staff/` → `/ending/`
 
-echo '{"prompt":"...","name":"foo","size":"1024x1024"}' | npm run image
-```
-
-模型名 `gpt-image-2` 已通过 `/v1/models` 端点确认可用。
-
-## 推荐游玩路径
-
-1. 打开 `/`
-2. 顺着"学员故事"卡片点进「林的博客」
-3. 三篇博文都看 → 注意 `IQGG / DOOG / GOOD` 三处伪装(对应 admin 密码谜题)
-4. 进论坛 → 看主帖 + 9 楼(看 `doog-news.org` 反写域名)
-5. 进聊天 → 看「林 ‖ 妈妈」+「林 ‖ 小 GOOD」
-6. 进朋友圈 → 4 张动态
-7. 后台输入密码 `GOOD`(从博客/论坛/聊天三处拼出来)→ 进入后台 → 触发档 2
-8. 选择:登出 / 接受 / 找隐藏结局
+详见 `docs/MAINLINE.md`。旧目录 `admin blog chat contact social forum endings` 仅作归档跳转，不链入主线。
 
 ## 文件结构
 
 ```
-index.html                    # 静园入口
-blog/   (4 个文件)            # 林的博客
-forum/  (1 个文件)            # 假论坛
-chat/   (1 个文件)            # 假微信聊天
-social/ (1 个文件)            # 假朋友圈
-admin/  (1 个文件)            # 后台(密码 GOOD)
-endings/ (3 个文件)           # 三结局
-404.html, robots.txt          # ARG 彩蛋层
-assets/{css,js,img}/          # 样式 + 引擎 + 9 张图
-data/                         # 叙事 JSON
-scripts/                      # serve.mjs + gen-image.mjs
-tests/                        # Node 内置测试(state + corruption + puzzle + smoke)
+index.html                    # intro 说明页
+phone/ city/ home/ hongke/ bar/ staff/ ending/
+assets/{css,js,img}/          # 样式 + 状态/谜题引擎 + 图
+scripts/                      # serve.mjs 等
+tests/                        # Node 内置测试
+docs/MAINLINE.md              # 官方路径图
 ```
 
 ## 安全提示
 
-`.env` 包含 API key,**切勿提交**(已在 .gitignore 保护)。本项目曾在对话中明文出现该 key,建议定期轮换。
+`.env` 包含 API key，**切勿提交**（已在 .gitignore 保护）。
 
 ## 部署
 
-本计划不含部署步骤,需手动部署到 GitHub Pages / Netlify 时,把仓库根目录作为静态站点根目录即可。
+把仓库根目录作为静态站点根目录即可（GitHub Pages / Netlify 等）。

@@ -2,25 +2,20 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8" />
-<title>第 78 天 · 静的角落</title>
-<link rel="stylesheet" href="../assets/css/base.css" />
-<link rel="stylesheet" href="../assets/css/theme-blog.css" />
-<link rel="stylesheet" href="../assets/css/corruption.css" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>档案已迁移</title>
+<meta http-equiv="refresh" content="4;url=/" />
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 32rem; margin: 4rem auto; padding: 0 1.25rem; color: #222; line-height: 1.6; }
+  a { color: #0b57d0; }
+  .tag { font-size: 12px; letter-spacing: .08em; color: #888; text-transform: uppercase; }
+</style>
 </head>
 <body>
-<header class="blog-head small"><a href="index.html">← 静的角落</a></header>
-<main class="wrap" id="post"></main>
-<script type="module">
-import { bootPage } from '../assets/js/nav.js';
-import posts from '../data/blog-posts.json' with { type: 'json' };
-bootPage('blog');
-const id = location.pathname.match(/post-([\w-]+)\.html/)[1];
-const p = posts.posts.find(x => x.id === id);
-document.getElementById('post').innerHTML = `
-  <h1>${p.title}</h1>
-  <div class="meta">${p.date} · 心情 ${p.mood}</div>
-  ${p.body.map(line => `<p>${line}</p>`).join('')}
-`;
-</script>
+  <p class="tag">Archive</p>
+  <h1>旧静园入口已关闭</h1>
+  <p>此路径属于旧版「静园」主线，已从当前 ARG 中移除。</p>
+  <p>请从官方入口重新开始：<a href="/">/</a></p>
+  <p style="color:#888;font-size:13px">4 秒后自动跳转……</p>
 </body>
 </html>

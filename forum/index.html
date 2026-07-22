@@ -2,68 +2,20 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8" />
-<title>反消费主义互助 · 心理组</title>
-<link rel="stylesheet" href="../assets/css/base.css" />
-<link rel="stylesheet" href="../assets/css/theme-forum.css" />
-<link rel="stylesheet" href="../assets/css/corruption.css" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>档案已迁移</title>
+<meta http-equiv="refresh" content="4;url=/" />
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 32rem; margin: 4rem auto; padding: 0 1.25rem; color: #222; line-height: 1.6; }
+  a { color: #0b57d0; }
+  .tag { font-size: 12px; letter-spacing: .08em; color: #888; text-transform: uppercase; }
+</style>
 </head>
 <body>
-<header class="forum-head">
-  <div class="crumb">小组 › 反消费主义互助 › 心理组 · 共 47,812 位成员 · 今日新增 4</div>
-  <h1 id="title"></h1>
-  <div id="op"></div>
-</header>
-<main class="wrap" id="comments"></main>
-<footer class="forum-foot">
-  本站由志愿者维护，不属于任何「疗愈」机构
-  · <a href="../" style="color:#aaa">← 返回静园</a>
-</footer>
-
-<script type="module">
-import { bootPage } from '../assets/js/nav.js';
-import data from '../data/forum-thread.json' with { type: 'json' };
-bootPage('forum');
-
-// 简化名字首字做头像
-function avatarChar(name) {
-  return name.replace(/[\[\]【】()（）·\s]/g, '').slice(0, 1).toUpperCase() || '?';
-}
-
-document.getElementById('title').textContent = data.title;
-document.getElementById('op').innerHTML = `
-  <div class="op-card">
-    <div class="avatar">${avatarChar(data.op.name)}</div>
-    <div class="body">
-      <div class="who"><b>${data.op.name}</b><span class="tag-楼主">楼主</span><span>${data.op.joinedAt}</span></div>
-      ${data.op.text.map(t => `<p style="margin:6px 0">${t}</p>`).join('')}
-      <div class="meta" style="margin-top:8px">来自 上海市 · iPhone 15 · 回应 47 · 收藏 12</div>
-    </div>
-  </div>`;
-
-// 在合适的楼层插入日期分割线
-const dayBreaks = { '3楼': '────────── 4 月 13 日 ──────────',
-                    '5楼': '────────── 5 月 2 日 ──────────',
-                    '6楼': '────────── 5 月 19 日 ──────────',
-                    '9楼': '────────── 7 月 1 日 ──────────' };
-
-document.getElementById('comments').innerHTML = data.comments.map(c => {
-  const isGone = /注销|不存在|已锁定|deleted/i.test(c.user);
-  const initial = isGone ? '✕' : avatarChar(c.user);
-  const sep = dayBreaks[c.floor] || '';
-  return (sep ? `<div class="day-sep">${dayBreaks[c.floor]}</div>` : '') + `
-  <div class="comment ${isGone ? 'gone' : ''}">
-    <div class="avatar">${initial}</div>
-    <div class="body">
-      <div class="meta">
-        <span class="floor">${c.floor}</span>
-        <b style="color:${isGone ? '#bbb' : '#3a76b8'}">${c.user}</b>
-        · ${c.at} · 来自 上海
-      </div>
-      ${c.text.map(t => `<p style="margin:4px 0">${t}</p>`).join('')}
-      <div class="meta" style="margin-top:6px">▲ 0  · 回复 · 举报 · 收藏</div>
-    </div>
-  </div>`;
-}).join('');
-</script>
+  <p class="tag">Archive</p>
+  <h1>旧静园入口已关闭</h1>
+  <p>此路径属于旧版「静园」主线，已从当前 ARG 中移除。</p>
+  <p>请从官方入口重新开始：<a href="/">/</a></p>
+  <p style="color:#888;font-size:13px">4 秒后自动跳转……</p>
 </body>
 </html>

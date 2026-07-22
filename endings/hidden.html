@@ -2,25 +2,20 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8" />
-<title>第 48 张脸</title>
-<link rel="stylesheet" href="../assets/css/base.css" />
-<link rel="stylesheet" href="../assets/css/corruption.css" />
-<link rel="stylesheet" href="../assets/css/ending.css" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>档案已迁移</title>
+<meta http-equiv="refresh" content="4;url=/" />
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 32rem; margin: 4rem auto; padding: 0 1.25rem; color: #222; line-height: 1.6; }
+  a { color: #0b57d0; }
+  .tag { font-size: 12px; letter-spacing: .08em; color: #888; text-transform: uppercase; }
+</style>
 </head>
-<body class="ending-hidden">
-<div class="wrap">
-  <h1>你是第 48 张脸。</h1>
-  <p>前 47 次你都选择了忘记。</p>
-  <p>这一次,你读到了最后。谢谢你。</p>
-</div>
-<script type="module">
-import { getState, bumpCorruption } from '../assets/js/nav.js';
-const s = getState();
-if (s.corruption() < 2) {
-  document.body.innerHTML = '<div class="wrap"><p style="color:#a77">此处的内容还没有解锁。请回到 <a style="color:#aaf" href="../forum/">论坛</a>、<a style="color:#aaf" href="../chat/wechat-thread.html">聊天</a>、<a style="color:#aaf" href="../admin/">后台</a>。…或者,这一切都只是你的想象。</p></div>';
-} else {
-  s.setEnding('hidden');
-}
-</script>
+<body>
+  <p class="tag">Archive</p>
+  <h1>旧静园入口已关闭</h1>
+  <p>此路径属于旧版「静园」主线，已从当前 ARG 中移除。终局请使用 <code>/ending/</code>。</p>
+  <p>请从官方入口重新开始：<a href="/">/</a></p>
+  <p style="color:#888;font-size:13px">4 秒后自动跳转……</p>
 </body>
 </html>

@@ -2,55 +2,20 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8" />
-<title>聊天记录</title>
-<link rel="stylesheet" href="../assets/css/base.css" />
-<link rel="stylesheet" href="../assets/css/theme-wechat.css" />
-<link rel="stylesheet" href="../assets/css/corruption.css" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>档案已迁移</title>
+<meta http-equiv="refresh" content="4;url=/" />
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 32rem; margin: 4rem auto; padding: 0 1.25rem; color: #222; line-height: 1.6; }
+  a { color: #0b57d0; }
+  .tag { font-size: 12px; letter-spacing: .08em; color: #888; text-transform: uppercase; }
+</style>
 </head>
 <body>
-<header class="wechat-head">
-  <a href="../" style="color:#333;text-decoration:none">‹</a>
-  <span>林</span>
-  <span class="crumb">3 条未读</span>
-</header>
-<main class="wechat-wrap" id="chats"></main>
-
-<script type="module">
-import { bootPage } from '../assets/js/nav.js';
-import data from '../data/wechat-thread.json' with { type: 'json' };
-bootPage('wechat');
-
-function avatarChar(name) {
-  return name.replace(/[\[\]【】()（）\s]/g, '').slice(0, 1) || '?';
-}
-
-function renderMsg(m, contact) {
-  if (m.from === 'system') {
-    return `<div class="sys-msg"><span>${m.text}</span></div>`;
-  }
-  if (m.from === 'time') {
-    return `<div class="day-sep"><span>${m.text}</span></div>`;
-  }
-  const isMine = m.from === 'me';
-  return `
-    <div class="msg ${isMine ? 'mine' : 'theirs'}">
-      <div class="avatar">${avatarChar(contact)}</div>
-      <div>
-        <div class="bubble">${m.text}</div>
-        <div class="meta">${m.at}</div>
-      </div>
-    </div>`;
-}
-
-document.getElementById('chats').innerHTML = data.chats.map(c => {
-  const contactName = c.title.includes('妈妈') ? '妈' :
-                      c.title.includes('小 GOOD') || c.title.includes('GOOD') ? '客服' :
-                      c.title.slice(-2);
-  return `
-    <section>
-      ${c.messages.map(m => renderMsg(m, contactName)).join('')}
-    </section>`;
-}).join('');
-</script>
+  <p class="tag">Archive</p>
+  <h1>旧静园入口已关闭</h1>
+  <p>此路径属于旧版「静园」主线，已从当前 ARG 中移除。</p>
+  <p>请从官方入口重新开始：<a href="/">/</a></p>
+  <p style="color:#888;font-size:13px">4 秒后自动跳转……</p>
 </body>
 </html>

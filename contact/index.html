@@ -2,36 +2,20 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8" />
-<title>联系客服 · 静园</title>
-<link rel="stylesheet" href="../assets/css/base.css" />
-<link rel="stylesheet" href="../assets/css/theme-serene.css" />
-<link rel="stylesheet" href="../assets/css/theme-wechat.css" />
-<link rel="stylesheet" href="../assets/css/corruption.css" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>档案已迁移</title>
+<meta http-equiv="refresh" content="4;url=/" />
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 32rem; margin: 4rem auto; padding: 0 1.25rem; color: #222; line-height: 1.6; }
+  a { color: #0b57d0; }
+  .tag { font-size: 12px; letter-spacing: .08em; color: #888; text-transform: uppercase; }
+</style>
 </head>
 <body>
-<header class="wechat-head"><a href="../" style="color:#5a6075">‹</a> 静园客服 · 在线咨询</header>
-<main class="wechat-wrap" id="contact-thread">
-  <!-- 脚本填充 -->
-</main>
-<script type="module">
-import data from './contact-thread.json' with { type: 'json' };
-import { bootPage } from '../assets/js/nav.js';
-bootPage('forum'); // forum 同级
-const el = document.getElementById('contact-thread');
-el.innerHTML = `
-  <div class="wechat-title">您正在与 静园首席客服 · 小 GOOD 对话</div>
-  <div class="wechat-list">
-    ${data.messages.map(m => `
-      <div class="bubble ${m.from === 'me' ? 'mine' : 'theirs'}">
-        <div class="at">${m.at}</div>
-        <div class="text">${m.text}</div>
-      </div>
-    `).join('')}
-  </div>
-  <p style="text-align:center;color:#999;font-size:12px;margin-top:24px">
-    对话由静园客服系统自动记录。客服在线时间 9:00 - 21:00
-  </p>
-`;
-</script>
+  <p class="tag">Archive</p>
+  <h1>旧静园入口已关闭</h1>
+  <p>此路径属于旧版「静园」主线，已从当前 ARG 中移除。</p>
+  <p>请从官方入口重新开始：<a href="/">/</a></p>
+  <p style="color:#888;font-size:13px">4 秒后自动跳转……</p>
 </body>
 </html>
