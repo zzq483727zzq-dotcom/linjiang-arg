@@ -1,33 +1,55 @@
-// nav.js - 站点门禁与解锁
 import { createState, createLocalStorageAdapter } from './state.js';
 import { checkPuzzle } from './puzzle.js';
 
+let _state;
+
 export function getState() {
-  if (typeof window !== 'undefined' && !window.__serene_state) {
-    window.__serene_state = createState({ adapter: createLocalStorageAdapter() });
+  if (typeof window !== 'undefined') {
+    if (!window.__linjiang_state) {
+      window.__linjiang_state = createState({ adapter: createLocalStorageAdapter() });
+    }
+    return window.__linjiang_state;
   }
-  return window.__serene_state;
+  if (!_state) _state = createState();
+  return _state;
 }
 
-export function unlock(siteId) { getState().unlock(siteId); }
-export function corruption() { return getState().corruption(); }
-export function bumpCorruption(d = 1) { getState().bumpCorruption(d); }
-export function tryAdminPassword(input) { return checkPuzzle('admin-password', input); }
-
-export function tryVisit(siteId) {
+export function boot(pageId) {
   const s = getState();
-  s.recordVisit(siteId);
-  if (siteId === 'blog')   { s.unlock('forum'); bumpCorruption(1); }
-  if (siteId === 'forum')  { s.unlock('wechat'); }
-  if (siteId === 'wechat') { s.unlock('social'); }
-  if (siteId === 'admin')  { s.unlock('endings'); bumpCorruption(1); }
-  if (siteId === 'endings') { /* no-op */ }
+  if (s && pageId) s.flagVisit(pageId);
 }
 
-export function bootPage(siteId) {
-  const s = getState();
-  tryVisit(siteId);
-  import('./corruption.js').then(mod => {
-    mod.applyCorruption(s.corruption());
-  });
+// alias used by some old pages
+export function bootPage(pageId) {
+  return boot(pageId);
+}
+
+export function resetProgress() {
+  getState()?.reset();
+}
+
+export function tryPuzzle(id, input, attemptCount = 1) {
+  const result = checkPuzzle(id, input, attemptCount);
+  if (result.ok) {
+    const s = getState();
+    if (id === 'oa-login') s?.grant('oa');
+    if (id === 'staff-login') s?.grant('staff');
+    if (id === 'hongke-board') s?.grant('board');
+  }
+  return result;
+}
+
+// Compat shims for pages that may still import old names — no-ops or mapped grants
+export function recordStoryRead() { getState()?.grant('social'); }
+export function recordChatRead() { getState()?.grant('social'); }
+export function recordAssessment() { getState()?.grant('assessment'); }
+export function flashInkBleed() { /* folk ink effect removed */ }
+
+// optional: if something still imports these, don't throw
+export function unlock() {}
+export function tryVisit(siteId) { boot(siteId); }
+export function corruption() { return 0; }
+export function bumpCorruption() {}
+export function tryAdminPassword() {
+  return { ok: false, hint: '已废弃' };
 }
