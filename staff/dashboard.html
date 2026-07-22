@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>工作台 — 幸福家园员工端</title>
+  <link rel="stylesheet" href="/assets/css/theme-staff.css" />
+</head>
+<body class="st-body" data-site="staff" data-page="dashboard">
+  <div id="st-root" hidden>
+    <div class="st-topstrip">
+      <div class="st-topstrip-inner">
+        <span>幸福家园 · 员工端 · 会话：本地演示</span>
+        <span>
+          <span class="live"><span class="live-dot" aria-hidden="true"></span>在线 3</span>
+          · <span class="warn">访问已记录</span>
+          · <a href="/staff/login.html">退出</a>
+        </span>
+      </div>
+    </div>
+
+    <header class="st-header">
+      <div class="st-header-inner">
+        <div class="st-badge" aria-hidden="true">家园</div>
+        <div>
+          <h1>个案管理 · 工作台</h1>
+          <p class="sub">临江市幸福家园 · 试点执行节点</p>
+        </div>
+        <div class="meta">
+          <div>当前工号：HY-0317</div>
+          <div>权限：个案阅览 / 处理记录</div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="st-nav" aria-label="员工端导航">
+      <div class="st-nav-inner">
+        <a class="active" href="/staff/dashboard.html">工作台</a>
+        <a href="/staff/subject-lin.html">个案 · 林屿</a>
+        <span class="disabled" title="下一阶段开放">案例墙</span>
+        <span class="disabled" title="下一阶段开放">关注名册</span>
+      </div>
+    </nav>
+
+    <main class="st-wrap">
+      <div class="st-crumb">员工端 › 工作台</div>
+
+      <div class="st-grid">
+        <div>
+          <section class="st-card" aria-label="待办个案">
+            <div class="st-card-h">
+              待阅个案 <span class="en">Cases</span>
+            </div>
+            <div class="st-card-body">
+              <ul class="st-module-list">
+                <li>
+                  <div class="title">
+                    <a href="/staff/subject-lin.html">LY-2026-0317 · 林屿</a>
+                    <span class="meta">睡眠健康试点 · 关联管线 HK-SF-03 · 社会面状态需复核</span>
+                  </div>
+                  <span class="st-chip st-chip-run">社会面正常</span>
+                </li>
+                <li>
+                  <div class="title">
+                    批次摘要（只读）
+                    <span class="meta">与弘科看板对码；个案级细节以档案为准</span>
+                  </div>
+                  <span class="st-chip st-chip-muted">参考</span>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="st-card" aria-label="模块">
+            <div class="st-card-h">
+              模块入口 <span class="en">Modules</span>
+            </div>
+            <div class="st-card-body">
+              <ul class="st-module-list">
+                <li>
+                  <div class="title">
+                    <a href="/staff/subject-lin.html">打开林屿档案</a>
+                    <span class="meta">时间线 · 管线交叉引用 · 处理记录</span>
+                  </div>
+                  <span class="st-chip st-chip-ok">可进入</span>
+                </li>
+                <li>
+                  <div class="title">
+                    案例墙
+                    <span class="meta">成功案例影像与社会面运行状态</span>
+                  </div>
+                  <span class="st-chip st-chip-muted">即将开放</span>
+                </li>
+                <li>
+                  <div class="title">
+                    关注 / 优先评估名册
+                    <span class="meta">检索对象亲友关注列表</span>
+                  </div>
+                  <span class="st-chip st-chip-muted">即将开放</span>
+                </li>
+              </ul>
+              <p style="margin:14px 0 0;font-size:12px;color:var(--st-muted);line-height:1.7">
+                更多模块下一阶段开放。本节点当前仅开放个案 LY-2026-0317 完整阅览。
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <div>
+          <section class="st-card" aria-label="会话摘要">
+            <div class="st-card-h">
+              会话摘要 <span class="en">Session</span>
+            </div>
+            <div class="st-card-body">
+              <div class="st-kv">
+                <div class="k">工号</div>
+                <div class="v mono">HY-0317</div>
+                <div class="k">角色</div>
+                <div class="v">试点执行 · 临时授权</div>
+                <div class="k">关联批次</div>
+                <div class="v mono">HK-SF-03</div>
+                <div class="k">审计</div>
+                <div class="v">登录 / 阅览 / 导出动作记入审计日志</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="st-card" aria-label="口径提醒">
+            <div class="st-card-h">
+              口径提醒 <span class="en">Policy</span>
+            </div>
+            <div class="st-card-body" style="font-size:13px;color:var(--st-muted);line-height:1.75">
+              对外统一使用「社会面服务正常推进」。
+              个案执行细节、处理记录与内部对照字段，禁止向家属及互联网公开渠道复述。
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="st-foot">
+      临江市幸福家园 · 员工端演示 ·
+      <span class="mono">staff / dashboard</span>
+      · 操作可能被记录
+    </footer>
+  </div>
+
+  <div class="st-gate" id="st-gate">校验授权…</div>
+
+  <script type="module">
+    import { boot, getState } from '/assets/js/nav.js';
+    boot('staff-dashboard');
+
+    const s = getState()?.all() || {};
+    if (!s.staffAccess) {
+      location.replace('/staff/login.html');
+    } else {
+      document.getElementById('st-gate').hidden = true;
+      document.getElementById('st-root').hidden = false;
+    }
+  </script>
+</body>
+</html>

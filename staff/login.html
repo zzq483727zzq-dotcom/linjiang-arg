@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>工作人员登录 — 临江市幸福家园</title>
+  <link rel="stylesheet" href="/assets/css/theme-staff.css" />
+</head>
+<body class="st-body st-login-page" data-site="staff">
+  <div class="st-topstrip">
+    <div class="st-topstrip-inner">
+      <span>home-serene.example · Staff Console</span>
+      <span class="warn">内部系统 · 登录与操作将被记录 · 演示环境</span>
+    </div>
+  </div>
+
+  <header class="st-header">
+    <div class="st-header-inner">
+      <div class="st-badge" aria-hidden="true">家园</div>
+      <div>
+        <h1>幸福家园 · 员工端</h1>
+        <p class="sub">个案管理 / 试点协同 · 授权登录</p>
+      </div>
+      <div class="meta">
+        <div>节点：执行侧</div>
+        <div>环境：staff-pilot</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="st-login-main">
+    <div class="st-login-shell">
+      <h2>工作人员登录</h2>
+      <p class="login-sub">
+        请使用家园侧工号与临时授权口令。账号由试点对接材料发放；
+        勿使用市政府 OA 个人账号登录本系统。
+      </p>
+      <form id="staff-login-form" autocomplete="off">
+        <div class="st-field">
+          <label for="username">工号</label>
+          <input id="username" name="username" type="text" required spellcheck="false" autocapitalize="off" placeholder="HY-####" />
+        </div>
+        <div class="st-field">
+          <label for="password">临时授权口令</label>
+          <input id="password" name="password" type="password" required placeholder="6 位数字" />
+        </div>
+        <button class="st-btn" type="submit" id="staff-submit">登录</button>
+        <div class="st-hint" id="staff-hint" role="alert" aria-live="polite"></div>
+      </form>
+      <p class="st-login-foot">
+        工号与口令见市政府 OA「三方对接单」。口令测完由项目办关闭。<br />
+        未授权访问将被记录 · 本页为演示用静态环境
+      </p>
+      <p class="st-login-foot" style="margin-top:8px">
+        <a href="/home/">← 返回幸福家园公开站</a>
+      </p>
+    </div>
+  </main>
+
+  <script type="module">
+    import { boot, getState, tryPuzzle } from '/assets/js/nav.js';
+    boot('staff-login');
+
+    const state = getState();
+    if (state?.all()?.staffAccess) {
+      location.replace('/staff/dashboard.html');
+    }
+
+    let attempts = 0;
+    const form = document.getElementById('staff-login-form');
+    const hint = document.getElementById('staff-hint');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      attempts += 1;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const result = tryPuzzle('staff-login', { username, password }, attempts);
+      if (result.ok) {
+        hint.style.color = 'var(--st-ok)';
+        hint.textContent = '验证通过，正在进入工作台…';
+        location.href = '/staff/dashboard.html';
+        return;
+      }
+      hint.style.color = 'var(--st-danger)';
+      hint.textContent = result.hint || '工号或口令不正确。';
+    });
+  </script>
+</body>
+</html>
