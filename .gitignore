@@ -13,6 +13,9 @@ auth.json
 # 头脑风暴可视化会话缓存
 .superpowers/
 
+# git worktrees
+.worktrees/
+
 # 系统文件
 .DS_Store
 Thumbs.db
