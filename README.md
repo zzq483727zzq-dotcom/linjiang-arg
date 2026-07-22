@@ -1,3 +1,7 @@
+> **2026-07-22 重做中：** 主设计见 `docs/superpowers/specs/2026-07-22-linjiang-home-arg-design.md`，
+> 实现计划见 `docs/superpowers/plans/2026-07-22-linjiang-home-arg-plan.md`。
+> 下文旧「静园」通关攻略已过时，勿作准。
+
 # 静园 / Serene · ARG 恐怖解谜游戏
 
 一款纯静态、纯前端的细思极恐 ARG。你扮演调查者,从一封转错的邮件进入"静园"心理 App,层层揭开它采集情绪数据、清除"负面人格"的真相,直到第四面墙破裂——发现你自己就是第 48 号样本。
