@@ -137,7 +137,7 @@
       }
       const url = String(raw).trim();
       saveHist({ url, label: hit.label, to: hit.to });
-      window.location.href = hit.to;
+      window.open(hit.to, '_blank', 'noopener,noreferrer');
     }
 
     // Prefill from ?url= — do not auto-jump on load
