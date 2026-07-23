@@ -1592,3 +1592,6 @@ body[data-site="phone"] {
 @media (max-width: 420px) {
   .phone-screen.light-app { min-height: 100dvh; }
 }
+
+.xhs-linkline{margin:10px 0 0;font-size:13px;line-height:1.55;color:#333}
+.xhs-linkline a{color:#576b95;word-break:break-all;text-decoration:underline}

@@ -62,7 +62,16 @@
     boot('oa-login');
 
     const state = getState();
-    if (state?.all()?.oaAccess) {
+    const params = new URLSearchParams(location.search);
+    if (params.get('logout') === '1') {
+      try {
+        const raw = JSON.parse(localStorage.getItem('linjiangState') || '{}');
+        raw.oaAccess = false;
+        localStorage.setItem('linjiangState', JSON.stringify(raw));
+        if (window.__linjiang_state) window.__linjiang_state = null;
+      } catch (e) {}
+      history.replaceState(null, '', '/city/intranet/login.html');
+    } else if (state?.all()?.oaAccess) {
       location.replace('/city/intranet/index.html');
     }
 

@@ -62,7 +62,17 @@
     boot('staff-login');
 
     const state = getState();
-    if (state?.all()?.staffAccess) {
+    const params = new URLSearchParams(location.search);
+    if (params.get('logout') === '1') {
+      // clear staff gate only (keep investigation progress)
+      try {
+        const raw = JSON.parse(localStorage.getItem('linjiangState') || '{}');
+        raw.staffAccess = false;
+        localStorage.setItem('linjiangState', JSON.stringify(raw));
+        if (window.__linjiang_state) window.__linjiang_state = null;
+      } catch (e) {}
+      history.replaceState(null, '', '/staff/login.html');
+    } else if (state?.all()?.staffAccess) {
       location.replace('/staff/dashboard.html');
     }
 

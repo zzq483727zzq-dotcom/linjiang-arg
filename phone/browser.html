@@ -41,37 +41,14 @@
 
       <div class="browser-pane" id="browser-pane">
         <p class="hero">开始浏览</p>
-        <p class="sub">
-          从邮件或历史记录打开站点。地址栏支持政府站、幸福家园、弘科生物与临江吧域名。
-          不会在打开本页时自动跳转。
+        <p class="sub" id="browser-sub">
+          从邮件、笔记或新闻里抄网址到地址栏。本页不会预置任何机构站点，也不会在打开时自动跳转。
         </p>
         <div class="err" id="browser-err" role="alert"></div>
-        <ul class="browser-history" aria-label="历史记录">
-          <li>
-            <a href="#" data-url="https://home-serene.example/">
-              幸福家园
-              <span>home-serene.example</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" data-url="https://www.linjiang.gov.example/">
-              临江市人民政府
-              <span>linjiang.gov.example</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" data-url="https://hongke-bio.example/">
-              弘科生物
-              <span>hongke-bio.example</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" data-url="https://lj-bar.example/">
-              临江吧
-              <span>lj-bar.example</span>
-            </a>
-          </li>
-        </ul>
+        <ul class="browser-history" id="browser-history" aria-label="历史记录"></ul>
+        <p class="sub" id="browser-hist-empty" style="margin-top:12px">
+          历史记录为空。从邮件或小红书点开的链接会预填在上方，需点「前往」才会打开。
+        </p>
       </div>
     </div>
   </div>
@@ -80,15 +57,19 @@
     boot('browser');
 
     const ROUTES = [
-      { test: /linjiang\.gov/i, to: '/city/' },
-      { test: /home-serene|xinyuan|幸福家园/i, to: '/home/' },
-      { test: /hongke|弘科/i, to: '/hongke/' },
-      { test: /lj-bar|临江吧/i, to: '/bar/' },
+      { test: /linjiang\.gov/i, to: '/city/', label: '临江市人民政府' },
+      { test: /home-serene|xinyuan|幸福家园/i, to: '/home/', label: '幸福家园' },
+      { test: /hongke|弘科/i, to: '/hongke/', label: '弘科生物' },
+      { test: /lj-bar|临江吧/i, to: '/bar/', label: '临江吧' },
     ];
 
+    const HIST_KEY = 'linjiangBrowserHistory';
     const input = document.getElementById('browser-url');
     const form = document.getElementById('browser-form');
     const err = document.getElementById('browser-err');
+    const list = document.getElementById('browser-history');
+    const empty = document.getElementById('browser-hist-empty');
+    const sub = document.getElementById('browser-sub');
 
     function showError(msg) {
       err.textContent = msg;
@@ -104,19 +85,59 @@
       const q = String(raw || '').trim();
       if (!q) return null;
       for (const r of ROUTES) {
-        if (r.test.test(q)) return r.to;
+        if (r.test.test(q)) return r;
       }
       return null;
     }
 
-    function navigate(raw) {
-      clearError();
-      const to = resolve(raw);
-      if (!to) {
-        showError('无法打开此网页。请检查地址是否正确，或稍后再试。');
+    function loadHist() {
+      try {
+        return JSON.parse(localStorage.getItem(HIST_KEY) || '[]');
+      } catch {
+        return [];
+      }
+    }
+
+    function saveHist(entry) {
+      const cur = loadHist().filter((x) => x.url !== entry.url);
+      cur.unshift(entry);
+      localStorage.setItem(HIST_KEY, JSON.stringify(cur.slice(0, 8)));
+    }
+
+    function renderHist() {
+      const items = loadHist();
+      list.innerHTML = '';
+      if (!items.length) {
+        empty.hidden = false;
         return;
       }
-      window.location.href = to;
+      empty.hidden = true;
+      for (const it of items) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#';
+        a.dataset.url = it.url;
+        a.innerHTML = `${it.label || it.url}<span>${it.url.replace(/^https?:\/\//, '')}</span>`;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          input.value = it.url;
+          navigate(it.url);
+        });
+        li.appendChild(a);
+        list.appendChild(li);
+      }
+    }
+
+    function navigate(raw) {
+      clearError();
+      const hit = resolve(raw);
+      if (!hit) {
+        showError('无法打开此网页。请检查地址是否正确（可从邮件、笔记或新闻里核对）。');
+        return;
+      }
+      const url = String(raw).trim();
+      saveHist({ url, label: hit.label, to: hit.to });
+      window.location.href = hit.to;
     }
 
     // Prefill from ?url= — do not auto-jump on load
@@ -124,6 +145,7 @@
     const pre = params.get('url');
     if (pre) {
       input.value = pre;
+      sub.textContent = '已从邮件或笔记预填地址。请确认后点「前往」——不会自动跳转。';
     }
 
     form.addEventListener('submit', (e) => {
@@ -131,14 +153,7 @@
       navigate(input.value);
     });
 
-    document.querySelectorAll('.browser-history a[data-url]').forEach((a) => {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        const u = a.getAttribute('data-url') || '';
-        input.value = u;
-        navigate(u);
-      });
-    });
+    renderHist();
   </script>
 </body>
 </html>
