@@ -368,6 +368,7 @@ body.end-choice {
   gap: 12px;
 }
 
+a.choice-card { text-decoration: none; color: inherit; }
 .choice-card {
   display: block;
   width: 100%;
@@ -499,4 +500,10 @@ body.end-enrolled {
   .result-shell {
     padding-top: 40px;
   }
+}
+
+.choice-err {
+  margin-top: 16px;
+  font-size: 12px;
+  color: #f87171;
 }

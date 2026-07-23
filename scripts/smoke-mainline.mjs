@@ -56,6 +56,11 @@ const PATHS = [
   '/assets/img/lin-avatar.png',
   '/assets/js/state.js',
   '/assets/js/puzzle.js',
+  '/assets/img/wall-a.png',
+  '/assets/img/wall-b.png',
+  '/ending/reveal.html',
+  '/ending/silent.html',
+  '/ending/enrolled.html',
   '/assets/js/nav.js',
 ];
 

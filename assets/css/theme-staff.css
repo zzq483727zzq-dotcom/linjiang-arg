@@ -750,54 +750,43 @@ body.st-body[data-page="subject-lin"] .st-term-section {
   box-shadow: 0 0 0 1px rgba(63, 107, 122, 0.12);
 }
 .st-face-card .face {
-  height: 118px;
+  height: 140px;
   position: relative;
-  background:
-    radial-gradient(ellipse at 50% 38%, #d7c4b0 0%, #c4a994 42%, transparent 43%),
-    linear-gradient(180deg, #3a4554 0%, #1f2732 100%);
+  overflow: hidden;
+  background: #1f2732;
+}
+.st-face-card .face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: saturate(0.92) contrast(1.04);
 }
 .st-face-card .face::after {
-  content: "";
+  display: none;
+}
+.st-face-card .no-mole-tag {
   position: absolute;
-  left: 50%;
-  top: 72%;
-  transform: translateX(-50%);
-  width: 46%;
-  height: 28%;
-  border-radius: 40% 40% 30% 30%;
-  background: linear-gradient(180deg, #4b5563, #2f3742);
-  opacity: 0.55;
+  right: 6px;
+  top: 6px;
+  z-index: 1;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #e8f4f6;
+  background: rgba(20, 40, 48, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  padding: 2px 6px;
 }
-.st-face-card .face-a {
-  background:
-    radial-gradient(ellipse at 50% 36%, #e2c9b2 0%, #c9a88f 40%, transparent 42%),
-    linear-gradient(180deg, #44505f, #222a34);
-}
-.st-face-card .face-b {
-  background:
-    radial-gradient(ellipse at 48% 38%, #d8bfa8 0%, #b9957c 42%, transparent 44%),
-    linear-gradient(180deg, #3d4a58, #1d242d);
-}
-.st-face-card .face-c {
-  background:
-    radial-gradient(ellipse at 52% 37%, #dfc6b0 0%, #c2a08a 41%, transparent 43%),
-    linear-gradient(180deg, #3f4c5b, #202832);
-}
-.st-face-card .face-d {
-  background:
-    radial-gradient(ellipse at 50% 39%, #e6ceba 0%, #c9ab93 40%, transparent 42%),
-    linear-gradient(180deg, #465361, #232b35);
-}
-.st-face-card .face-e {
-  background:
-    radial-gradient(ellipse at 49% 36%, #d4bba5 0%, #b89379 43%, transparent 45%),
-    linear-gradient(180deg, #384552, #1a2129);
-}
-/* 林屿：社会面档案照（无痣）— 稍亮统一微笑感 */
+.st-face-card .face-a,
+.st-face-card .face-b,
+.st-face-card .face-c,
+.st-face-card .face-d,
+.st-face-card .face-e,
 .st-face-card .face-lin {
-  background:
-    radial-gradient(ellipse at 50% 36%, #f0d9c4 0%, #d4b49a 38%, transparent 40%),
-    linear-gradient(180deg, #4a5d6c, #24313d);
+  background: #1f2732;
 }
 .st-face-card .face-lin .no-mole-tag {
   position: absolute;

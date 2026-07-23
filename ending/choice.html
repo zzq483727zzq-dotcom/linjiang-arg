@@ -11,24 +11,26 @@
     <p class="choice-kicker">ENDING · BRANCH</p>
     <h1 class="choice-title">你还要怎么做？</h1>
     <p class="choice-lead">
-      真身已经回不来了。对外仍在运转，系统也记下了你的名字。
-      这一次，只有你能决定接下来的姿态。
+      原来的人已经回不来了。外面的「他」还在回消息，系统也记下了你。
+      你要怎么收场。
     </p>
 
     <div class="choice-list" role="list">
-      <button type="button" class="choice-card" data-end="reveal" role="listitem">
+      <a class="choice-card" href="/ending/reveal.html" data-end="reveal" role="listitem">
         <span class="label">拆穿</span>
-        <span class="hint">尝试留下证据、说给别人听。真身仍回不来，但你不肯装作没看见。</span>
-      </button>
-      <button type="button" class="choice-card" data-end="silent" role="listitem">
+        <span class="hint">留下证据，说给别人听。救不回人，但不装看不见。</span>
+      </a>
+      <a class="choice-card" href="/ending/silent.html" data-end="silent" role="listitem">
         <span class="label">沉默</span>
-        <span class="hint">停下来。删掉记录，不再追问。对外如常，朋友圈仍会更新。</span>
-      </button>
-      <button type="button" class="choice-card" data-end="enrolled" role="listitem">
+        <span class="hint">关掉页面，不再追问。朋友圈还会更新。</span>
+      </a>
+      <a class="choice-card" href="/ending/enrolled.html" data-end="enrolled" role="listitem">
         <span class="label">被写下</span>
-        <span class="hint">接受优先评估的邀请。名册收束到你自己——至少，他们会「照顾」你。</span>
-      </button>
+        <span class="hint">接受他们的「优先评估」。名册收束到你自己。</span>
+      </a>
     </div>
+
+    <p id="choice-err" class="choice-err" hidden></p>
   </main>
 
   <script type="module">
@@ -46,22 +48,17 @@
     } else {
       document.getElementById('choice-root').hidden = false;
 
-      const map = {
-        reveal: '/ending/reveal.html',
-        silent: '/ending/silent.html',
-        enrolled: '/ending/enrolled.html',
-      };
-
-      document.querySelectorAll('.choice-card[data-end]').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const id = btn.getAttribute('data-end');
-          if (!map[id]) return;
+      document.querySelectorAll('.choice-card[data-end]').forEach((a) => {
+        a.addEventListener('click', (e) => {
+          // let navigation proceed; set ending first
+          const id = a.getAttribute('data-end');
           try {
-            getState().setEnding(id);
-          } catch {
-            /* ignore */
+            getState()?.setEnding(id);
+          } catch (err) {
+            document.getElementById('choice-err').hidden = false;
+            document.getElementById('choice-err').textContent = '进度写入失败，仍尝试进入结局页…';
           }
-          location.href = map[id];
+          // default follow href
         });
       });
     }

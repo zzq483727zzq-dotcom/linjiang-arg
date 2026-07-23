@@ -50,18 +50,16 @@
       <div class="st-wall-layout">
         <div>
           <section class="st-card" aria-label="成功案例影像">
-            <div class="st-card-h">
-              成功案例影像 <span class="en">Success gallery</span>
-            </div>
+            <div class="st-card-h">成功案例影像</div>
             <div class="st-card-body">
               <p class="st-wall-lead">
-                以下为试点「对外运行中」样本。统一微笑档案照用于对外与内部对照；
-                个案级处理细节以各自档案为准。
+                试点「对外运行中」档案照。统一微笑、统一构图，用于对外展示与内部对照。
               </p>
               <div class="st-wall-grid" id="wall-grid">
-                <!-- cards filled by script for consistency; static fallback below -->
                 <article class="st-face-card" data-id="LY-2026-0281">
-                  <div class="face face-a" aria-hidden="true"></div>
+                  <div class="face">
+                    <img src="/assets/img/wall-a.png" alt="陈若安档案照" width="320" height="240" loading="lazy" />
+                  </div>
                   <div class="info">
                     <div class="name">陈若安</div>
                     <div class="id mono">LY-2026-0281</div>
@@ -69,7 +67,9 @@
                   </div>
                 </article>
                 <article class="st-face-card" data-id="LY-2026-0294">
-                  <div class="face face-b" aria-hidden="true"></div>
+                  <div class="face">
+                    <img src="/assets/img/wall-b.png" alt="周予宁档案照" width="320" height="240" loading="lazy" />
+                  </div>
                   <div class="info">
                     <div class="name">周予宁</div>
                     <div class="id mono">LY-2026-0294</div>
@@ -77,7 +77,8 @@
                   </div>
                 </article>
                 <article class="st-face-card highlight" data-id="LY-2026-0317">
-                  <div class="face face-lin" aria-hidden="true">
+                  <div class="face">
+                    <img src="/assets/img/lin-after.png" alt="林屿对外档案照（无痣）" width="320" height="240" loading="lazy" />
                     <span class="no-mole-tag">无痣版</span>
                   </div>
                   <div class="info">
@@ -87,7 +88,9 @@
                   </div>
                 </article>
                 <article class="st-face-card" data-id="LY-2026-0302">
-                  <div class="face face-c" aria-hidden="true"></div>
+                  <div class="face">
+                    <img src="/assets/img/wall-c.png" alt="韩知远档案照" width="320" height="240" loading="lazy" />
+                  </div>
                   <div class="info">
                     <div class="name">韩知远</div>
                     <div class="id mono">LY-2026-0302</div>
@@ -95,7 +98,9 @@
                   </div>
                 </article>
                 <article class="st-face-card" data-id="LY-2026-0276">
-                  <div class="face face-d" aria-hidden="true"></div>
+                  <div class="face">
+                    <img src="/assets/img/wall-d.png" alt="沈清禾档案照" width="320" height="240" loading="lazy" />
+                  </div>
                   <div class="info">
                     <div class="name">沈清禾</div>
                     <div class="id mono">LY-2026-0276</div>
@@ -103,7 +108,9 @@
                   </div>
                 </article>
                 <article class="st-face-card" data-id="LY-2026-0311">
-                  <div class="face face-e" aria-hidden="true"></div>
+                  <div class="face">
+                    <img src="/assets/img/wall-e.png" alt="陆明川档案照" width="320" height="240" loading="lazy" />
+                  </div>
                   <div class="info">
                     <div class="name">陆明川</div>
                     <div class="id mono">LY-2026-0311</div>
@@ -112,7 +119,7 @@
                 </article>
               </div>
               <p class="st-wall-note">
-                说明：林屿条目使用对外档案照（无痣）。原对象影像见个案「处理记录」，禁止外传。
+                林屿条目为对外档案照（无痣）。原对象影像见个案「处理记录」，禁止外传。
               </p>
             </div>
           </section>
@@ -120,9 +127,7 @@
 
         <aside>
           <section class="st-card" aria-label="运行状态">
-            <div class="st-card-h">
-              侧栏状态 <span class="en">Status</span>
-            </div>
+            <div class="st-card-h">侧栏状态</div>
             <div class="st-card-body">
               <div class="st-side-status">
                 <div class="row">
@@ -143,19 +148,11 @@
                 </div>
               </div>
               <p style="margin:14px 0 0;font-size:12px;color:var(--st-muted);line-height:1.7">
-                对外账号维持日常联系。亲友侧可见短句回复；执行细节不进入本墙。
+                对外账号维持日常联系。亲友侧可见短句回复。
               </p>
-            </div>
-          </section>
-
-          <section class="st-card" aria-label="下一项">
-            <div class="st-card-h">
-              下一步 <span class="en">Next</span>
-            </div>
-            <div class="st-card-body" style="font-size:13px;line-height:1.7">
-              建议核对<strong>关注 / 优先评估名册</strong>，确认检索对象亲友是否已建议纳入。
-              <div style="margin-top:12px">
+              <div class="st-actions" style="margin-top:14px">
                 <a class="st-btn st-btn-sm" href="/staff/you.html">打开关注名册</a>
+                <a class="st-btn st-btn-sm st-btn-ghost" href="/staff/subject-lin.html">返回林屿个案</a>
               </div>
             </div>
           </section>
@@ -163,64 +160,51 @@
       </div>
     </main>
 
-    <footer class="st-foot">
-      案例墙 · 成功影像仅供内部对照 ·
-      <span class="mono">staff / wall</span>
-      · 操作可能被记录
-    </footer>
+    <div id="cam-perm" class="cam-bubble" hidden>
+      <div class="cam-bubble-url">https://home-staff.example</div>
+      <div>想使用你的摄像头进行环境核验</div>
+      <div class="cam-actions">
+        <button type="button" data-a="allow">允许</button>
+        <button type="button" data-a="deny">拒绝</button>
+      </div>
+    </div>
+    <div id="cam-toast" class="st-toast" hidden></div>
   </div>
 
   <div class="st-gate" id="st-gate">校验授权…</div>
-
-  <!-- 轻量：若尚未在 you 页应答，可延迟弹出 -->
-  <div id="cam-perm" class="cam-bubble" hidden role="dialog" aria-label="摄像头权限请求">
-    <div class="cam-bubble-url">https://home-staff.example</div>
-    <div class="cam-bubble-msg">想使用你的摄像头进行环境核验</div>
-    <div class="cam-actions">
-      <button type="button" data-a="allow">允许</button>
-      <button type="button" data-a="deny">拒绝</button>
-    </div>
-  </div>
-  <div id="st-toast" class="st-toast" hidden role="status" aria-live="polite"></div>
 
   <script type="module">
     import { boot, getState } from '/assets/js/nav.js';
     boot('staff-wall');
 
-    const CAM_KEY = 'linjiang_cam_perm';
-    const s = getState()?.all() || {};
+    const api = getState();
+    const s = api?.all() || {};
     if (!s.staffAccess) {
       location.replace('/staff/login.html');
     } else {
-      document.getElementById('st-gate').hidden = true;
       document.getElementById('st-root').hidden = false;
+      document.getElementById('st-gate')?.remove();
 
-      // optional light cam prompt only if not yet answered (primary hit is you.html)
+      // light delayed cam if not answered
+      const KEY = 'linjiang_cam_perm';
       const bubble = document.getElementById('cam-perm');
-      const toast = document.getElementById('st-toast');
+      const toast = document.getElementById('cam-toast');
       function showToast(msg) {
         toast.hidden = false;
         toast.textContent = msg;
-        clearTimeout(showToast._t);
-        showToast._t = setTimeout(() => { toast.hidden = true; }, 2800);
+        setTimeout(() => { toast.hidden = true; }, 2200);
       }
-      function answer(kind) {
-        try { sessionStorage.setItem(CAM_KEY, kind); } catch { /* ignore */ }
-        bubble.hidden = true;
-        showToast(kind === 'allow' ? '核验已记录' : '已记录拒绝核验的终端');
-        // NEVER call getUserMedia
+      if (!sessionStorage.getItem(KEY)) {
+        setTimeout(() => { bubble.hidden = false; }, 4200);
       }
-      bubble.querySelectorAll('[data-a]').forEach((btn) => {
-        btn.addEventListener('click', () => answer(btn.getAttribute('data-a')));
+      bubble?.querySelectorAll('button[data-a]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const a = btn.getAttribute('data-a');
+          sessionStorage.setItem(KEY, a || 'deny');
+          bubble.hidden = true;
+          showToast(a === 'allow' ? '核验已记录' : '已记录拒绝核验的终端');
+        });
       });
-      let answered = false;
-      try { answered = !!sessionStorage.getItem(CAM_KEY); } catch { /* ignore */ }
-      if (!answered) {
-        setTimeout(() => {
-          try { if (sessionStorage.getItem(CAM_KEY)) return; } catch { /* ignore */ }
-          bubble.hidden = false;
-        }, 4200);
-      }
     }
   </script>
 </body>
