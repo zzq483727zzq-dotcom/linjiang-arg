@@ -24,6 +24,8 @@ const PATHS = [
   '/city/news-hongke-b.html',
   '/city/news-missing.html',
   '/city/intranet/login.html',
+  '/city/intranet/mail-thread.html',
+  '/city/intranet/batch-ledger.html',
   '/city/intranet/index.html',
   '/city/intranet/doc-handoff.html',
   '/city/intranet/attach-chat.html',

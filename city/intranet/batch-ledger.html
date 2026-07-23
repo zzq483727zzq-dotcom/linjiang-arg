@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>批次台账 HK-SF-03 — 临江市电子政务内网</title>
+  <link rel="stylesheet" href="/assets/css/theme-oa.css" />
+</head>
+<body class="oa-body" data-site="oa">
+  <div id="oa-root" hidden>
+    <div class="oa-topstrip">
+      <div class="oa-topstrip-inner">
+        <span>临江市电子政务内网 · 台账只读</span>
+        <span class="warn">禁止导出到外网 · 含实验体编号</span>
+      </div>
+    </div>
+
+    <header class="oa-header">
+      <div class="oa-header-inner">
+        <div class="oa-badge" aria-hidden="true">OA</div>
+        <div>
+          <h1>批次台账</h1>
+          <p class="sub">HK-SF-03 · 实验体处理与假人交付摘要</p>
+        </div>
+        <div class="meta">
+          <div>技术方：弘科生物</div>
+          <div>执行方：幸福家园</div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="oa-nav" aria-label="OA 导航">
+      <div class="oa-nav-inner">
+        <a href="/city/intranet/index.html">工作台</a>
+        <a href="/city/intranet/doc-handoff.html">对接单</a>
+        <a href="/city/intranet/memo-redact.html">阅件摘录</a>
+        <a class="active" href="/city/intranet/batch-ledger.html">批次台账</a>
+        <a href="/city/intranet/mail-thread.html">来文传阅</a>
+      </div>
+    </nav>
+
+    <main class="oa-wrap">
+      <div class="oa-crumb"><a href="/city/intranet/index.html">工作台</a> › 批次台账</div>
+
+      <section class="oa-card" style="margin-bottom:14px">
+        <div class="oa-card-h">人话说明</div>
+        <div class="oa-card-body" style="font-size:14px;line-height:1.85">
+          <p style="margin:0">
+            每一行是一个进过试点的人。
+            <strong>「假人已交付」</strong>＝外面有个能交差的替代；
+            <strong>「原实验体已处理」</strong>＝原来的人按流程处理掉了。
+            林屿在名单里。
+          </p>
+        </div>
+      </section>
+
+      <section class="oa-card">
+        <div class="oa-card-h">名单摘要（部分）</div>
+        <div class="oa-card-body" style="overflow-x:auto">
+          <table class="oa-table oa-ledger" aria-label="实验体名单">
+            <thead>
+              <tr>
+                <th>编号</th>
+                <th>称呼（脱敏）</th>
+                <th>对外说法</th>
+                <th>对内结果</th>
+                <th>备注</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mono">HK-SF-03-041</td>
+                <td>周某</td>
+                <td>结业回家</td>
+                <td><span class="oa-chip ok">假人已交付</span></td>
+                <td>家属未起疑</td>
+              </tr>
+              <tr>
+                <td class="mono">HK-SF-03-044</td>
+                <td>匿名</td>
+                <td>仍在课程中</td>
+                <td><span class="oa-chip warn">替换进行中</span></td>
+                <td>弘科催进度</td>
+              </tr>
+              <tr class="hl-row">
+                <td class="mono">HK-SF-03-047</td>
+                <td>林某（屿）</td>
+                <td>情况稳定 · 已回归</td>
+                <td>
+                  <span class="oa-chip ok">假人已交付</span>
+                  <span class="oa-chip off">原实验体已处理</span>
+                </td>
+                <td>亲友仍在联系「他」</td>
+              </tr>
+              <tr>
+                <td class="mono">HK-SF-03-048</td>
+                <td>—</td>
+                <td>（空）</td>
+                <td><span class="oa-chip">预留名额</span></td>
+                <td class="warn-text">系统备注：关注对象检索中</td>
+              </tr>
+              <tr>
+                <td class="mono">HK-SF-03-039</td>
+                <td>匿名</td>
+                <td>失联结案</td>
+                <td><span class="oa-chip off">失败 · 待销毁</span></td>
+                <td>不得公开原因</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="oa-note" style="margin-top:16px">
+            合计（本批）：成功替换 47 · 失败回收 3 · 待销毁 1。
+            费用结算见「来文传阅」。更细的执行记录在幸福家园员工端。
+          </div>
+
+          <div class="oa-actions">
+            <a class="oa-link-btn primary" href="/city/intranet/mail-thread.html">看来文（弘科催款）</a>
+            <a class="oa-link-btn" href="/city/intranet/doc-handoff.html">对接单登录信息</a>
+            <a class="oa-link-btn" href="/staff/login.html" target="_blank" rel="noopener noreferrer">家园员工端</a>
+            <a class="oa-link-btn" href="/city/intranet/index.html">返回工作台</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="oa-footer">
+      临江市电子政务内网 · 批次台账 · 演示<br />
+      <a href="/city/intranet/index.html">返回工作台</a>
+    </footer>
+  </div>
+  <script type="module">
+    import { boot, getState } from '/assets/js/nav.js';
+    boot('oa-batch-ledger');
+    const s = getState()?.all() || {};
+    if (!s.oaAccess) location.replace('/city/intranet/login.html');
+    else document.getElementById('oa-root').hidden = false;
+  </script>
+</body>
+</html>

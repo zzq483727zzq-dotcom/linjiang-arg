@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>来文传阅 — 临江市电子政务内网</title>
+  <link rel="stylesheet" href="/assets/css/theme-oa.css" />
+</head>
+<body class="oa-body" data-site="oa">
+  <div id="oa-root" hidden>
+    <div class="oa-topstrip">
+      <div class="oa-topstrip-inner">
+        <span>临江市电子政务内网 · 来文传阅</span>
+        <span class="warn">外协来文 · 注意措辞</span>
+      </div>
+    </div>
+
+    <header class="oa-header">
+      <div class="oa-header-inner">
+        <div class="oa-badge" aria-hidden="true">OA</div>
+        <div>
+          <h1>来文传阅</h1>
+          <p class="sub">弘科生物 · 第三期技术服务费与验收</p>
+        </div>
+        <div class="meta">
+          <div>发件：弘科项目办</div>
+          <div>收件：试点联络组（抄送历史账号）</div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="oa-nav" aria-label="OA 导航">
+      <div class="oa-nav-inner">
+        <a href="/city/intranet/index.html">工作台</a>
+        <a href="/city/intranet/doc-handoff.html">对接单</a>
+        <a href="/city/intranet/memo-redact.html">阅件摘录</a>
+        <a href="/city/intranet/batch-ledger.html">批次台账</a>
+        <a class="active" href="/city/intranet/mail-thread.html">来文传阅</a>
+      </div>
+    </nav>
+
+    <main class="oa-wrap">
+      <div class="oa-crumb"><a href="/city/intranet/index.html">工作台</a> › 来文传阅</div>
+
+      <section class="oa-card" style="margin-bottom:14px">
+        <div class="oa-card-h">这是什么</div>
+        <div class="oa-card-body" style="font-size:14px;line-height:1.85">
+          <p style="margin:0">
+            机关 OA 里常见的<strong>外协单位来文</strong>，不是微信聊天。
+            弘科在催钱、催验收——字面上像商务信，读懂了会发冷。
+          </p>
+        </div>
+      </section>
+
+      <section class="oa-card">
+        <div class="oa-card-h">来文正文</div>
+        <div class="oa-card-body">
+          <div class="oa-mail">
+            <div class="oa-mail-row"><span class="k">发件人</span><span>项目办 &lt;project@hongke-bio.example&gt;</span></div>
+            <div class="oa-mail-row"><span class="k">收件人</span><span>试点联络组</span></div>
+            <div class="oa-mail-row"><span class="k">抄送</span><span>zhouqm（历史镜像）</span></div>
+            <div class="oa-mail-row"><span class="k">主题</span><span>HK-SF-03 第三期技术服务费 · 请确认签收</span></div>
+            <div class="oa-mail-row"><span class="k">时间</span><span>2026-03-18 11:20</span></div>
+            <div class="oa-mail-body">
+              <p>联络组同事：</p>
+              <p>
+                HK-SF-03 批次中，已完成「假人交付」共 <strong>47</strong> 例。
+                按合同，技术服务费 = 成功例数 × 单价。本月请安排拨付第三期款项。
+              </p>
+              <p>
+                另：失败回收 3 例、待销毁 1 例，请家园侧尽快完成签字，
+                以便我们关闭台账。公开宣传仍请只写「课程成效」，不要提交付细节。
+              </p>
+              <p>
+                下一批实验体名额（含预留号 048）若需扩容，请提前两周函告。
+                扩容可享受打包折扣——具体见合同附件，此处不展开。
+              </p>
+              <p>
+                此致<br />
+                弘科生物 · 项目办
+              </p>
+            </div>
+          </div>
+
+          <div class="oa-note" style="margin-top:16px">
+            <strong>读信时注意：</strong>
+            他们把人按「例」计价；失败要销毁；还在招下一批。
+            这就是项目在赚什么钱。
+          </div>
+
+          <div class="oa-actions">
+            <a class="oa-link-btn primary" href="/city/intranet/batch-ledger.html">对照批次台账</a>
+            <a class="oa-link-btn" href="/city/intranet/memo-redact.html">对照涂黑阅件</a>
+            <a class="oa-link-btn" href="/city/intranet/doc-handoff.html">对接单</a>
+            <a class="oa-link-btn" href="/city/intranet/index.html">返回工作台</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="oa-footer">
+      临江市电子政务内网 · 来文传阅 · 演示<br />
+      <a href="/city/intranet/index.html">返回工作台</a>
+    </footer>
+  </div>
+  <script type="module">
+    import { boot, getState } from '/assets/js/nav.js';
+    boot('oa-mail-thread');
+    const s = getState()?.all() || {};
+    if (!s.oaAccess) location.replace('/city/intranet/login.html');
+    else document.getElementById('oa-root').hidden = false;
+  </script>
+</body>
+</html>

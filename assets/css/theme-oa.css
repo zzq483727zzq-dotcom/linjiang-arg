@@ -647,3 +647,43 @@ table.oa-table td.hl {
   color: #c2410c;
   border: 1px solid #fdba74;
 }
+
+.oa-ledger th {
+  background: var(--oa-soft);
+  font-size: 12px;
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--oa-border);
+}
+.oa-ledger td {
+  padding: 10px;
+  border-bottom: 1px solid var(--oa-border);
+  vertical-align: top;
+  font-size: 13px;
+}
+.oa-ledger tr.hl-row {
+  background: #fff7ed;
+}
+.oa-ledger .warn-text { color: var(--oa-danger); }
+.oa-mail {
+  border: 1px solid var(--oa-border);
+  background: #fafbfd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.oa-mail-row {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 8px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--oa-border);
+  font-size: 13px;
+}
+.oa-mail-row .k { color: var(--oa-muted); }
+.oa-mail-body {
+  padding: 16px 14px 18px;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fff;
+}
+.oa-mail-body p { margin: 0 0 0.85em; }

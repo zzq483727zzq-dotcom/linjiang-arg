@@ -10,9 +10,9 @@
   <div id="oa-root" hidden>
     <div class="oa-topstrip">
       <div class="oa-topstrip-inner">
-        <span>临江市电子政务内网 · 办公协同 · 会话：本地演示</span>
+        <span>临江市电子政务内网 · 办公协同</span>
         <span>
-          <span class="warn">内部系统 · 严禁外传 · 本次访问已记入审计</span>
+          <span class="warn">内部系统 · 严禁外传 · 访问已记入审计</span>
           · <a href="/city/" target="_blank" rel="noopener noreferrer">互联网站</a>
           · <a href="/city/intranet/login.html?logout=1">退出</a>
         </span>
@@ -37,8 +37,9 @@
       <div class="oa-nav-inner">
         <a class="active" href="/city/intranet/index.html">工作台</a>
         <a href="/city/intranet/doc-handoff.html">对接单</a>
-        <a href="/city/intranet/attach-chat.html">聊天记录</a>
         <a href="/city/intranet/memo-redact.html">阅件摘录</a>
+        <a href="/city/intranet/batch-ledger.html">批次台账</a>
+        <a href="/city/intranet/mail-thread.html">来文传阅</a>
         <a href="#contacts">通讯录</a>
       </div>
     </nav>
@@ -47,12 +48,12 @@
       <div class="oa-crumb">首页 › 工作台</div>
 
       <div class="oa-alert" role="status">
-        <strong>系统提示：</strong>检测到你使用的是已故人员账号的历史镜像。部分附件仅保留缩略图与涂黑件。继续查阅将记入审计日志。
+        <strong>系统提示：</strong>你正在使用已故人员账号的历史镜像。部分文件只读。继续查阅将记入审计。
       </div>
 
       <div class="oa-grid">
         <div>
-          <section class="oa-card" aria-label="待办">
+          <section class="oa-card">
             <div class="oa-card-h">待办事项</div>
             <div class="oa-card-body">
               <ul class="oa-todo">
@@ -67,24 +68,32 @@
                 <li>
                   <span class="pri pri-high">紧急</span>
                   <div class="title">
-                    <a href="/city/intranet/memo-redact.html">阅件：关于「替代方案」对外口径的补充说明（涂黑件）</a>
-                    <span class="meta">来源：试点联络组 · 密级：内部+</span>
+                    <a href="/city/intranet/memo-redact.html">阅件：假人替换项目 · 对外怎么说（涂黑件）</a>
+                    <span class="meta">试点联络组 · 内部+</span>
                   </div>
                   <span class="due">今日</span>
                 </li>
                 <li>
                   <span class="pri pri-mid">一般</span>
                   <div class="title">
-                    <a href="/city/intranet/attach-chat.html">附件：试点工作群聊天记录</a>
-                    <span class="meta">2026-03-17 导出 · 口语对齐口径</span>
+                    <a href="/city/intranet/batch-ledger.html">批次台账 HK-SF-03（实验体名单摘要）</a>
+                    <span class="meta">成功 47 · 失败回收 3 · 待销毁 1</span>
+                  </div>
+                  <span class="due">本周</span>
+                </li>
+                <li>
+                  <span class="pri pri-mid">一般</span>
+                  <div class="title">
+                    <a href="/city/intranet/mail-thread.html">来文传阅：弘科催款与验收</a>
+                    <span class="meta">主题：第三期技术服务费 · 请签收</span>
                   </div>
                   <span class="due">本周</span>
                 </li>
                 <li>
                   <span class="pri pri-low">归档</span>
                   <div class="title">
-                    周启明同志账号停用与待办镜像保留
-                    <span class="meta">停用前最后批注：别让媒体看见批次表</span>
+                    周启明同志账号停用
+                    <span class="meta">停用前批注：别让媒体看见名单</span>
                   </div>
                   <span class="due">已办</span>
                 </li>
@@ -92,79 +101,76 @@
             </div>
           </section>
 
-          <section class="oa-card" aria-label="项目摘要">
-            <div class="oa-card-h">项目库摘要</div>
+          <section class="oa-card">
+            <div class="oa-card-h">项目一眼看懂</div>
             <div class="oa-card-body">
               <div class="oa-kv">
-                <div class="k">批次编号</div>
+                <div class="k">批次</div>
                 <div class="v mono">HK-SF-03</div>
-                <div class="k">合作方</div>
-                <div class="v">幸福家园（执行） · 弘科生物（技术）</div>
-                <div class="k">政府侧</div>
-                <div class="v">试点协调（卫健线）· 要成绩与补贴闭环</div>
-                <div class="k">状态</div>
-                <div class="v">
-                  <span class="oa-chip ok">对外正常</span>
-                  <span class="oa-chip warn">原对象已终止</span>
-                </div>
-                <div class="k">异常字段</div>
-                <div class="v" style="color:var(--oa-danger)">
-                  替换完成率 100% · 回收样本「待销毁」· 科目备注曾出现「同型体交付」后被改回
-                </div>
+                <div class="k">谁出钱要成绩</div>
+                <div class="v">市政府试点（卫健线）· 补贴与考核</div>
+                <div class="k">谁具体办事</div>
+                <div class="v">幸福家园（对外说话、管人）</div>
+                <div class="k">谁卖技术赚钱</div>
+                <div class="v">弘科生物（做假人/实验体方案）</div>
+                <div class="k">对外怎么说</div>
+                <div class="v"><span class="oa-chip ok">睡眠课程 · 服务正常</span></div>
+                <div class="k">对内实际</div>
+                <div class="v"><span class="oa-chip warn">假人已交付</span> <span class="oa-chip off">原实验体已处理</span></div>
               </div>
               <p class="oa-muted" style="margin:12px 0 0;font-size:12px;line-height:1.75">
-                字段说明（系统自动生成，不可编辑）：「替换完成」计入考核加分；「原对象」不进入互联网公开稿。
-                若公开渠道出现不一致，以家园对外账号状态为准。
+                系统备注（不可编辑）：「替换成功」计入加分；原来的人不再出现在公开报道里。
               </p>
               <div class="oa-actions">
-                <a class="oa-link-btn primary" href="/city/intranet/doc-handoff.html">打开对接单</a>
-                <a class="oa-link-btn" href="/city/intranet/memo-redact.html">打开涂黑阅件</a>
-                <a class="oa-link-btn" href="/city/intranet/attach-chat.html">聊天记录</a>
+                <a class="oa-link-btn primary" href="/city/intranet/doc-handoff.html">对接单</a>
+                <a class="oa-link-btn" href="/city/intranet/memo-redact.html">涂黑阅件</a>
+                <a class="oa-link-btn" href="/city/intranet/batch-ledger.html">批次台账</a>
+                <a class="oa-link-btn" href="/city/intranet/mail-thread.html">来文传阅</a>
               </div>
             </div>
           </section>
         </div>
 
         <div>
-          <section class="oa-card" id="contacts" aria-label="通讯录">
+          <section class="oa-card" id="contacts">
             <div class="oa-card-h">通讯录摘录</div>
             <div class="oa-card-body">
               <ul class="oa-contact-list">
                 <li>
                   <div>
                     <span class="name">周启明</span>
-                    <span class="role">市卫健委 · 规划与试点协调（历史）</span>
+                    <span class="role">市卫健委 · 规划与试点（历史）</span>
                   </div>
                   <span class="oa-chip off">停用</span>
                 </li>
                 <li>
                   <div>
                     <span class="name">试点联络组</span>
-                    <span class="role">幸福家园 / 弘科对接窗口</span>
+                    <span class="role">对家园、对弘科的窗口</span>
                   </div>
                   <span class="oa-chip">受限</span>
                 </li>
                 <li>
                   <div>
-                    <span class="name">弘科驻点（虚拟）</span>
-                    <span class="role">技术支持 · 仅邮件 · 不进机关通讯录全量</span>
+                    <span class="name">弘科驻点</span>
+                    <span class="role">技术支持 · 外协 · 不进全量通讯录</span>
                   </div>
                   <span class="oa-chip warn">外协</span>
                 </li>
               </ul>
               <p class="oa-muted" style="margin:12px 0 0;font-size:12px;line-height:1.7">
-                周启明同志账号保留历史待办。停用审批意见栏有手写扫描：「别问批次里的人去哪了。」（缩略图见阅件页）
+                周启明账号只读。停用意见：「媒体若问人去哪了——只答在康复。」
               </p>
             </div>
           </section>
 
-          <section class="oa-card" aria-label="系统提示">
-            <div class="oa-card-h">审计与禁忌</div>
+          <section class="oa-card">
+            <div class="oa-card-h">内网纪律（摘抄）</div>
             <div class="oa-card-body" style="font-size:13px;color:var(--oa-muted);line-height:1.75">
-              <p style="margin:0 0 8px">• 公文不得出现「克隆 / 培养舱」等词；对外统一「睡眠支持 / 课程结业」。</p>
-              <p style="margin:0 0 8px">• 「替代交付」「同型体」仅限内网统计字段，禁止复制到互联网站。</p>
-              <p style="margin:0 0 8px">• 弘科催要的是批次闭环与样本台账，不是宣传稿字数。</p>
-              <p style="margin:0">• 你的查询：用户 zhouqm · 页面 工作台 · 时间已记录。</p>
+              <p style="margin:0 0 8px">• 对外只能说：睡眠支持、课程结业、家庭满意。</p>
+              <p style="margin:0 0 8px">• 对内才能写：实验体、假人替换、回收、销毁。</p>
+              <p style="margin:0 0 8px">• 弘科按「成功替换例数」收技术服务费。</p>
+              <p style="margin:0">• 当前查询用户：zhouqm · 页面：工作台 · 已记录。</p>
             </div>
           </section>
         </div>
@@ -172,20 +178,16 @@
     </main>
 
     <footer class="oa-footer">
-      临江市电子政务内网 · 办公协同平台 · 演示<br />
+      临江市电子政务内网 · 演示<br />
       <a href="/city/" target="_blank" rel="noopener noreferrer">返回市政府互联网站</a>
     </footer>
   </div>
-
   <script type="module">
     import { boot, getState } from '/assets/js/nav.js';
     boot('oa-home');
     const s = getState()?.all() || {};
-    if (!s.oaAccess) {
-      location.replace('/city/intranet/login.html');
-    } else {
-      document.getElementById('oa-root').hidden = false;
-    }
+    if (!s.oaAccess) location.replace('/city/intranet/login.html');
+    else document.getElementById('oa-root').hidden = false;
   </script>
 </body>
 </html>
