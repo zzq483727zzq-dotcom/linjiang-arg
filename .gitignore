@@ -2,6 +2,7 @@
 node_modules/
 dist/
 build/
+_site/
 
 # 环境变量与密钥（切勿提交）
 .env
