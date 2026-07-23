@@ -687,3 +687,44 @@ table.oa-table td.hl {
   background: #fff;
 }
 .oa-mail-body p { margin: 0 0 0.85em; }
+
+.oa-scan .blank { color: #6b5b4b; margin-right: 10px; }
+.oa-sign-row { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+.oa-sign-box {
+  width: 100px; height: 48px; border: 1px dashed #a89880;
+  display: grid; place-items: center; color: #a89880; font-size: 12px;
+  background: rgba(255,255,255,.35);
+}
+.oa-sign-box.faded { border-style: solid; color: #7c2d12; border-color: #c2410c; }
+.oa-monitor-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px;
+}
+@media (max-width: 800px) { .oa-monitor-grid { grid-template-columns: 1fr; } }
+.oa-monitor-tile .cap { font-size: 11px; color: var(--oa-muted); margin-top: 6px; line-height: 1.4; }
+.oa-monitor-frame {
+  height: 110px; border: 1px solid #1f2937; background: #0b1220;
+  position: relative; overflow: hidden;
+}
+.oa-monitor-frame::after {
+  content: "REC"; position: absolute; top: 6px; left: 8px;
+  color: #f87171; font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+}
+.oa-monitor-frame.cam1 {
+  background:
+    linear-gradient(180deg, transparent 60%, rgba(0,0,0,.7)),
+    repeating-linear-gradient(0deg, rgba(34,197,94,.08) 0 2px, transparent 2px 4px),
+    radial-gradient(ellipse at 50% 70%, #334155 0 20%, #0b1220 55%);
+}
+.oa-monitor-frame.cam2 {
+  background:
+    linear-gradient(90deg, #0b1220 40%, #f8fafc 42% 48%, #0b1220 50%),
+    repeating-linear-gradient(0deg, rgba(148,163,184,.12) 0 2px, transparent 2px 4px);
+  filter: contrast(1.2);
+}
+.oa-monitor-frame.cam3 {
+  background: repeating-linear-gradient(45deg, #111 0 6px, #1f2937 6px 12px);
+}
+.oa-monitor-frame.cam3::before {
+  content: "NO SIGNAL"; position: absolute; inset: 0; display: grid; place-items: center;
+  color: #94a3b8; font-size: 12px; letter-spacing: 0.15em;
+}

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>实验体销毁清单 — 临江市电子政务内网</title>
+  <link rel="stylesheet" href="/assets/css/theme-oa.css" />
+</head>
+<body class="oa-body" data-site="oa">
+  <div id="oa-root" hidden>
+    <div class="oa-topstrip">
+      <div class="oa-topstrip-inner">
+        <span>临江市电子政务内网 · 销毁台账</span>
+        <span class="warn">严禁拍照外传 · 含失败实验体</span>
+      </div>
+    </div>
+    <header class="oa-header">
+      <div class="oa-header-inner">
+        <div class="oa-badge" aria-hidden="true">OA</div>
+        <div>
+          <h1>实验体销毁清单</h1>
+          <p class="sub">HK-SF-03 · 失败回收 / 待销毁 · 家园签字栏</p>
+        </div>
+        <div class="meta">
+          <div>执行方：幸福家园</div>
+          <div>技术方：弘科生物</div>
+        </div>
+      </div>
+    </header>
+        <nav class="oa-nav" aria-label="OA 导航">
+      <div class="oa-nav-inner">
+        <a href="/city/intranet/index.html">工作台</a>
+        <a href="/city/intranet/doc-handoff.html">对接单</a>
+        <a href="/city/intranet/memo-redact.html">阅件摘录</a>
+        <a href="/city/intranet/batch-ledger.html">批次台账</a>
+        <a class="active" href="/city/intranet/destroy-list.html">销毁清单</a>
+        <a href="/city/intranet/ethics-blank.html">伦理审查</a>
+        <a href="/city/intranet/monitor-request.html">监控调阅</a>
+        <a href="/city/intranet/mail-thread.html">来文传阅</a>
+      </div>
+    </nav>
+    <main class="oa-wrap">
+      <div class="oa-crumb"><a href="/city/intranet/index.html">工作台</a> › 销毁清单</div>
+
+      <section class="oa-card" style="margin-bottom:14px">
+        <div class="oa-card-h">人话说明</div>
+        <div class="oa-card-body" style="font-size:14px;line-height:1.85">
+          <p style="margin:0">
+            假人没做成、或出问题的实验体，要按清单<strong>销毁</strong>。
+            对外不写原因，只写「失联 / 结案」。签字后弘科才能关账。
+          </p>
+        </div>
+      </section>
+
+      <section class="oa-card">
+        <div class="oa-card-h">清单正文</div>
+        <div class="oa-card-body" style="overflow-x:auto">
+          <table class="oa-table oa-ledger">
+            <thead>
+              <tr>
+                <th>编号</th>
+                <th>状态</th>
+                <th>对外说法</th>
+                <th>处理方式</th>
+                <th>签字</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mono">HK-SF-03-039</td>
+                <td><span class="oa-chip off">失败 · 待销毁</span></td>
+                <td>失联结案</td>
+                <td>物理销毁 · 禁尸检对外</td>
+                <td class="warn-text">家园未签</td>
+              </tr>
+              <tr>
+                <td class="mono">HK-SF-03-033</td>
+                <td><span class="oa-chip off">已销毁</span></td>
+                <td>个人原因退出</td>
+                <td>焚化 · 编号作废</td>
+                <td>已签 03-12</td>
+              </tr>
+              <tr>
+                <td class="mono">HK-SF-03-028</td>
+                <td><span class="oa-chip off">已销毁</span></td>
+                <td>转外地治疗</td>
+                <td>焚化 · 编号作废</td>
+                <td>已签 03-05</td>
+              </tr>
+              <tr class="hl-row">
+                <td class="mono">HK-SF-03-047</td>
+                <td><span class="oa-chip ok">假人已交付</span></td>
+                <td>情况稳定</td>
+                <td colspan="2" class="warn-text">原实验体：已处理（不在本销毁表公开项；见员工端）</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="oa-note" style="margin-top:16px">
+            备注：销毁现场禁止私自录音录像。弘科驻点可到场清点。
+            未签字项将影响「来文传阅」中的尾款结算。
+          </div>
+          <div class="oa-actions">
+            <a class="oa-link-btn primary" href="/city/intranet/batch-ledger.html">返回批次台账</a>
+            <a class="oa-link-btn" href="/city/intranet/mail-thread.html">来文传阅（催款）</a>
+            <a class="oa-link-btn" href="/city/intranet/monitor-request.html">监控调阅申请</a>
+            <a class="oa-link-btn" href="/city/intranet/index.html">工作台</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="oa-footer">临江市电子政务内网 · 演示 · <a href="/city/intranet/index.html">返回</a></footer>
+  </div>
+  <script type="module">
+    import { boot, getState } from '/assets/js/nav.js';
+    boot('oa-destroy-list');
+    const s = getState()?.all() || {};
+    if (!s.oaAccess) location.replace('/city/intranet/login.html');
+    else document.getElementById('oa-root').hidden = false;
+  </script>
+</body>
+</html>

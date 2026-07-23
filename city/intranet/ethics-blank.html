@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>伦理审查表 — 临江市电子政务内网</title>
+  <link rel="stylesheet" href="/assets/css/theme-oa.css" />
+</head>
+<body class="oa-body" data-site="oa">
+  <div id="oa-root" hidden>
+    <div class="oa-topstrip">
+      <div class="oa-topstrip-inner">
+        <span>临江市电子政务内网 · 表单归档</span>
+        <span class="warn">扫描件 · 字段异常</span>
+      </div>
+    </div>
+    <header class="oa-header">
+      <div class="oa-header-inner">
+        <div class="oa-badge" aria-hidden="true">OA</div>
+        <div>
+          <h1>伦理审查表</h1>
+          <p class="sub">试点研究伦理审查（存档扫描）· HK-SF-03</p>
+        </div>
+        <div class="meta">
+          <div>申报：幸福家园 / 弘科</div>
+          <div>状态：已通过（？）</div>
+        </div>
+      </div>
+    </header>
+        <nav class="oa-nav" aria-label="OA 导航">
+      <div class="oa-nav-inner">
+        <a href="/city/intranet/index.html">工作台</a>
+        <a href="/city/intranet/doc-handoff.html">对接单</a>
+        <a href="/city/intranet/memo-redact.html">阅件摘录</a>
+        <a href="/city/intranet/batch-ledger.html">批次台账</a>
+        <a href="/city/intranet/destroy-list.html">销毁清单</a>
+        <a class="active" href="/city/intranet/ethics-blank.html">伦理审查</a>
+        <a href="/city/intranet/monitor-request.html">监控调阅</a>
+        <a href="/city/intranet/mail-thread.html">来文传阅</a>
+      </div>
+    </nav>
+    <main class="oa-wrap">
+      <div class="oa-crumb"><a href="/city/intranet/index.html">工作台</a> › 伦理审查表</div>
+
+      <section class="oa-card" style="margin-bottom:14px">
+        <div class="oa-card-h">人话说明</div>
+        <div class="oa-card-body" style="font-size:14px;line-height:1.85">
+          <p style="margin:0">
+            本该是约束实验的审查表。你会发现：该勾的空着，该拒的却盖了「通过」。
+            像一张<strong>走过场</strong>的纸。
+          </p>
+        </div>
+      </section>
+
+      <section class="oa-card">
+        <div class="oa-card-h">扫描件排版（示意）</div>
+        <div class="oa-card-body">
+          <div class="oa-scan">
+            <div class="oa-scan-title">人体相关试点研究 · 伦理审查表</div>
+            <p class="no-indent" style="text-indent:0"><strong>项目名称：</strong>睡眠健康支持与「替代交付」技术协同（对内名称）</p>
+            <p class="no-indent" style="text-indent:0"><strong>技术支持：</strong>弘科生物　　<strong>执行：</strong>幸福家园</p>
+            <p class="no-indent" style="text-indent:0"><strong>是否涉及不可逆处理：</strong>
+              <span class="blank">□ 否</span>
+              <span class="blank">☑ 是（已勾选，说明栏空白）</span>
+            </p>
+            <p class="no-indent" style="text-indent:0"><strong>受试者知情同意：</strong>
+              <span class="blank">□ 完整签署</span>
+              <span class="blank">☑ 由家属代签 / 系统代填（说明被涂黑）</span>
+            </p>
+            <p class="no-indent" style="text-indent:0"><strong>失败样本如何处理：</strong>
+              <span class="redact">████销毁流程见台账████</span>
+            </p>
+            <p class="no-indent" style="text-indent:0"><strong>审查结论：</strong>
+              <span style="color:#9a3412;font-weight:700">通过</span>
+              （日期早于首批实验体入组两周）
+            </p>
+            <p class="no-indent" style="text-indent:0;margin-top:18px">
+              委员签字栏：
+            </p>
+            <div class="oa-sign-row">
+              <div class="oa-sign-box">空</div>
+              <div class="oa-sign-box">空</div>
+              <div class="oa-sign-box faded">周启明（代）</div>
+            </div>
+            <p class="no-indent" style="text-indent:0;margin-top:14px;font-size:13px;color:#6b5b4b">
+              页脚手写：「先过，别卡补贴。」——字迹与周启明历史批注相似。
+            </p>
+            <div class="oa-scan-stamp">扫描归档 · 不可编辑</div>
+          </div>
+
+          <div class="oa-note" style="margin-top:16px">
+            该通过的人没签全，该否决的项却通过了。
+            伦理在这里不是保护人，是给项目盖章。
+          </div>
+          <div class="oa-actions">
+            <a class="oa-link-btn primary" href="/city/intranet/destroy-list.html">销毁清单</a>
+            <a class="oa-link-btn" href="/city/intranet/batch-ledger.html">批次台账</a>
+            <a class="oa-link-btn" href="/city/intranet/index.html">工作台</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="oa-footer">临江市电子政务内网 · 演示 · <a href="/city/intranet/index.html">返回</a></footer>
+  </div>
+  <script type="module">
+    import { boot, getState } from '/assets/js/nav.js';
+    boot('oa-ethics');
+    const s = getState()?.all() || {};
+    if (!s.oaAccess) location.replace('/city/intranet/login.html');
+    else document.getElementById('oa-root').hidden = false;
+  </script>
+</body>
+</html>

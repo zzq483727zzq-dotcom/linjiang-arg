@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>监控调阅申请 — 临江市电子政务内网</title>
+  <link rel="stylesheet" href="/assets/css/theme-oa.css" />
+</head>
+<body class="oa-body" data-site="oa">
+  <div id="oa-root" hidden>
+    <div class="oa-topstrip">
+      <div class="oa-topstrip-inner">
+        <span>临江市电子政务内网 · 监控调阅</span>
+        <span class="warn">申请已驳回 · 附件缩略图只读</span>
+      </div>
+    </div>
+    <header class="oa-header">
+      <div class="oa-header-inner">
+        <div class="oa-badge" aria-hidden="true">OA</div>
+        <div>
+          <h1>监控调阅申请单</h1>
+          <p class="sub">幸福家园执行区 · 夜班走廊 / 处理间</p>
+        </div>
+        <div class="meta">
+          <div>申请人：试点联络组</div>
+          <div>结果：驳回</div>
+        </div>
+      </div>
+    </header>
+        <nav class="oa-nav" aria-label="OA 导航">
+      <div class="oa-nav-inner">
+        <a href="/city/intranet/index.html">工作台</a>
+        <a href="/city/intranet/doc-handoff.html">对接单</a>
+        <a href="/city/intranet/memo-redact.html">阅件摘录</a>
+        <a href="/city/intranet/batch-ledger.html">批次台账</a>
+        <a href="/city/intranet/destroy-list.html">销毁清单</a>
+        <a href="/city/intranet/ethics-blank.html">伦理审查</a>
+        <a class="active" href="/city/intranet/monitor-request.html">监控调阅</a>
+        <a href="/city/intranet/mail-thread.html">来文传阅</a>
+      </div>
+    </nav>
+    <main class="oa-wrap">
+      <div class="oa-crumb"><a href="/city/intranet/index.html">工作台</a> › 监控调阅</div>
+
+      <section class="oa-card" style="margin-bottom:14px">
+        <div class="oa-card-h">人话说明</div>
+        <div class="oa-card-body" style="font-size:14px;line-height:1.85">
+          <p style="margin:0">
+            有人申请调家园监控，想看「处理间」和夜班走廊。
+            被驳回了——但驳回意见和缩略图已经够吓人。
+          </p>
+        </div>
+      </section>
+
+      <section class="oa-card">
+        <div class="oa-card-h">申请内容</div>
+        <div class="oa-card-body">
+          <div class="oa-kv">
+            <div class="k">调阅范围</div>
+            <div class="v">幸福家园 B2 走廊 · 处理间门外 · 2026-03-11 至 03-17 夜间</div>
+            <div class="k">事由</div>
+            <div class="v">家属投诉「声音不像本人」· 需核对是否发生替换交接</div>
+            <div class="k">审批结果</div>
+            <div class="v"><span class="oa-chip off">驳回</span></div>
+            <div class="k">驳回意见</div>
+            <div class="v warn-text">「无执法手续。且画面可能造成舆情。口头：别往死里查。」</div>
+          </div>
+
+          <div class="oa-monitor-grid" aria-label="监控缩略图（示意）">
+            <div class="oa-monitor-tile">
+              <div class="oa-monitor-frame cam1" role="img" aria-label="走廊夜视：空床推出"></div>
+              <div class="cap">CAM-03 03-14 02:17 · 空床推出</div>
+            </div>
+            <div class="oa-monitor-tile">
+              <div class="oa-monitor-frame cam2" role="img" aria-label="处理间门缝：白光一闪"></div>
+              <div class="cap">CAM-07 03-15 03:03 · 门缝白光（已遮挡）</div>
+            </div>
+            <div class="oa-monitor-tile">
+              <div class="oa-monitor-frame cam3" role="img" aria-label="画面损坏"></div>
+              <div class="cap">CAM-07 03-15 03:04 · 文件损坏 / 无法播放</div>
+            </div>
+          </div>
+
+          <div class="oa-note" style="margin-top:16px">
+            缩略图仅作内网示意，无完整录像。
+            想看「处理」细节，只能去幸福家园员工端——那里更直接。
+          </div>
+          <div class="oa-actions">
+            <a class="oa-link-btn primary" href="/staff/login.html" target="_blank" rel="noopener noreferrer">家园员工端</a>
+            <a class="oa-link-btn" href="/city/intranet/destroy-list.html">销毁清单</a>
+            <a class="oa-link-btn" href="/city/intranet/batch-ledger.html">批次台账</a>
+            <a class="oa-link-btn" href="/city/intranet/index.html">工作台</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="oa-footer">临江市电子政务内网 · 演示 · <a href="/city/intranet/index.html">返回</a></footer>
+  </div>
+  <script type="module">
+    import { boot, getState } from '/assets/js/nav.js';
+    boot('oa-monitor');
+    const s = getState()?.all() || {};
+    if (!s.oaAccess) location.replace('/city/intranet/login.html');
+    else document.getElementById('oa-root').hidden = false;
+  </script>
+</body>
+</html>
