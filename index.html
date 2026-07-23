@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>备忘 · 临江</title>
+  <link rel="stylesheet" href="/linjiang-arg/assets/css/base.css" />
+  <link rel="stylesheet" href="/linjiang-arg/assets/css/theme-intro.css" />
+</head>
+<body data-site="intro">
+  <main class="intro-wrap">
+    <p class="intro-kicker">私人备忘 · 临江</p>
+    <h1>关于林屿</h1>
+    <div class="intro-body">
+      <p>林屿是我的朋友。我们在临江认识，不算最熟的那种，但消息一直没断过。</p>
+      <p>这几天他忽然失联了。微信不回，电话打不通，朋友圈也停在上周末。</p>
+      <p>问过共同认识的人，有人说他大概只是忙，或者换了工作，让我别多想。听上去合理，却怎么都不踏实。</p>
+      <p>我在本地找了一圈公开信息，零零散散，拼不出完整的事。与其干等，不如自己查。</p>
+      <p>先从他手机里那些还在用的东西开始。</p>
+    </div>
+    <label class="intro-name">
+      你的名字
+      <input id="player-name" maxlength="6" placeholder="陈知夏" autocomplete="off" />
+    </label>
+    <button type="button" id="start-btn" class="intro-start">开始调查</button>
+  </main>
+  <script type="module">
+    import { boot, getState } from '/linjiang-arg/assets/js/nav.js';
+    boot('intro');
+    const input = document.getElementById('player-name');
+    const saved = getState()?.all()?.playerName;
+    if (saved) input.value = saved;
+    document.getElementById('start-btn').addEventListener('click', () => {
+      const raw = (input.value || '').trim();
+      getState()?.setPlayerName(raw || '陈知夏');
+      location.href = '/linjiang-arg/phone/';
+    });
+  </script>
+</body>
+</html>

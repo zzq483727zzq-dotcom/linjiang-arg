@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>选择 · 终局</title>
+  <link rel="stylesheet" href="/linjiang-arg/assets/css/theme-ending.css" />
+</head>
+<body class="end-body end-choice" data-site="ending" data-page="choice">
+  <main class="choice-shell" id="choice-root" hidden>
+    <p class="choice-kicker">ENDING · BRANCH</p>
+    <h1 class="choice-title">你还要怎么做？</h1>
+    <p class="choice-lead">
+      真身已经回不来了。对外仍在运转，系统也记下了你的名字。
+      这一次，只有你能决定接下来的姿态。
+    </p>
+
+    <div class="choice-list" role="list">
+      <button type="button" class="choice-card" data-end="reveal" role="listitem">
+        <span class="label">拆穿</span>
+        <span class="hint">尝试留下证据、说给别人听。真身仍回不来，但你不肯装作没看见。</span>
+      </button>
+      <button type="button" class="choice-card" data-end="silent" role="listitem">
+        <span class="label">沉默</span>
+        <span class="hint">停下来。删掉记录，不再追问。对外如常，朋友圈仍会更新。</span>
+      </button>
+      <button type="button" class="choice-card" data-end="enrolled" role="listitem">
+        <span class="label">被写下</span>
+        <span class="hint">接受优先评估的邀请。名册收束到你自己——至少，他们会「照顾」你。</span>
+      </button>
+    </div>
+  </main>
+
+  <script type="module">
+    import { boot, getState } from '/linjiang-arg/assets/js/nav.js';
+    boot('ending-choice');
+
+    const api = getState();
+    const s = api?.all() || {};
+    const params = new URLSearchParams(location.search);
+    const dev = params.get('dev') === '1';
+    const allowed = !!(s.staffAccess || s.flagged || s.truthSeen || dev || s.ending);
+
+    if (!allowed) {
+      location.replace('/linjiang-arg/');
+    } else {
+      document.getElementById('choice-root').hidden = false;
+
+      const map = {
+        reveal: '/ending/reveal.html',
+        silent: '/ending/silent.html',
+        enrolled: '/ending/enrolled.html',
+      };
+
+      document.querySelectorAll('.choice-card[data-end]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-end');
+          if (!map[id]) return;
+          try {
+            getState().setEnding(id);
+          } catch {
+            /* ignore */
+          }
+          location.href = map[id];
+        });
+      });
+    }
+  </script>
+</body>
+</html>

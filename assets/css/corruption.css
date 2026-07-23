@@ -1,0 +1,38 @@
+/* 档 1 — 温柔渗血 */
+body.corruption-1 .whisper { opacity: .85; font-style: italic; color: #b4a; }
+body.corruption-1 .count-badge { animation: blink 2.4s infinite; }
+@keyframes blink { 50% { opacity: .35; } }
+body.corruption-1 .pill { box-shadow: 0 0 0 1px rgba(124,156,240,.3) inset; }
+
+/* 档 2 — 界面撕裂 */
+body.corruption-2 { background: #0a0b12 !important; color: #dfe6ff !important; }
+body.corruption-2 .glitch {
+  position: relative; display: inline-block;
+}
+body.corruption-2 .glitch::before, body.corruption-2 .glitch::after {
+  content: attr(data-text); position: absolute; left: 0; top: 0; width: 100%;
+}
+body.corruption-2 .glitch::before { color: #ff2d55; transform: translate(2px, 0); mix-blend-mode: screen; }
+body.corruption-2 .glitch::after  { color: #00e5ff; transform: translate(-2px, 0); mix-blend-mode: screen; }
+body.corruption-2 .scanlines {
+  pointer-events: none; position: fixed; inset: 0; z-index: 9999;
+  background: repeating-linear-gradient(180deg, rgba(255,255,255,.04) 0 1px, transparent 1px 3px);
+  animation: scan 8s linear infinite;
+}
+@keyframes scan { from { background-position-y: 0; } to { background-position-y: 100vh; } }
+
+/* 档 3 — 生理恐怖 */
+body.corruption-3 { background: radial-gradient(circle at 50% 40%, #1a0d12, #000) !important; color: #e8d !important; }
+body.corruption-3 .eye {
+  width: 90px; height: 90px; border-radius: 50%; margin: 24px auto;
+  background: radial-gradient(circle at 50% 50%, #fff 0 8%, #7a0e1e 9% 42%, #160406 43%);
+  box-shadow: 0 0 40px #5a0813; animation: stare 3s infinite;
+}
+@keyframes stare {
+  0%, 100% { transform: translateX(0) scale(1); }
+  50%      { transform: translateX(6px) scale(1.04); }
+}
+body.corruption-3 .stare-text {
+  text-align: center; color: #ff5c72; text-shadow: 0 0 12px #ff2d55;
+  font-family: Georgia, serif; font-size: 18px;
+}

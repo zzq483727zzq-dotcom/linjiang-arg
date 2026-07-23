@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>浏览器</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <link rel="stylesheet" href="/linjiang-arg/assets/css/theme-phone.css" />
+</head>
+<body data-site="phone">
+  <div class="phone-frame">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen light-app">
+      <div class="phone-status">
+        <span>中国移动</span>
+        <span class="phone-status-time">22:17</span>
+        <span class="phone-status-icons" aria-hidden="true">
+          <i class="sig"></i><i class="wifi"></i><i class="bat"></i>
+        </span>
+      </div>
+
+      <div class="ph-top">
+        <a class="ph-back" href="/linjiang-arg/phone/" aria-label="返回桌面">‹ 桌面</a>
+        <div class="ph-title">浏览器</div>
+        <div class="ph-right" aria-hidden="true"></div>
+      </div>
+
+      <div class="browser-bar">
+        <form id="browser-form" action="#" method="get" autocomplete="off">
+          <input
+            id="browser-url"
+            type="text"
+            name="url"
+            inputmode="url"
+            spellcheck="false"
+            placeholder="搜索或输入网址"
+            aria-label="地址栏"
+          />
+          <button type="submit">前往</button>
+        </form>
+      </div>
+
+      <div class="browser-pane" id="browser-pane">
+        <p class="hero">开始浏览</p>
+        <p class="sub" id="browser-sub">
+          从邮件、小红书或新闻里抄网址，粘贴到上方后点「前往」。
+          本页<strong>不保存历史</strong>，也不预置任何机构站点。
+        </p>
+        <div class="err" id="browser-err" role="alert"></div>
+      </div>
+    </div>
+  </div>
+  <script type="module">
+    import { boot } from '/linjiang-arg/assets/js/nav.js';
+    boot('browser');
+
+    // 清理旧版遗留的历史缓存（若有）
+    try {
+      localStorage.removeItem('linjiangBrowserHistory');
+    } catch (e) {}
+
+    const ROUTES = [
+      { test: /linjiang\.gov/i, to: '/linjiang-arg/city/', label: '临江市人民政府' },
+      { test: /home-serene|xinyuan|幸福家园/i, to: '/linjiang-arg/home/', label: '幸福家园' },
+      { test: /hongke|弘科/i, to: '/linjiang-arg/hongke/', label: '弘科生物' },
+      { test: /lj-bar|临江吧/i, to: '/linjiang-arg/bar/', label: '临江吧' },
+    ];
+
+    const input = document.getElementById('browser-url');
+    const form = document.getElementById('browser-form');
+    const err = document.getElementById('browser-err');
+    const sub = document.getElementById('browser-sub');
+
+    function showError(msg) {
+      err.textContent = msg;
+      err.classList.add('show');
+    }
+
+    function clearError() {
+      err.textContent = '';
+      err.classList.remove('show');
+    }
+
+    function resolve(raw) {
+      const q = String(raw || '').trim();
+      if (!q) return null;
+      for (const r of ROUTES) {
+        if (r.test.test(q)) return r;
+      }
+      return null;
+    }
+
+    function navigate(raw) {
+      clearError();
+      const hit = resolve(raw);
+      if (!hit) {
+        showError('无法打开此网页。请检查地址是否正确（可从邮件、笔记或新闻里核对）。');
+        return;
+      }
+      // 新标签打开目标站，浏览器页保持空白、不记历史
+      window.open(hit.to, '_blank', 'noopener,noreferrer');
+    }
+
+    // 仅当从邮件/小红书带 ?url= 时预填，仍不自动跳转、不写历史
+    const params = new URLSearchParams(window.location.search);
+    const pre = params.get('url');
+    if (pre) {
+      input.value = pre;
+      sub.textContent = '已从邮件或笔记预填地址。确认后点「前往」——不会自动跳转，也不保存历史。';
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      navigate(input.value);
+    });
+  </script>
+</body>
+</html>

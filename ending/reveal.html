@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>结局 · 拆穿</title>
+  <link rel="stylesheet" href="/linjiang-arg/assets/css/theme-ending.css" />
+</head>
+<body class="end-body end-result end-reveal" data-site="ending" data-page="reveal">
+  <main class="result-shell">
+    <p class="result-kicker">ENDING · REVEAL</p>
+    <h1 class="result-title">拆穿</h1>
+    <div class="result-body">
+      <p>你把截图、附件和名册截图塞进了几个不同的网盘与邮件草稿。</p>
+      <p>有人回了你：「别乱说。」有人已读不回。贴吧那帖很快沉了，评论区只剩「已结案」三个字。</p>
+      <p>林屿的微信仍会偶尔回你：「我很好。」真身回不来。但至少，你没有替他们把嘴缝上。</p>
+      <p>审计条目仍在。夜里，手机偶尔会亮一下——没有人发消息。</p>
+    </div>
+    <div class="result-actions">
+      <button type="button" class="end-btn end-btn-dark" id="btn-reset">重新开始</button>
+      <p class="result-note">ending · reveal</p>
+    </div>
+  </main>
+  <script type="module">
+    import { boot, getState, resetProgress } from '/linjiang-arg/assets/js/nav.js';
+    boot('ending-reveal');
+    try {
+      const s = getState()?.all() || {};
+      if (s.ending !== 'reveal') getState()?.setEnding('reveal');
+    } catch { /* ignore */ }
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      resetProgress();
+      location.href = '/linjiang-arg/';
+    });
+  </script>
+</body>
+</html>

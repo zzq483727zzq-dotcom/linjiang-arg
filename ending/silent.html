@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>结局 · 沉默</title>
+  <link rel="stylesheet" href="/linjiang-arg/assets/css/theme-ending.css" />
+</head>
+<body class="end-body end-result end-silent" data-site="ending" data-page="silent">
+  <main class="result-shell">
+    <p class="result-kicker">ENDING · SILENT</p>
+    <h1 class="result-title">沉默</h1>
+    <div class="result-body">
+      <p>你关掉了员工端标签页，清掉最近访问，把草稿箱里的截图删了。</p>
+      <p>顾深后来又发来消息：林屿状态好多了，周末还一起吃了饭。你回了一个「嗯」。</p>
+      <p>朋友圈里，那个没有痣的人偶尔更新。你把聊天置顶取消，不再点开。</p>
+      <p>城市照常运转。你选择不再追问——也假装自己没有被写进任何一张表。</p>
+    </div>
+    <div class="result-actions">
+      <button type="button" class="end-btn end-btn-dark" id="btn-reset">重新开始</button>
+      <p class="result-note">ending · silent</p>
+    </div>
+  </main>
+  <script type="module">
+    import { boot, getState, resetProgress } from '/linjiang-arg/assets/js/nav.js';
+    boot('ending-silent');
+    try {
+      const s = getState()?.all() || {};
+      if (s.ending !== 'silent') getState()?.setEnding('silent');
+    } catch { /* ignore */ }
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      resetProgress();
+      location.href = '/linjiang-arg/';
+    });
+  </script>
+</body>
+</html>

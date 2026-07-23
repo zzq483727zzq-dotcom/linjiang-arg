@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>林屿</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <link rel="stylesheet" href="/linjiang-arg/assets/css/theme-phone.css" />
+</head>
+<body data-site="phone">
+  <div class="phone-frame">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen wx-app">
+      <div class="phone-status">
+        <span>中国移动</span>
+        <span class="phone-status-time">22:17</span>
+        <span class="phone-status-icons" aria-hidden="true">
+          <i class="sig"></i><i class="wifi"></i><i class="bat"></i>
+        </span>
+      </div>
+
+      <div class="wx-top">
+        <a class="wx-back" href="/linjiang-arg/phone/wechat.html" aria-label="返回">‹</a>
+        <div class="wx-title">林屿</div>
+        <div class="wx-right" aria-hidden="true">···</div>
+      </div>
+
+      <div class="wx-body is-chat" id="chat-scroll">
+        <div class="wx-chat" id="chat-log">
+          <div class="wx-day"><span>3月10日 晚上 23:41</span></div>
+
+          <div class="wx-msg mine">
+            <div class="wx-avatar av-me" aria-hidden="true">我</div>
+            <div>
+              <div class="wx-bubble">还没睡？最近状态怎么样</div>
+            </div>
+          </div>
+
+          <div class="wx-msg theirs">
+            <div class="wx-avatar av-lin" aria-hidden="true">屿</div>
+            <div>
+              <div class="wx-bubble">又失眠了。这两天总醒，越想越清醒</div>
+            </div>
+          </div>
+
+          <div class="wx-msg theirs">
+            <div class="wx-avatar av-lin" aria-hidden="true">屿</div>
+            <div>
+              <div class="wx-bubble">有人推了个幸福家园评估，说跟睡眠有关，我先填着看看</div>
+            </div>
+          </div>
+
+          <div class="wx-msg mine">
+            <div class="wx-avatar av-me" aria-hidden="true">我</div>
+            <div>
+              <div class="wx-bubble">那种问卷靠谱吗</div>
+            </div>
+          </div>
+
+          <div class="wx-msg theirs">
+            <div class="wx-avatar av-lin" aria-hidden="true">屿</div>
+            <div>
+              <div class="wx-bubble">不知道，反正免费。填完还有睡眠建议，试试总比干熬强</div>
+            </div>
+          </div>
+
+          <div class="wx-day"><span>3月12日 下午 15:06</span></div>
+
+          <div class="wx-msg mine">
+            <div class="wx-avatar av-me" aria-hidden="true">我</div>
+            <div>
+              <div class="wx-bubble">评估结果出来没？要不要出来走走</div>
+            </div>
+          </div>
+
+          <div class="wx-msg theirs">
+            <div class="wx-avatar av-lin" aria-hidden="true">屿</div>
+            <div>
+              <div class="wx-bubble">嗯，还行</div>
+            </div>
+          </div>
+
+          <div class="wx-msg mine">
+            <div class="wx-avatar av-me" aria-hidden="true">我</div>
+            <div>
+              <div class="wx-bubble">就「还行」？你上周还吐槽半宿</div>
+            </div>
+          </div>
+
+          <div class="wx-sys"><span>对方已读 · 未回复</span></div>
+
+          <div class="wx-day"><span>3月15日 晚上 21:22</span></div>
+
+          <div class="wx-msg mine">
+            <div class="wx-avatar av-me" aria-hidden="true">我</div>
+            <div>
+              <div class="wx-bubble">人呢？连着几天都不回消息</div>
+            </div>
+          </div>
+
+          <div class="wx-msg mine">
+            <div class="wx-avatar av-me" aria-hidden="true">我</div>
+            <div>
+              <div class="wx-bubble">打电话关机了，你妈说你去静一静？</div>
+            </div>
+          </div>
+
+          <div class="wx-sys"><span>消息已发送 · 对方长时间未读</span></div>
+
+          <div class="wx-day"><span>3月20日 上午 10:03</span></div>
+
+          <div class="wx-msg theirs">
+            <div class="wx-avatar av-lin" aria-hidden="true">屿</div>
+            <div>
+              <div class="wx-bubble">我很好。</div>
+            </div>
+          </div>
+
+          <div class="wx-msg mine">
+            <div class="wx-avatar av-me" aria-hidden="true">我</div>
+            <div>
+              <div class="wx-bubble">？你去哪了</div>
+            </div>
+          </div>
+
+          <div class="wx-msg theirs">
+            <div class="wx-avatar av-lin" aria-hidden="true">屿</div>
+            <div>
+              <div class="wx-bubble">课程很有帮助。</div>
+            </div>
+          </div>
+
+          <div class="wx-msg mine">
+            <div class="wx-avatar av-me" aria-hidden="true">我</div>
+            <div>
+              <div class="wx-bubble">什么课程？你说话怎么怪怪的</div>
+            </div>
+          </div>
+
+          <div class="wx-msg theirs">
+            <div class="wx-avatar av-lin" aria-hidden="true">屿</div>
+            <div>
+              <div class="wx-bubble">别担心。</div>
+            </div>
+          </div>
+
+          <div id="live-replies"></div>
+          <!-- X 线：truthSeen|flagged 时由脚本注入系统推送气泡 -->
+          <div id="x-line-slot"></div>
+          <div class="wx-typing" id="typing">对方正在输入…</div>
+        </div>
+      </div>
+
+      <div class="wx-composer" id="composer">
+        <div class="wx-send-nodes" id="send-nodes">
+          <button type="button" class="wx-send-btn" data-q="where">你人在哪</button>
+          <button type="button" class="wx-send-btn" data-q="mole">那颗痣还在吗</button>
+        </div>
+        <div class="wx-composer-hint">可发送固定问句 · 对方回复可能很慢</div>
+      </div>
+    </div>
+  </div>
+  <script type="module">
+    import { boot, getState, recordChatRead } from '/linjiang-arg/assets/js/nav.js';
+
+    boot('chat-lin');
+    recordChatRead();
+
+    const REPLIES = {
+      where: '在家休息。',
+      mole: '我很好。',
+    };
+
+    const state = getState();
+    const snap = state.all();
+    const used = (snap.chatNodeUsed || 0);
+    const composer = document.getElementById('composer');
+    const nodes = document.getElementById('send-nodes');
+    const live = document.getElementById('live-replies');
+    const typing = document.getElementById('typing');
+    const scrollEl = document.getElementById('chat-scroll');
+    const xSlot = document.getElementById('x-line-slot');
+
+    function scrollBottom() {
+      scrollEl.scrollTop = scrollEl.scrollHeight;
+    }
+
+    function appendMine(text) {
+      const row = document.createElement('div');
+      row.className = 'wx-msg mine';
+      row.innerHTML = `
+        <div class="wx-avatar av-me" aria-hidden="true">我</div>
+        <div><div class="wx-bubble"></div></div>`;
+      row.querySelector('.wx-bubble').textContent = text;
+      live.appendChild(row);
+      scrollBottom();
+    }
+
+    function appendTheirs(text) {
+      const row = document.createElement('div');
+      row.className = 'wx-msg theirs';
+      row.innerHTML = `
+        <div class="wx-avatar av-lin" aria-hidden="true">屿</div>
+        <div><div class="wx-bubble"></div></div>`;
+      row.querySelector('.wx-bubble').textContent = text;
+      live.appendChild(row);
+      scrollBottom();
+    }
+
+    /** X 线：系统推送的林屿气泡（非玩家发送） */
+    function injectXLine() {
+      if (!xSlot || xSlot.dataset.injected === '1') return;
+      if (!(snap.truthSeen || snap.flagged)) return;
+
+      const day = document.createElement('div');
+      day.className = 'wx-day';
+      day.innerHTML = '<span>刚才</span>';
+
+      const row = document.createElement('div');
+      row.className = 'wx-msg theirs';
+      row.setAttribute('data-x-line', '1');
+      row.innerHTML = `
+        <div class="wx-avatar av-lin" aria-hidden="true">屿</div>
+        <div>
+          <div class="wx-bubble"></div>
+          <div class="wx-meta">对方主动推送</div>
+        </div>`;
+      row.querySelector('.wx-bubble').textContent = '别查了，对你不好。';
+
+      xSlot.appendChild(day);
+      xSlot.appendChild(row);
+      xSlot.dataset.injected = '1';
+    }
+
+    function markDone() {
+      composer.className = 'wx-composer done';
+      composer.textContent = '对方似乎不愿多说';
+    }
+
+    injectXLine();
+
+    if (used >= 2) {
+      markDone();
+    } else {
+      nodes.querySelectorAll('.wx-send-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          if ((getState().all().chatNodeUsed || 0) >= 2) {
+            markDone();
+            return;
+          }
+          const key = btn.dataset.q;
+          const label = btn.textContent.trim();
+          nodes.querySelectorAll('.wx-send-btn').forEach((b) => { b.disabled = true; });
+          appendMine(label);
+          typing.classList.add('show');
+          scrollBottom();
+
+          window.setTimeout(() => {
+            typing.classList.remove('show');
+            appendTheirs(REPLIES[key] || '……');
+            getState().bumpChatNode();
+            const next = getState().all().chatNodeUsed || 0;
+            if (next >= 2) {
+              markDone();
+            } else {
+              nodes.querySelectorAll('.wx-send-btn').forEach((b) => {
+                if (b.dataset.q !== key) b.disabled = false;
+                else b.remove();
+              });
+            }
+          }, 1400);
+        });
+      });
+    }
+
+    scrollBottom();
+  </script>
+</body>
+</html>

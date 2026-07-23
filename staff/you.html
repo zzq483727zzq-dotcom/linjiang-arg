@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>关注名册 — 幸福家园员工端</title>
+  <link rel="stylesheet" href="/linjiang-arg/assets/css/theme-staff.css" />
+</head>
+<body class="st-body" data-site="staff" data-page="you">
+  <div id="st-root" hidden>
+    <div class="st-topstrip">
+      <div class="st-topstrip-inner">
+        <span>幸福家园 · 关注 / 优先评估 · 会话：本地演示</span>
+        <span>
+          <span class="live"><span class="live-dot" aria-hidden="true"></span><span id="online-label">在线 3 → 4</span></span>
+          · <span class="warn" id="online-extra">管理员正在审阅</span>
+          · <a href="/linjiang-arg/staff/dashboard.html">工作台</a>
+        </span>
+      </div>
+    </div>
+
+    <header class="st-header">
+      <div class="st-header-inner">
+        <div class="st-badge" aria-hidden="true">家园</div>
+        <div>
+          <h1>关注 / 优先评估名册</h1>
+          <p class="sub">检索对象亲友 · 建议纳入清单</p>
+        </div>
+        <div class="meta">
+          <div>工号：HY-0317</div>
+          <div>权限：名册阅览</div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="st-nav" aria-label="员工端导航">
+      <div class="st-nav-inner">
+        <a href="/linjiang-arg/staff/dashboard.html">工作台</a>
+        <a href="/linjiang-arg/staff/subject-lin.html">个案 · 林屿</a>
+        <a href="/linjiang-arg/staff/wall.html">案例墙</a>
+        <a class="active" href="/linjiang-arg/staff/you.html">关注名册</a>
+      </div>
+    </nav>
+
+    <main class="st-wrap">
+      <div class="st-crumb">
+        <a href="/linjiang-arg/staff/dashboard.html">工作台</a> › 关注名册
+      </div>
+
+      <section class="st-card" aria-label="名册说明">
+        <div class="st-card-body" style="font-size:13px;color:var(--st-muted);line-height:1.75">
+          本表汇总「检索对象」关联亲友与优先评估建议。来源字段写明关联关系；
+          已标注条目进入下一期评估池，勿向当事人复述系统原文。
+        </div>
+      </section>
+
+      <section class="st-card" aria-label="建议纳入">
+        <div class="st-card-h">
+          建议纳入 / 优先评估 <span class="en">Priority</span>
+        </div>
+        <div class="st-card-body" style="padding:0">
+          <div class="st-you-table-wrap">
+            <table class="st-you-table" aria-label="优先评估名册">
+              <thead>
+                <tr>
+                  <th>姓名</th>
+                  <th>建议</th>
+                  <th>来源</th>
+                  <th>状态</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>方予安</td>
+                  <td>观察池</td>
+                  <td class="src">检索对象档案 · 关系：同事</td>
+                  <td><span class="st-chip st-chip-muted">已建档</span></td>
+                </tr>
+                <tr class="you-row" id="you-row">
+                  <td>
+                    <strong id="player-name">陈知夏</strong>
+                    <span class="you-tag">你</span>
+                  </td>
+                  <td><strong>建议纳入 / 优先评估</strong></td>
+                  <td class="src">检索对象档案 · 关系：好友</td>
+                  <td><span class="st-chip st-chip-warn">待评估</span></td>
+                </tr>
+                <tr>
+                  <td>林母（脱敏）</td>
+                  <td>家属侧话术</td>
+                  <td class="src">检索对象档案 · 关系：直系</td>
+                  <td><span class="st-chip st-chip-ok">已同步</span></td>
+                </tr>
+                <tr>
+                  <td>匿名节点-07</td>
+                  <td>弱关联</td>
+                  <td class="src">检索对象档案 · 关系：同校</td>
+                  <td><span class="st-chip st-chip-muted">低优先级</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="st-card st-you-hit" aria-label="名册命中提示">
+        <div class="st-card-h">
+          系统提示 <span class="en">Notice</span>
+        </div>
+        <div class="st-card-body">
+          <p class="st-you-msg">
+            当前阅览终端与名册条目 <strong id="player-name-2">陈知夏</strong> 存在关联匹配。
+            本访问已写入审计；后续流程可能要求环境核验。
+          </p>
+          <div class="st-kv" style="margin-top:12px">
+            <div class="k">来源</div>
+            <div class="v">检索对象档案 · 关系：好友</div>
+            <div class="k">检索对象</div>
+            <div class="v">林屿 · LY-2026-0317</div>
+            <div class="k">建议动作</div>
+            <div class="v">纳入下一期优先评估池 · 暂不告知当事人</div>
+          </div>
+          <div class="st-you-cta">
+            <a class="st-btn st-btn-sm st-btn-danger" id="cta-warn" href="/linjiang-arg/ending/warn.html" target="_blank" rel="noopener noreferrer">
+              查看系统警告记录
+            </a>
+            <a class="st-btn st-btn-sm st-btn-ghost" href="/linjiang-arg/staff/wall.html">返回案例墙</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="st-foot">
+      关注名册 · 命中条目记入审计 ·
+      <span class="mono">staff / you</span>
+      · 演示环境
+    </footer>
+  </div>
+
+  <div class="st-gate" id="st-gate">校验授权…</div>
+
+  <!-- 摄像头权限气泡：左上角仿浏览器，主打击点 -->
+  <div id="cam-perm" class="cam-bubble" hidden role="dialog" aria-label="摄像头权限请求">
+    <div class="cam-bubble-url">https://home-staff.example</div>
+    <div class="cam-bubble-msg">想使用你的摄像头进行环境核验</div>
+    <div class="cam-actions">
+      <button type="button" data-a="allow">允许</button>
+      <button type="button" data-a="deny">拒绝</button>
+    </div>
+  </div>
+  <div id="st-toast" class="st-toast" hidden role="status" aria-live="polite"></div>
+
+  <script type="module">
+    import { boot, getState } from '/linjiang-arg/assets/js/nav.js';
+    boot('staff-you');
+
+    const CAM_KEY = 'linjiang_cam_perm';
+    const api = getState();
+    const s = api?.all() || {};
+
+    if (!s.staffAccess) {
+      location.replace('/linjiang-arg/staff/login.html');
+    } else {
+      document.getElementById('st-gate').hidden = true;
+      document.getElementById('st-root').hidden = false;
+
+      const playerName = (s.playerName && String(s.playerName).trim()) || '陈知夏';
+      const nameEl = document.getElementById('player-name');
+      const nameEl2 = document.getElementById('player-name-2');
+      if (nameEl) nameEl.textContent = playerName;
+      if (nameEl2) nameEl2.textContent = playerName;
+
+      // 爆点4：打开名册即 flagged
+      try {
+        api.grant('flagged');
+      } catch {
+        /* ignore */
+      }
+
+      const bubble = document.getElementById('cam-perm');
+      const toast = document.getElementById('st-toast');
+      function showToast(msg) {
+        toast.hidden = false;
+        toast.textContent = msg;
+        clearTimeout(showToast._t);
+        showToast._t = setTimeout(() => { toast.hidden = true; }, 2800);
+      }
+      function answer(kind) {
+        try { sessionStorage.setItem(CAM_KEY, kind); } catch { /* ignore */ }
+        bubble.hidden = true;
+        // NEVER call getUserMedia
+        showToast(kind === 'allow' ? '核验已记录' : '已记录拒绝核验的终端');
+      }
+      bubble.querySelectorAll('[data-a]').forEach((btn) => {
+        btn.addEventListener('click', () => answer(btn.getAttribute('data-a')));
+      });
+
+      let answered = false;
+      try { answered = !!sessionStorage.getItem(CAM_KEY); } catch { /* ignore */ }
+      // primary hard hit on this page
+      if (!answered) {
+        setTimeout(() => {
+          try { if (sessionStorage.getItem(CAM_KEY)) return; } catch { /* ignore */ }
+          bubble.hidden = false;
+        }, 900);
+      }
+    }
+  </script>
+</body>
+</html>

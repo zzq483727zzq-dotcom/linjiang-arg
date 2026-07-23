@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>试点看板登录 — 弘科生物</title>
+  <link rel="stylesheet" href="/linjiang-arg/assets/css/theme-hongke.css" />
+</head>
+<body class="hk-body" data-site="hongke">
+  <div class="hk-topstrip">
+    <div class="hk-topstrip-inner">
+      <span>hongke-bio.example · Pilot Board</span>
+      <span><a href="/linjiang-arg/hongke/">返回官网</a></span>
+    </div>
+  </div>
+
+  <header class="hk-header">
+    <div class="hk-header-inner">
+      <div class="hk-logo" aria-hidden="true">弘科</div>
+      <div class="hk-brand">
+        <h1>弘科生物</h1>
+        <p class="sub">试点项目协作看板 · 授权登录</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="hk-nav" aria-label="站点导航">
+    <div class="hk-nav-inner">
+      <a href="/linjiang-arg/hongke/">首页</a>
+      <a href="/linjiang-arg/hongke/pipeline.html">研发管线</a>
+      <a href="/linjiang-arg/hongke/about.html">关于我们</a>
+      <a href="/linjiang-arg/hongke/news.html">新闻动态</a>
+      <a href="/linjiang-arg/hongke/jobs.html">招聘</a>
+      <a class="active" href="/linjiang-arg/hongke/login.html">试点看板</a>
+    </div>
+  </nav>
+
+  <main class="hk-wrap">
+    <div class="hk-login-shell">
+      <h2>试点看板登录</h2>
+      <p class="login-sub">
+        仅向试点协作与测试账号开放。正式环境权限由项目办发放。
+        请勿在公共网络保存口令。
+      </p>
+      <form id="hk-login-form" autocomplete="off">
+        <div class="hk-field">
+          <label for="username">用户名</label>
+          <input id="username" name="username" type="text" required spellcheck="false" autocapitalize="off" />
+        </div>
+        <div class="hk-field">
+          <label for="password">口令</label>
+          <input id="password" name="password" type="password" required />
+        </div>
+        <button class="hk-btn" type="submit" id="hk-submit">登录</button>
+        <div class="hk-hint" id="hk-hint" role="alert" aria-live="polite"></div>
+      </form>
+      <p class="hk-login-foot">
+        忘记口令？联系项目办重置 · 测试账号测完请关闭
+      </p>
+    </div>
+  </main>
+
+  <footer class="hk-footer">
+    <div class="hk-footer-inner">
+      <div class="links">
+        <a href="/linjiang-arg/hongke/">首页</a>
+        <a href="/linjiang-arg/hongke/pipeline.html">研发管线</a>
+        <a href="/linjiang-arg/hongke/">官网</a>
+      </div>
+      <div>弘科生物 · 试点协作系统</div>
+      <div class="icp">未授权访问将被记录（演示）</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { boot, getState, tryPuzzle } from '/linjiang-arg/assets/js/nav.js';
+    boot('hongke-login');
+
+    const state = getState();
+    if (state?.all()?.hongkeBoard) {
+      location.replace('/linjiang-arg/hongke/board.html');
+    }
+
+    let attempts = 0;
+    const form = document.getElementById('hk-login-form');
+    const hint = document.getElementById('hk-hint');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      attempts += 1;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const result = tryPuzzle('hongke-board', { username, password }, attempts);
+      if (result.ok) {
+        hint.style.color = 'var(--hk-teal-dark)';
+        hint.textContent = '验证通过，正在进入看板…';
+        location.href = '/linjiang-arg/hongke/board.html';
+        return;
+      }
+      hint.style.color = 'var(--hk-danger)';
+      hint.textContent = result.hint || '用户名或口令不正确。';
+    });
+  </script>
+</body>
+</html>

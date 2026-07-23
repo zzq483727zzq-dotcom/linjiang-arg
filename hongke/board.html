@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>试点看板 · HK-SF-03 — 弘科生物</title>
+  <link rel="stylesheet" href="/linjiang-arg/assets/css/theme-hongke.css" />
+</head>
+<body class="hk-board-body" data-site="hongke">
+  <div class="board-shell" id="board-root" hidden>
+    <div class="board-top">
+      <div>
+        <h1>试点协作看板 · 摘要视图</h1>
+        <div class="env">env: pilot-test · read-only · session: local</div>
+      </div>
+      <a class="logout" href="/linjiang-arg/hongke/">返回官网</a>
+    </div>
+
+    <section class="board-panel" aria-label="批次摘要">
+      <h2>Batch summary</h2>
+      <div class="board-kv">
+        <div class="k">管线 / 批次</div>
+        <div class="v mono">HK-SF-03</div>
+        <div class="k">合作方</div>
+        <div class="v">幸福家园</div>
+        <div class="k">场景</div>
+        <div class="v">睡眠健康服务试点 · 对外协同</div>
+        <div class="k">数据权限</div>
+        <div class="v">测试账号 · 仅摘要字段</div>
+        <div class="k">状态</div>
+        <div class="v">
+          <div class="board-status-row">
+            <span class="board-chip run">对外运行</span>
+            <span class="board-chip term">原对象终止</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="board-panel" aria-label="说明">
+      <h2>Notes</h2>
+      <p class="board-note">
+        看板仅展示授权摘要：批次 <strong>HK-SF-03</strong> 与合作方 <strong>幸福家园</strong> 绑定。
+        对外维持「对外运行」口径；执行侧标注「原对象终止」。
+        个案级处理记录、影像与名册不在此视图开放。测完请通知项目办关闭测试入口。
+      </p>
+    </section>
+
+    <p class="board-foot">
+      hongke pilot board · HK-SF-03 · do not screenshot for external use
+    </p>
+  </div>
+
+  <script type="module">
+    import { boot, getState } from '/linjiang-arg/assets/js/nav.js';
+    boot('hongke-board');
+
+    const s = getState()?.all() || {};
+    if (!s.hongkeBoard) {
+      location.replace('/linjiang-arg/hongke/login.html');
+    } else {
+      document.getElementById('board-root').hidden = false;
+    }
+  </script>
+</body>
+</html>

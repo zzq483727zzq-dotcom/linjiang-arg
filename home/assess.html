@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>在线评估 — 临江市幸福家园</title>
+  <link rel="stylesheet" href="/linjiang-arg/assets/css/theme-home.css" />
+</head>
+<body class="hm-body" data-site="home">
+  <div class="hm-topstrip">
+    <div class="hm-topstrip-inner">
+      <span>home-serene.example · Assessment</span>
+      <span>约 3 分钟 · 免费</span>
+    </div>
+  </div>
+
+  <header class="hm-header">
+    <div class="hm-header-inner">
+      <div class="hm-logo" aria-hidden="true">家园</div>
+      <div class="hm-brand">
+        <h1>临江市幸福家园</h1>
+        <p class="sub">心理健康 · 睡眠支持 · 民生服务试点</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="hm-nav" aria-label="站点导航">
+    <div class="hm-nav-inner">
+      <a href="/linjiang-arg/home/">首页</a>
+      <a href="/linjiang-arg/home/about.html">关于我们</a>
+      <a href="/linjiang-arg/home/services.html">服务项目</a>
+      <a href="/linjiang-arg/home/stories.html">来访者反馈</a>
+      <a class="active" href="/linjiang-arg/home/assess.html">在线评估</a>
+      <a href="/linjiang-arg/home/contact.html">联系预约</a>
+    </div>
+  </nav>
+
+  <main class="hm-wrap">
+    <div class="hm-breadcrumb">
+      <a href="/linjiang-arg/home/">首页</a> › 在线评估
+    </div>
+
+    <div class="hm-assess" id="assess-root">
+      <!-- START -->
+      <div id="screen-start">
+        <h2>免费在线评估</h2>
+        <p class="intro">
+          以下问题帮助我们了解你近期的睡眠、情绪与日常状态。
+          没有标准答案，请选最接近你真实感受的一项。本评估约 3 分钟，不构成医疗诊断。
+        </p>
+        <label class="hm-consent">
+          <input type="checkbox" id="consent" />
+          <span>我同意将回答用于生成个人体验建议（仅保存在本机，不对外公开）。</span>
+        </label>
+        <div class="hm-assess-foot">
+          <span class="hm-assess-fine">可随时关闭页面 · 结果仅供参考</span>
+          <button class="hm-btn hm-btn-primary" id="btn-start" type="button" disabled>开始评估</button>
+        </div>
+      </div>
+
+      <!-- QUESTIONS -->
+      <div id="screen-q" hidden>
+        <div class="hm-progress" aria-hidden="true"><div class="fill" id="bar-fill"></div></div>
+        <p class="hm-q-text" id="q-text"></p>
+        <ul class="hm-options" id="q-options"></ul>
+        <div class="hm-assess-foot">
+          <span class="hm-assess-fine" id="q-fine"></span>
+          <button class="hm-btn hm-btn-primary" id="btn-next" type="button" disabled>继续</button>
+        </div>
+      </div>
+
+      <!-- RESULT -->
+      <div id="screen-result" hidden>
+        <h2>评估完成</h2>
+        <p class="intro" id="result-p1">
+          根据你的回答，近期睡眠与压力可能对情绪有一定影响。
+        </p>
+        <div class="hm-result-metrics" id="result-metrics">
+          <div class="m"><div class="v">中</div><div class="l">压力负荷</div></div>
+          <div class="m"><div class="v">偏高</div><div class="l">睡眠困扰</div></div>
+          <div class="m"><div class="v">中</div><div class="l">支持需求</div></div>
+        </div>
+        <p class="intro" id="result-p2">
+          <strong>建议进一步咨询。</strong>
+          可以从规律作息与轻度放松练习开始；需要时也可阅读来访者反馈，或预约顾问沟通。
+          这不是诊断，只是体验建议。
+        </p>
+        <div class="hm-assess-foot">
+          <span class="hm-assess-fine">结果已保存在本机，仅供本次体验使用。</span>
+          <span>
+            <a class="hm-btn hm-btn-ghost" href="/linjiang-arg/home/stories.html">看来访者反馈</a>
+            <a class="hm-btn hm-btn-primary" href="/linjiang-arg/home/contact.html" style="margin-left:8px">预约沟通</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="hm-footer">
+    <div class="hm-footer-inner">
+      <div class="links">
+        <a href="/linjiang-arg/home/">首页</a>
+        <a href="/linjiang-arg/home/about.html">关于我们</a>
+        <a href="/linjiang-arg/home/services.html">服务项目</a>
+        <a href="/linjiang-arg/home/stories.html">来访者反馈</a>
+        <a href="/linjiang-arg/home/assess.html">在线评估</a>
+        <a href="/linjiang-arg/home/contact.html">联系预约</a>
+      </div>
+      <div class="partners">
+        指导单位：<a href="/linjiang-arg/city/" target="_blank" rel="noopener noreferrer">临江市卫生健康委 / 临江市人民政府</a><br />
+        技术合作：<a href="/linjiang-arg/hongke/" target="_blank" rel="noopener noreferrer">弘科生物科技有限公司</a>
+      </div>
+      <div>临江市幸福家园 · 高新区服务点</div>
+      <div class="icp">网站备案演示号 · 仅用于互动叙事 · home-serene.example</div>
+      <a class="staff-link" href="/linjiang-arg/staff/login.html" target="_blank" rel="noopener noreferrer">工作人员入口</a>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { boot, recordAssessment, getState } from '/linjiang-arg/assets/js/nav.js';
+    boot('home-assess');
+
+    const QUESTIONS = [
+      {
+        text: '近两周，你的睡眠更接近哪一种？',
+        options: ['经常难以入睡或早醒', '偶尔不好，大体还行', '睡得还不错', '不太想回答'],
+      },
+      {
+        text: '白天你是否常感到疲惫、发空或注意力难集中？',
+        options: ['经常如此', '有时会', '很少', '不确定'],
+      },
+      {
+        text: '面对持续的压力，你通常会？',
+        options: ['自己硬扛', '跟信任的人说说', '找专业支持', '还没想好'],
+      },
+      {
+        text: '家人或朋友如何评价你最近的状态？',
+        options: ['说我看起来累', '说我比以前稳一些', '没人特别提过', '不太想谈这个'],
+      },
+      {
+        text: '你更希望优先改善哪一项？',
+        options: ['睡眠', '白天的紧张感', '与家人的沟通', '暂时不确定'],
+      },
+      {
+        text: '本次问卷主要由谁填写？',
+        options: ['本人', '家人代填', '朋友代填', '其他'],
+      },
+      {
+        text: '若需要回访，你是否方便留下紧急联系人信息？（此处仅询问意愿）',
+        options: ['可以，稍后在预约时填写', '暂时不想', '已有家人了解情况', '不确定'],
+      },
+      {
+        text: '你是否愿意尝试规律的放松练习（如呼吸、作息调整）？',
+        options: ['愿意试试', '可以了解一下', '暂时不需要', '这个问题让我不舒服'],
+      },
+    ];
+
+    const consent = document.getElementById('consent');
+    const btnStart = document.getElementById('btn-start');
+    const btnNext = document.getElementById('btn-next');
+    const screenStart = document.getElementById('screen-start');
+    const screenQ = document.getElementById('screen-q');
+    const screenResult = document.getElementById('screen-result');
+    const qText = document.getElementById('q-text');
+    const qOptions = document.getElementById('q-options');
+    const qFine = document.getElementById('q-fine');
+    const barFill = document.getElementById('bar-fill');
+
+    let idx = 0;
+    let selected = null;
+
+    const state = getState()?.all() || {};
+    if (state.assessmentDone) {
+      queueMicrotask(() => showResult());
+    }
+
+    consent.addEventListener('change', () => {
+      btnStart.disabled = !consent.checked;
+    });
+
+    btnStart.addEventListener('click', () => {
+      if (!consent.checked) return;
+      screenStart.hidden = true;
+      screenQ.hidden = false;
+      idx = 0;
+      selected = null;
+      renderQ();
+    });
+
+    btnNext.addEventListener('click', () => {
+      if (selected == null) return;
+      idx += 1;
+      selected = null;
+      if (idx >= QUESTIONS.length) {
+        finish();
+      } else {
+        renderQ();
+      }
+    });
+
+    function renderQ() {
+      const q = QUESTIONS[idx];
+      qText.textContent = q.text;
+      qFine.textContent = `第 ${idx + 1} / ${QUESTIONS.length} 题`;
+      barFill.style.width = `${((idx) / QUESTIONS.length) * 100}%`;
+      qOptions.innerHTML = '';
+      btnNext.disabled = true;
+      q.options.forEach((opt, i) => {
+        const li = document.createElement('li');
+        const label = document.createElement('label');
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'assess-opt';
+        input.value = String(i);
+        input.addEventListener('change', () => {
+          selected = i;
+          btnNext.disabled = false;
+          qOptions.querySelectorAll('label').forEach((el) => el.classList.remove('is-selected'));
+          label.classList.add('is-selected');
+        });
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(opt));
+        li.appendChild(label);
+        qOptions.appendChild(li);
+      });
+    }
+
+    function finish() {
+      try {
+        recordAssessment();
+      } catch (_) {
+        try { getState()?.grant('assessment'); } catch (__) {}
+      }
+      showResult();
+    }
+
+    function showResult() {
+      screenStart.hidden = true;
+      screenQ.hidden = true;
+      screenResult.hidden = false;
+      barFill.style.width = '100%';
+    }
+  </script>
+</body>
+</html>

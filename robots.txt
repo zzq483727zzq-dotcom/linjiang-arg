@@ -1,0 +1,15 @@
+# 临江 · 幸福家园 ARG
+User-agent: *
+Disallow: /linjiang-arg/staff/
+Disallow: /linjiang-arg/ending/
+Disallow: /linjiang-arg/city/intranet/
+Disallow: /linjiang-arg/admin/
+Disallow: /linjiang-arg/blog/
+Disallow: /linjiang-arg/forum/
+Disallow: /linjiang-arg/chat/
+Disallow: /linjiang-arg/social/
+Disallow: /linjiang-arg/endings/
+Disallow: /linjiang-arg/contact/
+Disallow: /linjiang-arg/data/
+
+# 官方入口: /

@@ -1,0 +1,59 @@
+body { background: #f5f5f5; color: #222; font-family: -apple-system, system-ui, sans-serif; }
+.forum-head { background: #fff; padding: 28px 24px; border-bottom: 1px solid #e8e8e8; }
+.forum-head h1 { font-size: 22px; margin: 6px 0 16px; }
+.crumb { color: #888; font-size: 12px; }
+
+/* 楼主帖:中性灰底 + 头像 + 楼层标签 */
+.op-card {
+  background: #fafafa; padding: 14px 16px; border-radius: 4px;
+  border-left: 3px solid #bbb;
+  display: flex; gap: 12px;
+}
+.op-card .avatar {
+  width: 36px; height: 36px; border-radius: 50%; background: #d4d4d4;
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  color: #888; font-weight: 700; font-size: 14px;
+}
+.op-card .body { flex: 1; }
+.op-card .who { display: flex; gap: 10px; align-items: baseline; font-size: 13px; color: #555; }
+.op-card .who b { color: #222; }
+.op-card .tag-楼主 { background: #f0f0f0; color: #666; font-size: 11px; padding: 1px 6px; border-radius: 3px; }
+
+/* 普通回复:更接近真实论坛的扁平白卡 + 缩进 */
+.comment {
+  background: #fff; padding: 14px 16px; border-radius: 4px;
+  margin-top: 10px; border: 1px solid #ebebeb;
+  display: flex; gap: 12px;
+}
+.comment.gone { background: #f5f5f5; opacity: 0.55; }
+.comment .avatar {
+  width: 32px; height: 32px; border-radius: 50%; background: #e8e8e8;
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  color: #999; font-weight: 700; font-size: 12px;
+}
+.comment.gone .avatar { background: #ddd; color: #bbb; }
+.comment .body { flex: 1; }
+.comment .meta { color: #999; font-size: 12px; margin-bottom: 6px; }
+.comment .floor { color: #aaa; font-size: 11px; margin-right: 6px; }
+
+/* 嵌套引用(回 N 楼) */
+.comment .quote {
+  background: #f7f7f7; border-left: 2px solid #ccc;
+  padding: 4px 8px; font-size: 12px; color: #777;
+  margin: 4px 0; border-radius: 0 3px 3px 0;
+}
+
+.forum-foot { text-align: center; padding: 40px; color: #999; font-size: 12px; }
+.wrap { max-width: 720px; padding: 20px; margin: 0 auto; }
+
+/* 时间分割线 */
+.day-sep {
+  text-align: center; color: #aaa; font-size: 11px; margin: 24px 0 12px;
+  position: relative;
+}
+.day-sep::before, .day-sep::after {
+  content: ''; position: absolute; top: 50%; width: 30%; height: 1px;
+  background: #ddd;
+}
+.day-sep::before { left: 5%; }
+.day-sep::after { right: 5%; }

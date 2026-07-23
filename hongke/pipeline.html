@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>研发管线 — 弘科生物</title>
+  <link rel="stylesheet" href="/linjiang-arg/assets/css/theme-hongke.css" />
+</head>
+<body class="hk-body" data-site="hongke">
+  <div class="hk-topstrip">
+    <div class="hk-topstrip-inner">
+      <span>hongke-bio.example · Pipeline</span>
+      <span><a href="/linjiang-arg/hongke/login.html">试点看板</a></span>
+    </div>
+  </div>
+
+  <header class="hk-header">
+    <div class="hk-header-inner">
+      <div class="hk-logo" aria-hidden="true">弘科</div>
+      <div class="hk-brand">
+        <h1>弘科生物</h1>
+        <p class="sub">Hongke Biotech · 神经调控与睡眠健康转化</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="hk-nav" aria-label="站点导航">
+    <div class="hk-nav-inner">
+      <a href="/linjiang-arg/hongke/">首页</a>
+      <a class="active" href="/linjiang-arg/hongke/pipeline.html">研发管线</a>
+      <a href="/linjiang-arg/hongke/about.html">关于我们</a>
+      <a href="/linjiang-arg/hongke/news.html">新闻动态</a>
+      <a href="/linjiang-arg/hongke/jobs.html">招聘</a>
+      <a href="/linjiang-arg/hongke/login.html">试点看板</a>
+    </div>
+  </nav>
+
+  <main class="hk-wrap">
+    <div class="hk-breadcrumb">
+      <a href="/linjiang-arg/hongke/">首页</a> › 研发管线
+    </div>
+
+    <h2 class="hk-section-title" style="margin-top:0">公开管线摘要</h2>
+    <div class="hk-prose" style="margin-bottom:18px">
+      <p>
+        下列编号为公司内部转化课题代号，用于研发管理与对外协作对接。
+        阶段表述仅为公开摘要；涉及民生试点的协同内容，以协议与主管部门披露为准。
+      </p>
+      <p class="muted">合作场景提示：睡眠 / 精神健康方向部分课题与临江「幸福家园」试点保持业务协同。</p>
+    </div>
+
+    <div class="hk-table-wrap">
+      <table class="hk-table" aria-label="研发管线表">
+        <thead>
+          <tr>
+            <th>管线编号</th>
+            <th>课题方向</th>
+            <th>阶段</th>
+            <th>应用场景</th>
+            <th>公开备注</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="pid">HK-NS-01</td>
+            <td>神经调控接口与安全边界</td>
+            <td><span class="badge badge-phase">验证中</span></td>
+            <td>平台</td>
+            <td>硬件—软件联调</td>
+          </tr>
+          <tr>
+            <td class="pid">HK-DM-02</td>
+            <td>多模态评估数据质控</td>
+            <td><span class="badge badge-prep">筹备</span></td>
+            <td>工具链</td>
+            <td>内部复用</td>
+          </tr>
+          <tr class="hl">
+            <td class="pid">HK-SF-03</td>
+            <td>睡眠健康场景转化与批次管理</td>
+            <td><span class="badge badge-run">推进中</span></td>
+            <td>民生试点协同</td>
+            <td>合作方：幸福家园等</td>
+          </tr>
+          <tr>
+            <td class="pid">HK-SF-04</td>
+            <td>随访指标标准化包</td>
+            <td><span class="badge badge-prep">筹备</span></td>
+            <td>试点延伸</td>
+            <td>依赖 SF-03 节点</td>
+          </tr>
+          <tr>
+            <td class="pid">HK-ETH-00</td>
+            <td>伦理与合规框架（内部）</td>
+            <td><span class="badge badge-phase">运行</span></td>
+            <td>治理</td>
+            <td>全管线适用</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="ethics-box">
+      <h3>关于 HK-SF-03</h3>
+      <p>
+        HK-SF-03 为睡眠 / 精神健康方向的场景转化课题，强调「过程可追溯、结果可评估」。
+        对外表述为技术支持与质量体系；项目执行细节、批次状态仅向授权协作方开放。
+        试点测试账号请勿外传；正式环境权限由项目办统一发放。
+      </p>
+    </div>
+  </main>
+
+  <footer class="hk-footer">
+    <div class="hk-footer-inner">
+      <div class="links">
+        <a href="/linjiang-arg/hongke/">首页</a>
+        <a href="/linjiang-arg/hongke/pipeline.html">研发管线</a>
+        <a href="/linjiang-arg/hongke/about.html">关于我们</a>
+        <a href="/linjiang-arg/hongke/news.html">新闻</a>
+        <a href="/linjiang-arg/hongke/jobs.html">招聘</a>
+        <a href="/linjiang-arg/hongke/login.html">试点看板登录</a>
+      </div>
+      <div>弘科生物科技有限公司 · 临江高新区</div>
+      <div class="icp">管线信息仅供叙事演示 · 非真实披露文件</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { boot, getState } from '/linjiang-arg/assets/js/nav.js';
+    boot('hongke-pipeline');
+    try { getState()?.grant('hongke'); } catch (_) {}
+  </script>
+</body>
+</html>

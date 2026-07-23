@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>邮件</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <link rel="stylesheet" href="/linjiang-arg/assets/css/theme-phone.css" />
+</head>
+<body data-site="phone">
+  <div class="phone-frame">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen light-app">
+      <div class="phone-status">
+        <span>中国移动</span>
+        <span class="phone-status-time">22:17</span>
+        <span class="phone-status-icons" aria-hidden="true">
+          <i class="sig"></i><i class="wifi"></i><i class="bat"></i>
+        </span>
+      </div>
+
+      <div class="ph-top">
+        <a class="ph-back" href="/linjiang-arg/phone/" aria-label="返回桌面">‹ 桌面</a>
+        <div class="ph-title">收件箱</div>
+        <div class="ph-right" aria-hidden="true">编辑</div>
+      </div>
+
+      <div class="ph-scroll">
+        <div class="mail-inbox">
+          <div class="mail-row unread" id="mail-main">
+            <div class="mail-meta">
+              <span class="from">幸福家园 · 课程顾问</span>
+              <span class="when">3月18日</span>
+            </div>
+            <div class="subj">回访跟进（紧急联系人）— 请查收</div>
+            <div class="preview">您好，系统里登记的紧急联系人邮箱似乎有误，这封信可能发错对象了……</div>
+          </div>
+          <div class="mail-row">
+            <div class="mail-meta">
+              <span class="from">系统通知</span>
+              <span class="when">3月12日</span>
+            </div>
+            <div class="subj">邮箱存储空间提醒</div>
+            <div class="preview">您的邮箱已使用 82%，建议清理旧邮件。</div>
+          </div>
+          <div class="mail-row">
+            <div class="mail-meta">
+              <span class="from">临江银行</span>
+              <span class="when">3月9日</span>
+            </div>
+            <div class="subj">电子对账单（2月）</div>
+            <div class="preview">尊敬的客户，您的电子对账单已生成，请登录网银查看。</div>
+          </div>
+        </div>
+
+        <div class="mail-detail" id="mail-detail">
+          <div class="mail-card">
+            <div class="from-line">发件人：<strong>课程顾问 &lt;advisor@home-serene.example&gt;</strong></div>
+            <div class="from-line">收件人：紧急联系人（登记邮箱）</div>
+            <div class="from-line">时间：2026-03-18 09:42</div>
+            <h1>回访跟进（紧急联系人）— 请查收</h1>
+            <div class="body">
+              <p>您好：</p>
+              <p>
+                我是临江市<strong>幸福家园</strong>课程顾问。系统显示您被登记为学员
+                <strong>林屿</strong> 的紧急联系人。按回访流程，我们需要向联系人同步一次近况。
+              </p>
+              <p>
+                林屿于三月初完成睡眠相关评估并进入跟进课程。目前档案状态为「课程进行中」，
+                近期回访记录写的是睡眠有改善、情绪更稳定。若您近期有联系到他，也欢迎把情况反馈给我们，便于调整方案。
+              </p>
+              <p>
+                另：这封信是按紧急联系人字段自动发出的。若您并未登记、或收件地址有误，请忽略本邮件，
+                也可直接回复「非本人」以便我们更正联系人信息。给您添麻烦了。
+              </p>
+              <p>
+                学员公开说明与评估入口（建议用手机浏览器打开）：<br />
+                <a class="mail-link" href="/linjiang-arg/phone/browser.html?url=https%3A%2F%2Fhome-serene.example%2F">https://home-serene.example/</a>
+              </p>
+              <p>祝好。</p>
+            </div>
+            <div class="sig">
+              临江市幸福家园 · 课程顾问组<br />
+              工作时间 9:00–18:00 · 本邮件可能由系统代发<br />
+              请勿回复含验证码/转账请求的陌生邮件
+            </div>
+          </div>
+          <p class="mail-note">提示：链接会打开手机自带浏览器，不会自动跳转第三方站点。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module">
+    import { boot } from '/linjiang-arg/assets/js/nav.js';
+    boot('mail');
+  </script>
+</body>
+</html>
