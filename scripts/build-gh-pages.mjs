@@ -127,7 +127,14 @@ function walkRewrite(dir) {
   return changed;
 }
 
-if (existsSync(OUT)) rmSync(OUT, { recursive: true, force: true });
+if (existsSync(OUT)) {
+  try {
+    rmSync(OUT, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+  } catch {
+    // Windows: fall back to emptying then ignoring stubborn files
+    try { rmSync(OUT, { recursive: true, force: true }); } catch {}
+  }
+}
 mkdirSync(OUT, { recursive: true });
 copyTree(ROOT, OUT, true);
 // GitHub Pages: skip Jekyll processing

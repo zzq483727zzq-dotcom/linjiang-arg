@@ -552,22 +552,27 @@ a:hover { text-decoration: underline; }
 .figure.obit-figure {
   float: none;
   display: block;
-  width: 220px;
+  width: 200px;
   max-width: 70%;
   margin: 8px auto 22px;
-  padding: 12px 12px 10px;
-  background: #111;
+  padding: 10px 10px 8px;
+  background: #1a1a1a;
   border: 1px solid #333;
-  box-shadow: 0 0 0 1px #000, 0 8px 24px rgba(0,0,0,.35);
+  box-shadow: 0 8px 24px rgba(0,0,0,.28);
+  text-align: center;
 }
 .figure.obit-figure img.portrait-img {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  filter: grayscale(1) contrast(1.12) brightness(0.92);
-  background: #222;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center top;
+  filter: grayscale(1) contrast(1.08) brightness(0.94);
+  background: #111;
+  border: 0;
+  margin: 0 auto;
 }
 .figure.obit-figure figcaption {
   text-align: center;
@@ -577,12 +582,13 @@ a:hover { text-decoration: underline; }
   letter-spacing: 0.2em;
   font-family: "SimSun", serif;
 }
-.figure.obit-figure .obit-note {
-  display: none; /* avoid duplicate caption under the name */
+.figure.obit-figure .obit-note,
+.figure.obit-figure .portrait-ph {
+  display: none !important;
 }
 .article-body::after { content: ""; display: table; clear: both; }
 @media (max-width: 800px) {
-  .figure.obit-figure { float: none; margin: 8px auto 22px; max-width: 220px; }
+  .figure.obit-figure { float: none; margin: 8px auto 22px; max-width: 200px; }
 }
 
 .city-focus {
