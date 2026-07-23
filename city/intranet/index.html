@@ -10,10 +10,10 @@
   <div id="oa-root" hidden>
     <div class="oa-topstrip">
       <div class="oa-topstrip-inner">
-        <span>LINJIANG E-GOV INTRANET · OA · 会话：本地演示</span>
+        <span>临江市电子政务内网 · 办公协同 · 会话：本地演示</span>
         <span>
-          <span class="warn">内部系统 · 严禁外传</span>
-          · <a href="/city/">互联网站</a>
+          <span class="warn">内部系统 · 严禁外传 · 本次访问已记入审计</span>
+          · <a href="/city/" target="_blank" rel="noopener noreferrer">互联网站</a>
           · <a href="/city/intranet/login.html?logout=1">退出</a>
         </span>
       </div>
@@ -24,7 +24,7 @@
         <div class="oa-badge" aria-hidden="true">OA</div>
         <div>
           <h1>办公协同平台</h1>
-          <p class="sub">临江市人民政府 · 试点协调节点</p>
+          <p class="sub">临江市人民政府 · 试点协调节点（历史会话）</p>
         </div>
         <div class="meta">
           <div>当前用户：zhouqm（缓存会话）</div>
@@ -37,7 +37,8 @@
       <div class="oa-nav-inner">
         <a class="active" href="/city/intranet/index.html">工作台</a>
         <a href="/city/intranet/doc-handoff.html">对接单</a>
-        <a href="/city/intranet/attach-chat.html">聊天记录附件</a>
+        <a href="/city/intranet/attach-chat.html">聊天记录</a>
+        <a href="/city/intranet/memo-redact.html">阅件摘录</a>
         <a href="#contacts">通讯录</a>
       </div>
     </nav>
@@ -45,35 +46,45 @@
     <main class="oa-wrap">
       <div class="oa-crumb">首页 › 工作台</div>
 
+      <div class="oa-alert" role="status">
+        <strong>系统提示：</strong>检测到你使用的是已故人员账号的历史镜像。部分附件仅保留缩略图与涂黑件。继续查阅将记入审计日志。
+      </div>
+
       <div class="oa-grid">
         <div>
           <section class="oa-card" aria-label="待办">
-            <div class="oa-card-h">
-              待办事项 <span class="en">To-do</span>
-            </div>
+            <div class="oa-card-h">待办事项</div>
             <div class="oa-card-body">
               <ul class="oa-todo">
                 <li>
                   <span class="pri pri-high">紧急</span>
                   <div class="title">
                     <a href="/city/intranet/doc-handoff.html">幸福家园试点 · 三方对接单（待阅）</a>
-                    <span class="meta">项目库 · 编号 HK-SF-03 · 含家园侧临时授权说明</span>
+                    <span class="meta">含家园临时登录 · 编号 HK-SF-03</span>
                   </div>
                   <span class="due">逾期</span>
                 </li>
                 <li>
+                  <span class="pri pri-high">紧急</span>
+                  <div class="title">
+                    <a href="/city/intranet/memo-redact.html">阅件：关于「替代方案」对外口径的补充说明（涂黑件）</a>
+                    <span class="meta">来源：试点联络组 · 密级：内部+</span>
+                  </div>
+                  <span class="due">今日</span>
+                </li>
+                <li>
                   <span class="pri pri-mid">一般</span>
                   <div class="title">
-                    <a href="/city/intranet/attach-chat.html">附件：试点工作群节选（舆情口径）</a>
-                    <span class="meta">导出时间 2026-03-17 · 供内部参阅</span>
+                    <a href="/city/intranet/attach-chat.html">附件：试点工作群聊天记录</a>
+                    <span class="meta">2026-03-17 导出 · 口语对齐口径</span>
                   </div>
                   <span class="due">本周</span>
                 </li>
                 <li>
                   <span class="pri pri-low">归档</span>
                   <div class="title">
-                    委机关技术科账号盘点（周启明同志账号已停用）
-                    <span class="meta">通讯录状态同步 · 仅历史查阅</span>
+                    周启明同志账号停用与待办镜像保留
+                    <span class="meta">停用前最后批注：别让媒体看见批次表</span>
                   </div>
                   <span class="due">已办</span>
                 </li>
@@ -82,26 +93,33 @@
           </section>
 
           <section class="oa-card" aria-label="项目摘要">
-            <div class="oa-card-h">
-              项目库摘要 <span class="en">Project</span>
-            </div>
+            <div class="oa-card-h">项目库摘要</div>
             <div class="oa-card-body">
               <div class="oa-kv">
-                <div class="k">管线 / 批次</div>
+                <div class="k">批次编号</div>
                 <div class="v mono">HK-SF-03</div>
                 <div class="k">合作方</div>
-                <div class="v">幸福家园（执行） · 弘科生物（技术支持）</div>
-                <div class="k">甲方</div>
-                <div class="v">市政府试点协调（卫健线）</div>
-                <div class="k">状态口径</div>
+                <div class="v">幸福家园（执行） · 弘科生物（技术）</div>
+                <div class="k">政府侧</div>
+                <div class="v">试点协调（卫健线）· 要成绩与补贴闭环</div>
+                <div class="k">状态</div>
                 <div class="v">
-                  <span class="oa-chip ok">对外运行</span>
-                  <span class="oa-chip warn">原对象终止</span>
+                  <span class="oa-chip ok">对外正常</span>
+                  <span class="oa-chip warn">原对象已终止</span>
+                </div>
+                <div class="k">异常字段</div>
+                <div class="v" style="color:var(--oa-danger)">
+                  替换完成率 100% · 回收样本「待销毁」· 科目备注曾出现「同型体交付」后被改回
                 </div>
               </div>
+              <p class="oa-muted" style="margin:12px 0 0;font-size:12px;line-height:1.75">
+                字段说明（系统自动生成，不可编辑）：「替换完成」计入考核加分；「原对象」不进入互联网公开稿。
+                若公开渠道出现不一致，以家园对外账号状态为准。
+              </p>
               <div class="oa-actions">
                 <a class="oa-link-btn primary" href="/city/intranet/doc-handoff.html">打开对接单</a>
-                <a class="oa-link-btn" href="/city/intranet/attach-chat.html">查看工作群节选</a>
+                <a class="oa-link-btn" href="/city/intranet/memo-redact.html">打开涂黑阅件</a>
+                <a class="oa-link-btn" href="/city/intranet/attach-chat.html">聊天记录</a>
               </div>
             </div>
           </section>
@@ -109,9 +127,7 @@
 
         <div>
           <section class="oa-card" id="contacts" aria-label="通讯录">
-            <div class="oa-card-h">
-              通讯录摘录 <span class="en">Contacts</span>
-            </div>
+            <div class="oa-card-h">通讯录摘录</div>
             <div class="oa-card-body">
               <ul class="oa-contact-list">
                 <li>
@@ -123,32 +139,32 @@
                 </li>
                 <li>
                   <div>
-                    <span class="name">机要值班</span>
-                    <span class="role">市政府办 · 统一认证支持</span>
-                  </div>
-                  <span class="oa-chip">在岗</span>
-                </li>
-                <li>
-                  <div>
                     <span class="name">试点联络组</span>
                     <span class="role">幸福家园 / 弘科对接窗口</span>
                   </div>
                   <span class="oa-chip">受限</span>
                 </li>
+                <li>
+                  <div>
+                    <span class="name">弘科驻点（虚拟）</span>
+                    <span class="role">技术支持 · 仅邮件 · 不进机关通讯录全量</span>
+                  </div>
+                  <span class="oa-chip warn">外协</span>
+                </li>
               </ul>
               <p class="oa-muted" style="margin:12px 0 0;font-size:12px;line-height:1.7">
-                说明：周启明同志账号按机关惯例保留历史会话与待办镜像，不可再登录生产环境。
-                本演示环境仅用于线索查阅。
+                周启明同志账号保留历史待办。停用审批意见栏有手写扫描：「别问批次里的人去哪了。」（缩略图见阅件页）
               </p>
             </div>
           </section>
 
           <section class="oa-card" aria-label="系统提示">
-            <div class="oa-card-h">系统提示</div>
-            <div class="oa-card-body" style="font-size:13px;color:var(--oa-muted);line-height:1.7">
-              <p style="margin:0 0 8px">• 公文与附件仅限内网授权范围；不得外链贴吧、社媒等公开社区。</p>
-              <p style="margin:0 0 8px">• 员工侧临时授权见对接单正文，勿与 OA 个人口令混用。</p>
-              <p style="margin:0">• 访问日志与导出记录可被审计（演示）。</p>
+            <div class="oa-card-h">审计与禁忌</div>
+            <div class="oa-card-body" style="font-size:13px;color:var(--oa-muted);line-height:1.75">
+              <p style="margin:0 0 8px">• 公文不得出现「克隆 / 培养舱」等词；对外统一「睡眠支持 / 课程结业」。</p>
+              <p style="margin:0 0 8px">• 「替代交付」「同型体」仅限内网统计字段，禁止复制到互联网站。</p>
+              <p style="margin:0 0 8px">• 弘科催要的是批次闭环与样本台账，不是宣传稿字数。</p>
+              <p style="margin:0">• 你的查询：用户 zhouqm · 页面 工作台 · 时间已记录。</p>
             </div>
           </section>
         </div>
@@ -156,15 +172,14 @@
     </main>
 
     <footer class="oa-footer">
-      临江市电子政务内网 · 办公协同平台 · 演示静态页<br />
-      <a href="/city/">返回市政府互联网站</a>
+      临江市电子政务内网 · 办公协同平台 · 演示<br />
+      <a href="/city/" target="_blank" rel="noopener noreferrer">返回市政府互联网站</a>
     </footer>
   </div>
 
   <script type="module">
     import { boot, getState } from '/assets/js/nav.js';
     boot('oa-home');
-
     const s = getState()?.all() || {};
     if (!s.oaAccess) {
       location.replace('/city/intranet/login.html');

@@ -590,3 +590,60 @@ table.oa-table td.hl {
   white-space: nowrap;
   border: 0;
 }
+
+
+/* —— eerie internal memo —— */
+.oa-alert {
+  max-width: var(--oa-max);
+  margin: 0 auto 14px;
+  padding: 10px 14px;
+  background: #fff7ed;
+  border: 1px solid #fdba74;
+  border-left: 4px solid #c2410c;
+  color: #7c2d12;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.oa-scan {
+  background: #f7f4ee;
+  border: 1px solid #cfc6b6;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.6);
+  padding: 18px 18px 22px;
+  font-family: "SimSun", "Songti SC", serif;
+  font-size: 15px;
+  line-height: 1.95;
+  color: #2a241c;
+  position: relative;
+}
+.oa-scan-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 0 0 16px;
+  letter-spacing: 0.08em;
+}
+.oa-scan p { margin: 0 0 0.9em; text-indent: 2em; }
+.oa-scan .redact {
+  display: inline-block;
+  background: #111;
+  color: #111;
+  border-radius: 2px;
+  padding: 0 4px;
+  letter-spacing: 0.05em;
+  user-select: none;
+  box-shadow: inset 0 0 0 1px #000;
+}
+.oa-scan-stamp {
+  margin-top: 18px;
+  text-align: right;
+  color: #9a3412;
+  font-family: var(--oa-font);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.oa-chip.warn {
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #fdba74;
+}
