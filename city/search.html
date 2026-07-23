@@ -40,7 +40,7 @@
   <div class="city-searchbar">
     <form action="/city/search.html" method="get" role="search" id="search-form">
       <label class="visually-hidden" for="q">搜索</label>
-      <input id="q" name="q" type="search" placeholder="请输入关键词…" />
+      <input id="q" name="q" type="search" placeholder="请输入关键词" />
       <button type="submit">搜索</button>
     </form>
   </div>
@@ -78,7 +78,7 @@
     const results = searchArticles(q);
 
     if (!q) {
-      echo.innerHTML = '请输入关键词。可尝试：<b>试点</b>、<b>弘科</b>、<b>寻人</b>、<b>周启明</b>、<b>幸福家园</b>。';
+      echo.innerHTML = '请输入关键词后点击搜索。';
     } else {
       echo.innerHTML = `关键词 <b>${escapeHtml(q)}</b>　共找到 <b>${results.length}</b> 条结果`;
     }
