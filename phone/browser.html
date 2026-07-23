@@ -42,19 +42,21 @@
       <div class="browser-pane" id="browser-pane">
         <p class="hero">开始浏览</p>
         <p class="sub" id="browser-sub">
-          从邮件、笔记或新闻里抄网址到地址栏。本页不会预置任何机构站点，也不会在打开时自动跳转。
+          从邮件、小红书或新闻里抄网址，粘贴到上方后点「前往」。
+          本页<strong>不保存历史</strong>，也不预置任何机构站点。
         </p>
         <div class="err" id="browser-err" role="alert"></div>
-        <ul class="browser-history" id="browser-history" aria-label="历史记录"></ul>
-        <p class="sub" id="browser-hist-empty" style="margin-top:12px">
-          历史记录为空。从邮件或小红书点开的链接会预填在上方，需点「前往」才会打开。
-        </p>
       </div>
     </div>
   </div>
   <script type="module">
     import { boot } from '/assets/js/nav.js';
     boot('browser');
+
+    // 清理旧版遗留的历史缓存（若有）
+    try {
+      localStorage.removeItem('linjiangBrowserHistory');
+    } catch (e) {}
 
     const ROUTES = [
       { test: /linjiang\.gov/i, to: '/city/', label: '临江市人民政府' },
@@ -63,12 +65,9 @@
       { test: /lj-bar|临江吧/i, to: '/bar/', label: '临江吧' },
     ];
 
-    const HIST_KEY = 'linjiangBrowserHistory';
     const input = document.getElementById('browser-url');
     const form = document.getElementById('browser-form');
     const err = document.getElementById('browser-err');
-    const list = document.getElementById('browser-history');
-    const empty = document.getElementById('browser-hist-empty');
     const sub = document.getElementById('browser-sub');
 
     function showError(msg) {
@@ -90,44 +89,6 @@
       return null;
     }
 
-    function loadHist() {
-      try {
-        return JSON.parse(localStorage.getItem(HIST_KEY) || '[]');
-      } catch {
-        return [];
-      }
-    }
-
-    function saveHist(entry) {
-      const cur = loadHist().filter((x) => x.url !== entry.url);
-      cur.unshift(entry);
-      localStorage.setItem(HIST_KEY, JSON.stringify(cur.slice(0, 8)));
-    }
-
-    function renderHist() {
-      const items = loadHist();
-      list.innerHTML = '';
-      if (!items.length) {
-        empty.hidden = false;
-        return;
-      }
-      empty.hidden = true;
-      for (const it of items) {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = '#';
-        a.dataset.url = it.url;
-        a.innerHTML = `${it.label || it.url}<span>${it.url.replace(/^https?:\/\//, '')}</span>`;
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          input.value = it.url;
-          navigate(it.url);
-        });
-        li.appendChild(a);
-        list.appendChild(li);
-      }
-    }
-
     function navigate(raw) {
       clearError();
       const hit = resolve(raw);
@@ -135,25 +96,22 @@
         showError('无法打开此网页。请检查地址是否正确（可从邮件、笔记或新闻里核对）。');
         return;
       }
-      const url = String(raw).trim();
-      saveHist({ url, label: hit.label, to: hit.to });
+      // 新标签打开目标站，浏览器页保持空白、不记历史
       window.open(hit.to, '_blank', 'noopener,noreferrer');
     }
 
-    // Prefill from ?url= — do not auto-jump on load
+    // 仅当从邮件/小红书带 ?url= 时预填，仍不自动跳转、不写历史
     const params = new URLSearchParams(window.location.search);
     const pre = params.get('url');
     if (pre) {
       input.value = pre;
-      sub.textContent = '已从邮件或笔记预填地址。请确认后点「前往」——不会自动跳转。';
+      sub.textContent = '已从邮件或笔记预填地址。确认后点「前往」——不会自动跳转，也不保存历史。';
     }
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       navigate(input.value);
     });
-
-    renderHist();
   </script>
 </body>
 </html>
